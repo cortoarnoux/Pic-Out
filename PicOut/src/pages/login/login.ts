@@ -12,7 +12,14 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = {email: '', password: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+
+      let imagePath: String = "/img/" ;
+
+
+
+
+  }
 
   public createAccount() {
     this.nav.push(RegisterPage);
@@ -54,4 +61,6 @@ export class LoginPage {
     });
     alert.present(prompt);
   }
+
+
 }
