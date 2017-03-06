@@ -12,5 +12,34 @@ page-login {
     text-align: center;
   }
 
+  .text-input{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+
+
+  .item-md{
+    background: transparent;
+    border-bottom: 2px solid #ffffff!important;
+  }
+
+.button-inner{
+  border: 2px solid #ffffff;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.submit-btn{
+  background: transparent;
+}
+
+.register-btn{
+  color:#ffffff;
+}
+
 
 }
