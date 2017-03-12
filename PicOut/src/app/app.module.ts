@@ -3,8 +3,12 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+
 import { AuthService } from '../providers/auth-service';
+import { DataService } from '../providers/data/data-service';
+
 import { RegisterPage } from '../pages/register/register';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,9 @@ import { RegisterPage } from '../pages/register/register';
     LoginPage,
     RegisterPage
   ],
-  providers: [AuthService]
+  providers: [
+    AuthService,
+    DataService
+  ]
 })
 export class AppModule {}

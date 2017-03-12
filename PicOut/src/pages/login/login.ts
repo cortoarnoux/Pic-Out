@@ -1,23 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
+
 import { AuthService } from '../../providers/auth-service';
+import { UserService } from '../../providers/data/user-service';
+
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [UserService]
 })
 export class LoginPage {
   loading: Loading;
   registerCredentials = {email: '', password: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+  constructor(
+    private nav: NavController,
+    private auth: AuthService,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController) {
 
       let imagePath: String = "/img/" ;
-
-
-
 
   }
 
@@ -27,19 +32,23 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {
-        setTimeout(() => {
-        this.loading.dismiss();
-        this.nav.setRoot(HomePage)
-        });
-      } else {
-        this.showError("Access Denied");
-      }
-    },
-    error => {
-      this.showError(error);
-    });
+    let authUser = new UserService();
+
+    authUser.userAuth(this.registerCredentials.email, this.registerCredentials.password);
+
+    // this.auth.login(this.registerCredentials).subscribe(allowed => {
+    //   if (allowed) {
+    //     setTimeout(() => {
+    //     this.loading.dismiss();
+    //     this.nav.setRoot(HomePage)
+    //     });
+    //   } else {
+    //     this.showError("Access Denied");
+    //   }
+    // },
+    // error => {
+    //   this.showError(error);
+    // });
   }
 
   showLoading() {
