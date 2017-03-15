@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { NavController, AlertController, Loading } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
@@ -13,62 +13,37 @@ import { HomePage } from '../home/home';
   providers: [UserService]
 })
 export class LoginPage {
-  loading: Loading;
-  registerCredentials = {email: '', password: ''};
+  private registerCredentials = {email: '', password: ''};
+  private homePage = HomePage;
 
   constructor(
-    private nav: NavController,
+    private navCtrl: NavController,
     private auth: AuthService,
-    private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController) {
+    private alertCtrl: AlertController) {
 
-      let imagePath: String = "/img/" ;
-
-  }
-
-  public createAccount() {
-    this.nav.push(RegisterPage);
+    let imagePath: String = "/img/" ;
   }
 
   public login() {
-    this.showLoading()
     let authUser = new UserService();
 
-    authUser.userAuth(this.registerCredentials.email, this.registerCredentials.password);
+    authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
+      .catch(function(error) {
+        let errorCode = error.code;
+        let errorMessage = error.message;
 
-    // this.auth.login(this.registerCredentials).subscribe(allowed => {
-    //   if (allowed) {
-    //     setTimeout(() => {
-    //     this.loading.dismiss();
-    //     this.nav.setRoot(HomePage)
-    //     });
-    //   } else {
-    //     this.showError("Access Denied");
-    //   }
-    // },
-    // error => {
-    //   this.showError(error);
-    // });
-  }
+        console.log(errorCode + " " + errorMessage);
 
-  showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    this.loading.present();
-  }
-
-  showError(text) {
-    setTimeout(() => {
-      this.loading.dismiss();
-    });
-
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
-      subTitle: text,
-      buttons: ['OK']
-    });
-    alert.present(prompt);
+        let alert = this.alertCtrl.create({
+          title: 'Fail',
+          subTitle: errorMessage,
+          buttons: ['OK']
+        });
+        alert.present(prompt);
+      })
+      .then(function(value){
+        console.log(value);
+      })
   }
 
 

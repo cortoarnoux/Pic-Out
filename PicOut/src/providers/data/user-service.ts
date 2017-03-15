@@ -11,15 +11,4 @@ export class UserService {
     this.auth = firebase.auth();
   }
 
-  userAuth(email: string, password: string) {
-    this.auth.signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-
-        console.log(errorCode + " " + errorMessage);
-      })
-  }
-
-
 }
