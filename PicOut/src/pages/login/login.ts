@@ -41,9 +41,14 @@ export class LoginPage {
         });
         alert.present(prompt);
       })
-      .then(function(value){
+      .then((value) => {
         console.log(value);
+        this.navCtrl.push(HomePage);
       })
+  }
+
+  public registerPage() {
+    this.navCtrl.push(RegisterPage);
   }
 
 
