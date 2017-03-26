@@ -1,7 +1,51 @@
 page-accueil{
-  .toolbar div{
-    background: #304269;
-    border-color: #000000;
-    color: #91BED4;
+
+    .home-content {
+      background-image:url(../assets/img/login-bg.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+
+    .menu{
+      flex-wrap:wrap;
+    }
+
+    .logo-container{
+      text-align: center;
+    }
+
+    .text-input{
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      font-weight: 300;
+      color: #ffffff;
+    }
+
+
+
+  .home-btn{
+    background: transparent;
+    border-radius:0;
+    border: 2px solid #ffffff;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    width: 100%;
   }
+
+  .submit-btn{
+    background: transparent;
+  }
+
+  .register-btn{
+    color:#ffffff;
+  }
+/*deconnexion*/
+.deconnexion{
+  bottom: 0;
+}
+
 }
