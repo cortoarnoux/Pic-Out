@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-import { Http} from '@angular/http'
+import { Http} from '@angular/http';
+import { CreateVotePage } from '../create-vote/create-vote';
+import { FriendsPage } from '../friends/friends';
+import { MyVotesPage } from '../my-votes/my-votes';
+import { MyAccountPage } from '../my-account/my-account';
 
 declare var window: any;
 
@@ -13,7 +17,8 @@ export class AccueilPage {
   public constructor(
     public navCtrl: NavController,
     private platform: Platform,
-    private http: Http
+    private http: Http,
+    private nav: NavController
   ) {}
 
   public blague() {
@@ -24,4 +29,16 @@ export class AccueilPage {
         alert(error);
       });
   };
+  public moveToCreateVote() {
+    this.nav.push(CreateVotePage);
+  }
+  public moveToMyAccount() {
+    this.nav.push(MyAccountPage);
+  }
+  public moveToFriends() {
+    this.nav.push(FriendsPage);
+  }
+  public moveToMyVotes() {
+    this.nav.push(MyVotesPage);
+  }
 }

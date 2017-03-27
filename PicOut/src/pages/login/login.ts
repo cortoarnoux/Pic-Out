@@ -6,6 +6,7 @@ import { UserService } from '../../providers/data/user-service';
 
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
+import { AccueilPage } from '../accueil/accueil';
 
 @Component({
   selector: 'page-login',
@@ -36,7 +37,7 @@ export class LoginPage {
       })
       .then((value) => {
         console.log(value);
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(AccueilPage);
       })
   }
 

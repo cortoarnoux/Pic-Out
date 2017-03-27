@@ -21,10 +21,10 @@
 <ion-row class="menu">
   <ion-col></ion-col>
     <ion-col width-67>
-      <button ion-button class="home-btn" >Mes sondages</button>
-      <button ion-button class="home-btn" >Soumettre un vote</button>
-      <button ion-button class="home-btn" >Mon compte</button>
-      <button ion-button class="home-btn" >Amis</button>
+      <button ion-button class="home-btn" (click)="moveToMyVotes()">Mes sondages</button>
+      <button ion-button class="home-btn" (click)="moveToCreateVote()">Soumettre un vote</button>
+      <button ion-button class="home-btn" (click)="moveToMyAccount()">Mon compte</button>
+      <button ion-button class="home-btn" (click)="moveToFriends()">Amis</button>
     </ion-col>
   <ion-col></ion-col>
 </ion-row>
