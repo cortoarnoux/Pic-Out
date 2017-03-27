@@ -4,12 +4,14 @@ import { Http} from '@angular/http';
 import { CreateVotePage } from '../create-vote/create-vote';
 import { FriendsPage } from '../friends/friends';
 import { MyVotesPage } from '../my-votes/my-votes';
+import { LoginPage } from '../login/login';
 import { MyAccountPage } from '../my-account/my-account';
 
 declare var window: any;
 
 @Component({
-    templateUrl: 'accueil.html'
+    templateUrl: 'accueil.html',
+    selector: 'page-accueil'
 })
 
 export class AccueilPage {
@@ -40,5 +42,8 @@ export class AccueilPage {
   }
   public moveToMyVotes() {
     this.nav.push(MyVotesPage);
+  }
+  public moveToLogin() {
+    this.nav.push(LoginPage);
   }
 }
