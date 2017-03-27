@@ -40,6 +40,13 @@ export class LoginPage {
         switch(errorCode){
           case "auth/invalid-email":
             errorMessage = "Le format de l'adresse mail est invalide";
+            break;
+          case "auth/wrong-password":
+            errorMessage = "Cette combinaison login / password n'existe pas";
+            break;
+          case "auth/user-not-found":
+            errorMessage = "Cet utilisateur n'existe pas";
+            break;
         }
 
         this.showPopup("Erreur", errorMessage);
@@ -56,14 +63,7 @@ export class LoginPage {
     let alert = this.alertCtrl.create({
       title: title,
       subTitle: text,
-      buttons: [
-       {
-         text: 'OK',
-         handler: data => {
-           
-         }
-       }
-     ]
+      buttons: ["OK"]
     });
     alert.present();
   }
