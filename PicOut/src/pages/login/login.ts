@@ -28,18 +28,11 @@ export class LoginPage {
     let authUser = new UserService();
 
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
-      .catch(function(error) {
+      .catch((error) => {
         let errorCode = error.code;
         let errorMessage = error.message;
 
         console.log(errorCode + " " + errorMessage);
-
-        let alert = this.alertCtrl.create({
-          title: 'Fail',
-          subTitle: errorMessage,
-          buttons: ['OK']
-        });
-        alert.present(prompt);
       })
       .then((value) => {
         console.log(value);
