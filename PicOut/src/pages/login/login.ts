@@ -45,5 +45,14 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage);
   }
 
+  /*alert(errorMessage: String) {
+    let alert = this.alertCtrl.create({
+      title: 'Connection fail...',
+      subTitle: errorMessage,
+      buttons: ['OK']
+    });
+    alert.present(prompt);
+  }*/
+
 
 }
