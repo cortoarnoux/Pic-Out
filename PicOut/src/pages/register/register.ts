@@ -26,20 +26,8 @@ export class RegisterPage {
         this.showPopup("Success", "Compte créé avec succès");
       })
       .catch((error) =>{
-        this.showPopup("Error", "Une erreur est survenue lors de la création du compte");
+        this.showPopup("Error", error);
       })
-
-    // this.auth.register(this.registerCredentials).subscribe(success => {
-    //   if (success) {
-    //     this.createSuccess = true;
-    //       this.showPopup("Success", "Compte créé avec succès");
-    //   } else {
-    //     this.showPopup("Error", "Une erreur est survenue lors de la création du compte");
-    //   }
-    // },
-    // error => {
-    //   this.showPopup("Error", error);
-    // });
   }
 
   showPopup(title, text) {

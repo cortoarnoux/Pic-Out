@@ -29,20 +29,43 @@ export class LoginPage {
     let authUser = new UserService();
 
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
-      .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-
-        console.log(errorCode + " " + errorMessage);
-      })
       .then((value) => {
         console.log(value);
         this.navCtrl.push(AccueilPage);
+      })
+      .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage;
+
+        switch(errorCode){
+          case "auth/invalid-email":
+            errorMessage = "Le format de l'adresse mail est invalide";
+            break;
+          case "auth/wrong-password":
+            errorMessage = "Cette combinaison login / password n'existe pas";
+            break;
+          case "auth/user-not-found":
+            errorMessage = "Cet utilisateur n'existe pas";
+            break;
+        }
+
+        this.showPopup("Erreur", errorMessage);
+
+        console.log(errorCode + " " + errorMessage);
       })
   }
 
   public registerPage() {
     this.navCtrl.push(RegisterPage);
+  }
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: ["OK"]
+    });
+    alert.present();
   }
 
   /*alert(errorMessage: String) {
