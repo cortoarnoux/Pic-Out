@@ -23,14 +23,27 @@ export class RegisterPage {
 
     createUser.auth.createUserWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((val) => {
-        this.showPopup("Success", "Compte créé avec succès");
+        this.showValidPopup("Success", "Compte créé avec succès");
       })
       .catch((error) =>{
-        this.showPopup("Error", error);
+        let errorCode = error.code;
+        let errorMessage;
+
+        switch(errorCode){
+          case "auth/invalid-email":
+            errorMessage = "Le format de l'adresse mail est invalide";
+            break;
+          case "auth/weak-password":
+            errorMessage = "Mot de passe trop faible, en choisir un de 6 caractères minimum";
+            break;
+        }
+
+        this.showErrorPopup("Erreur", errorMessage);
+        console.log(errorCode + " " + errorMessage);
       })
   }
 
-  showPopup(title, text) {
+  showValidPopup(title, text) {
     let alert = this.alertCtrl.create({
       title: title,
       subTitle: text,
@@ -42,6 +55,15 @@ export class RegisterPage {
          }
        }
      ]
+    });
+    alert.present();
+  }
+
+  showErrorPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: ["OK"]
     });
     alert.present();
   }
