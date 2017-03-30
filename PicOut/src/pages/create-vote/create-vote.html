@@ -4,15 +4,46 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>createVote</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<ion-content class="createvote-content" padding>
 
 
-<ion-content padding>
+<ion-row class="top-row">
+  <ion-col></ion-col><ion-col></ion-col>
+  <ion-col>
+    <button ion-button class="home-btn" (click)="moveToFriends()">Suivant</button>
+  </ion-col>
+</ion-row>
+
+<ion-row >
+    <ion-col>
+      <div class="title">
+        <h1>Création d'un vote</h1>
+      </div>
+      <h3>Titre du vote</h3>
+      <ion-input type="text" placeholder="Titre du vote" name="title" required></ion-input>
+      <h3>Date d'échéance</h3>
+      <ion-input type="date" placeholder="Date de fin du sondage" name="date" required></ion-input>
+    </ion-col>
+</ion-row>
+
+
+<ion-row class="users-add">
+    <ion-col>
+      <ion-row>
+          <ion-col><h3 class="useragent-cheat">Invités</h3></ion-col>
+        <ion-col><button ion-button class="home-btn" (click)="moveToFriends()">Amis</button></ion-col>
+      </ion-row>
+
+      <ion-input type="text" placeholder="Saisir un nom" name="date" required></ion-input>
+      <h3>Ajoutés au sondage</h3>
+      <ion-row id="users-list">
+        <!-- afficher ici les invités sous forme de mosaique-->
+        <ion-col class="invited"><i class="fa fa-user-circle-o" aria-hidden="true"></i>User</ion-col>
+        <ion-col class="invited"><i class="fa fa-user-circle-o" aria-hidden="true"></i>User</ion-col>
+        <ion-col class="invited"><i class="fa fa-user-circle-o" aria-hidden="true"></i>User</ion-col>
+      </ion-row >
+    </ion-col>
+</ion-row>
 
 </ion-content>

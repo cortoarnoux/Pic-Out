@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { DataService } from '../providers/data/data-service';
 import { LoginPage } from '../pages/login/login';
 import { AccueilPage } from '../pages/accueil/accueil';
+import { CreateVotePage } from '../pages/create-vote/create-vote';
 
 
 
@@ -12,7 +13,7 @@ import { AccueilPage } from '../pages/accueil/accueil';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = LoginPage;
+  rootPage = CreateVotePage;
 
   constructor(platform: Platform, data: DataService) {
     data.init();
