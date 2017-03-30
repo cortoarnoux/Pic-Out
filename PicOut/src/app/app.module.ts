@@ -11,6 +11,8 @@ import { CreateVotePage } from '../pages/create-vote/create-vote';
 import { MyVotesPage } from '../pages/my-votes/my-votes';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { FriendsPage } from '../pages/friends/friends';
+import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/create-vote-second-step';
+import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { FriendsPage } from '../pages/friends/friends';
     CreateVotePage,
     MyVotesPage,
     MyAccountPage,
-    FriendsPage
+    FriendsPage,
+    CreateVoteSecondStepPage,
+    CreateVoteThirdStepPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -38,7 +42,9 @@ import { FriendsPage } from '../pages/friends/friends';
     CreateVotePage,
     MyVotesPage,
     MyAccountPage,
-    FriendsPage
+    FriendsPage,
+    CreateVoteSecondStepPage,
+    CreateVoteThirdStepPage,
   ],
   providers: [
     AuthService,
