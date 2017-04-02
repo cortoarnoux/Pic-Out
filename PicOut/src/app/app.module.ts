@@ -13,6 +13,15 @@ import { MyAccountPage } from '../pages/my-account/my-account';
 import { FriendsPage } from '../pages/friends/friends';
 import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/create-vote-second-step';
 import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConf = {
+  apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
+  authDomain: "picout-48fe3.firebaseapp.com",
+  databaseURL: "https://picout-48fe3.firebaseio.com",
+  storageBucket: "picout-48fe3.appspot.com",
+  messagingSenderId: "474712704020"
+};
 
 
 @NgModule({
@@ -30,7 +39,8 @@ import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-
     CreateVoteThirdStepPage,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConf)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

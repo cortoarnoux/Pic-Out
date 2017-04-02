@@ -12,6 +12,7 @@
   <ion-col></ion-col><ion-col></ion-col>
   <ion-col>
     <button ion-button class="home-btn" (click)="moveToSecondStepPage()">Suivant</button>
+    <button ion-button class="home-btn" icon-only (click)="addVote(title, expiration_date, mail_invite)">Enregistrer vote</button>
   </ion-col>
 </ion-row>
 
@@ -21,9 +22,9 @@
         <h1>Création d'un vote</h1>
       </div>
       <h3>Titre du vote</h3>
-      <ion-input type="text" placeholder="Titre du vote" name="title" required></ion-input>
+      <ion-input [(ngModel)]="title" type="text" placeholder="Titre du vote" name="title"></ion-input>
       <h3>Date d'échéance</h3>
-      <ion-input type="date" placeholder="Date de fin du sondage" name="date" required></ion-input>
+      <ion-input [(ngModel)]="expiration_date" type="date" placeholder="Date de fin du sondage" required></ion-input>
     </ion-col>
 </ion-row>
 
@@ -35,7 +36,7 @@
         <ion-col><button ion-button class="home-btn" (click)="moveToFriends()">Amis</button></ion-col>
       </ion-row>
 
-      <ion-input type="text" placeholder="Saisir un nom" name="date" required></ion-input>
+      <ion-input [(ngModel)]="mail_invite" type="email" placeholder="Saisir un mail invité"></ion-input>
       <h3>Ajoutés au sondage</h3>
       <ion-row id="users-list">
         <!-- afficher ici les invités sous forme de mosaique-->
