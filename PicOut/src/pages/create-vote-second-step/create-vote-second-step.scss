@@ -49,17 +49,17 @@ page-create-vote-second-step {
 
         //invités au sondage
         .choice{
-          text-align: center;
-          margin-left: 2px;
-          margin-right: 2px;
-          padding-top:20px;
-          padding-bottom: 20px;
           font-family: 'Crimson Text', serif;
           letter-spacing: 2px;
           font-weight: 200;
           color: #ffffff;
           font-size: 15px;
           border: 2px solid #ffffff;
+          width:48%;
+          padding-top:10px;
+          padding-bottom:10px;
+          margin-top:15px;
+          text-align:center;
         }
 
 

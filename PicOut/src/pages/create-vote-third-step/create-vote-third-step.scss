@@ -1,3 +1,93 @@
 page-create-vote-third-step {
 
+        //background
+        .createvotethirdstep-content {
+          background-image:url(../assets/img/login-bg.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+
+
+        //fonts
+        h1{
+          font-family: 'Oswald', sans-serif;
+          letter-spacing: 1px;
+          font-weight: 400;
+          color: #ffffff;
+          text-transform: uppercase;
+          font-size: 35px;
+        }
+
+        h3{
+          font-family: 'Crimson Text', serif;
+          letter-spacing: 2px;
+          font-weight: 200;
+          color: #ffffff;
+          font-size: 20px;
+        }
+        .useragent-cheat{
+          margin-top: 14px!important;
+        }
+        .title{
+          text-align: center;
+          margin-bottom: 20px;
+          margin-top: 20px;
+        }
+
+
+        //blocs
+
+
+        //bloc users
+        #users-list{
+          flex-wrap:wrap;
+          justify-content: space-between;
+        }
+
+        .invited{
+          width:48%;
+          padding-top:10px;
+          padding-bottom:10px;
+          margin-top:15px;
+          text-align:center;
+        }
+
+        //inputs
+        .text-input{
+          font-family: 'Oswald', sans-serif;
+          letter-spacing: 1px;
+          font-weight: 300;
+          color: #ffffff;
+        }
+
+        ion-input{
+          background: transparent;
+          border-bottom: 2px solid #ffffff!important;
+        }
+
+
+        //bouton
+        .home-btn{
+          background: transparent;
+          border-radius:0;
+          border: 2px solid #ffffff;
+          font-family: 'Oswald', sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 300;
+          width: 100%;
+        }
+
+
+        //invités au sondage
+        .invited{
+          font-family: 'Crimson Text', serif;
+          letter-spacing: 2px;
+          font-weight: 200;
+          color: #ffffff;
+          font-size: 15px;
+          border: 2px solid #ffffff;
+        }
+
 }

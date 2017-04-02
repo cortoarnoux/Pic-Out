@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CreateVoteSecondStepPage } from '../create-vote-second-step/create-vote-second-step';
+import { FriendsPage } from '../friends/friends';
+
 
 /*
   Generated class for the CreateVoteThirdStep page.
@@ -13,10 +16,17 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CreateVoteThirdStepPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public nav: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateVoteThirdStepPage');
+  }
+
+  public moveToSecondStep() {
+    this.nav.push(CreateVoteSecondStepPage);
+  }
+  public moveToFriends() {
+    this.nav.push(FriendsPage);
   }
 
 }
