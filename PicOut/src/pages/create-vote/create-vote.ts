@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FriendsPage } from '../friends/friends';
 import { CreateVoteSecondStepPage } from '../create-vote-second-step/create-vote-second-step';
+import { AccueilPage } from '../accueil/accueil';
 
 /*
   Generated class for the CreateVote page.
@@ -26,6 +27,9 @@ export class CreateVotePage {
   }
   public moveToSecondStepPage() {
     this.nav.push(CreateVoteSecondStepPage);
+  }
+  public moveToHome() {
+    this.nav.push(AccueilPage);
   }
 
 }

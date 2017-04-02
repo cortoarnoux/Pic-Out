@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AccueilPage } from '../accueil/accueil';
+
 
 /*
   Generated class for the Friends page.
@@ -13,10 +15,28 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FriendsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public nav: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendsPage');
   }
+
+  public moveToHome() {
+    this.nav.push(AccueilPage);
+  }
+
+  friends: Array<any> = [
+      {name: "Jean-pierre",
+       age: 50},
+      {name: "Nicolas",
+       age: 23},
+      {name: "Samantha",
+       age: 20},
+      {name: "Tim",
+       age: 17},
+      {name: "Marie",
+       age: 19}
+  ];
+
 
 }
