@@ -31,8 +31,6 @@ export class CreateVotePage {
     this.voteList = af.database.list('/votes');
   }
 
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateVotePage');
   }
@@ -44,7 +42,7 @@ export class CreateVotePage {
     this.voteList.push({
         title: title,
         expiration_date: expiration_date,
-        mail_invite: mail_invite
+        mail_invite: mail_invite || ""
     }).then( newContact => {
 
       // Sharing datas between pages
