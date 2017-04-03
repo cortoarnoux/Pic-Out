@@ -30,8 +30,6 @@ export class LoginPage {
 
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((value) => {
-        console.log(value.uid);
-
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             console.log(user.uid);

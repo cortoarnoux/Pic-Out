@@ -59,7 +59,7 @@ export class CreateVotePage {
       this.voteList.push({
           title: title,
           expiration_date: expiration_date,
-          mail_invite: mail_invite
+          mail_invite: mail_invite || 0
       }).then( newContact => {
 
         // Sharing datas between pages
