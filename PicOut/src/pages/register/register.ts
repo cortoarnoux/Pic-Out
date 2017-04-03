@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
+import { AccueilPage } from '../accueil/accueil';
 
 @Component({
   selector: 'page-register',
@@ -51,7 +52,7 @@ export class RegisterPage {
        {
          text: 'OK',
          handler: data => {
-           this.nav.popToRoot();
+           this.nav.push(AccueilPage);
          }
        }
      ]

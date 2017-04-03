@@ -55,8 +55,9 @@ export class LoginPage {
             break;
         }
 
-        if(error = "undefined"){
+        if(error == "undefined"){
           this.navCtrl.push(AccueilPage);
+          console.log(errorCode + " " + errorMessage);
         } else {
           this.showPopup("Erreur", errorMessage);
           console.log(errorCode + " " + errorMessage);
