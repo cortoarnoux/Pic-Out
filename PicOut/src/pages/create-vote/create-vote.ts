@@ -24,6 +24,11 @@ export class CreateVotePage {
   voteList: FirebaseListObservable<any>;
   vote;
 
+
+  // tabbar links
+  tab1Root = CreateVotePage;
+  tab2Root = CreateVoteSecondStepPage;
+
   constructor(
     public navCtrl: NavController,
     private alertCtrl: AlertController,
@@ -39,61 +44,86 @@ export class CreateVotePage {
 
   //create vote object
   addVote(title, expiration_date, mail_invite){
+
     this.vote = new Vote(title, expiration_date, mail_invite);
-    //console.log(this.vote);
-    this.voteList.push({
-        title: title,
-        expiration_date: expiration_date,
-        mail_invite: mail_invite
-    }).then( newContact => {
 
-      // Sharing datas between pages
-      this.navCtrl.push(CreateVoteSecondStepPage, {
-        registered_vote_state: this.vote
-      });
-
-    }, error => {
-      console.log(error);
-    });
- }
-
-
- // to page friends
-  public moveToFriends() {
-    this.navCtrl.push(FriendsPage);
-  }
-  // to page second step
-  public moveToSecondStepPage() {
-    this.navCtrl.push(CreateVoteSecondStepPage);
-  }
-
-  // to home page with pop up
-  public moveToHome() {
-    let errorMessage;
-    errorMessage= "Etes vous sur de vouloir annuler votre vote ?";
-    this.showPopup("Attention", errorMessage);
-  }
-  // cancel or ok with clear vote object
-  showPopup(title, text) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: text,
-      buttons: [
-      {
-        text: 'Annuler',
-        role: 'cancel',
-      },
-      {
-        text: 'Ok',
-        handler: () => {
-          this.vote = null;
-          this.navCtrl.push(AccueilPage, {}, {animate: true, direction: 'back'});
-        }
+    if(this.vote.title == "" || this.vote.expiration_date == null){
+      if(this.vote.title == ""){
+        let errorMessage= "Vous n'avez pas renseigné de titre à votre sondage";
+        this.showErrorMessage("Attention", errorMessage);
+      } else {
+        let errorMessage= "Vous n'avez pas renseigné de date à votre sondage";
+        this.showErrorMessage("Attention", errorMessage);
       }
-    ]
-    });
-    alert.present();
-  }
+    } else {
+      this.voteList.push({
+          title: title,
+          expiration_date: expiration_date,
+          mail_invite: mail_invite
+      }).then( newContact => {
+
+        // Sharing datas between pages
+        this.navCtrl.push(CreateVoteSecondStepPage, {
+          registered_vote_state: this.vote
+        });
+
+      }, error => {
+        console.log(error);
+      });
+    }
+
+   }
 
 
+   // to page friends
+    public moveToFriends() {
+      this.navCtrl.push(FriendsPage);
+    }
+    // to page second step
+    public moveToSecondStepPage() {
+      this.navCtrl.push(CreateVoteSecondStepPage);
+    }
+
+    // to home page with pop up
+    public moveToHome() {
+      let errorMessage;
+      errorMessage= "Etes vous sur de vouloir annuler votre vote ?";
+      this.showPopup("Attention", errorMessage);
+    }
+    // cancel or ok with clear vote object
+    showPopup(title, text) {
+      let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: text,
+        buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.vote = null;
+            this.navCtrl.push(AccueilPage, {}, {animate: true, direction: 'back'});
+          }
+        }
+      ]
+      });
+      alert.present();
+    }
+
+    // cancel or ok with clear vote object without redirection
+    showErrorMessage(title, text) {
+      let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: text,
+        buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel',
+        }
+      ]
+      });
+      alert.present();
+    }
 }

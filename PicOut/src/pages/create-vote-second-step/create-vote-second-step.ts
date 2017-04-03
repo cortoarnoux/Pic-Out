@@ -17,6 +17,9 @@ import { AccueilPage } from '../accueil/accueil';
 export class CreateVoteSecondStepPage {
 
   vote;
+  // tabbar links
+  tab1Root = CreateVotePage;
+  tab2Root = CreateVoteSecondStepPage;
 
   constructor(public nav: NavController, public navParams: NavParams) {
     this.vote = navParams.get('registered_vote_state');
