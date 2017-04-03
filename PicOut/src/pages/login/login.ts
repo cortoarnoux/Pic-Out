@@ -46,22 +46,21 @@ export class LoginPage {
         switch(errorCode){
           case "auth/invalid-email":
             errorMessage = "Le format de l'adresse mail est invalide";
+            this.showPopup("Erreur", errorMessage);
             break;
           case "auth/wrong-password":
             errorMessage = "Cette combinaison login / password n'existe pas";
+            this.showPopup("Erreur", errorMessage);
             break;
           case "auth/user-not-found":
             errorMessage = "Cet utilisateur n'existe pas";
+            this.showPopup("Erreur", errorMessage);
+            break;
+          default:
+            this.navCtrl.push(AccueilPage);
             break;
         }
-
-        if(error == "undefined"){
-          this.navCtrl.push(AccueilPage);
-          console.log(errorCode + " " + errorMessage);
-        } else {
-          this.showPopup("Erreur", errorMessage);
-          console.log(errorCode + " " + errorMessage);
-        }
+        console.log(errorCode + " " + errorMessage);
     })
   }
 
