@@ -21,7 +21,7 @@ export class MyVotesPage {
   }
 
     public moveToHome() {
-      this.nav.push(AccueilPage);
+      this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});
     }
 
 

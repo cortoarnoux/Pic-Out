@@ -23,7 +23,7 @@ export class CreateVoteSecondStepPage {
   }
 
   public moveToFirstStepPage() {
-    this.nav.push(CreateVotePage);
+    this.nav.push(CreateVotePage, {}, {animate: true, direction: 'back'});
   }
   public moveToThirdStepPage() {
     this.nav.push(CreateVoteThirdStepPage);
