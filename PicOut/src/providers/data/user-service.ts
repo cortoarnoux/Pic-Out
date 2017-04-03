@@ -10,5 +10,4 @@ export class UserService {
     this.users = firebase.database().ref('/users');
     this.auth = firebase.auth();
   }
-
 }

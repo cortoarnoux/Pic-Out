@@ -36,13 +36,18 @@ export class CreateVotePage {
 
   addVote(title, expiration_date, mail_invite){
     this.vote = new Vote(title, expiration_date, mail_invite);
-    console.log(this.vote);
+    //console.log(this.vote);
     this.voteList.push({
         title: title,
         expiration_date: expiration_date,
         mail_invite: mail_invite
     }).then( newContact => {
-      this.navCtrl.push(CreateVoteSecondStepPage);
+
+      // Sharing datas between pages
+      this.navCtrl.push(CreateVoteSecondStepPage, {
+        registered_vote_state: this.vote
+      });
+
     }, error => {
       console.log(error);
     });

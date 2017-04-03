@@ -16,9 +16,14 @@ import { AccueilPage } from '../accueil/accueil';
 })
 export class CreateVoteSecondStepPage {
 
-  constructor(public nav: NavController, public navParams: NavParams) {}
+  vote;
+
+  constructor(public nav: NavController, public navParams: NavParams) {
+    this.vote = navParams.get('registered_vote_state');
+  }
 
   ionViewDidLoad() {
+    console.log(this.vote);
     console.log('ionViewDidLoad CreateVoteSecondStepPage');
   }
 

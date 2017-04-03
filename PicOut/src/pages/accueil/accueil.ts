@@ -6,6 +6,7 @@ import { FriendsPage } from '../friends/friends';
 import { MyVotesPage } from '../my-votes/my-votes';
 import { LoginPage } from '../login/login';
 import { MyAccountPage } from '../my-account/my-account';
+import firebase from 'firebase';
 
 declare var window: any;
 
@@ -17,20 +18,11 @@ declare var window: any;
 export class AccueilPage {
 
   public constructor(
-    public navCtrl: NavController,
+    public nav: NavController,
     private platform: Platform,
-    private http: Http,
-    private nav: NavController
+    private http: Http
   ) {}
 
-  public blague() {
-    this.platform.ready()
-      .then(success => {
-        alert("C'est un cannibale, il court, il court... Et il se mange !");
-      }, (error) => {
-        alert(error);
-      });
-  };
   public moveToCreateVote() {
     this.nav.push(CreateVotePage);
   }
@@ -44,6 +36,15 @@ export class AccueilPage {
     this.nav.push(MyVotesPage);
   }
   public moveToLogin() {
-    this.nav.push(LoginPage);
+    let testDisconnect = false;
+    firebase.auth().signOut().then(function() {
+      console.log('Signed Out');
+      testDisconnect = true;
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });
+    if(testDisconnect = true){
+      this.nav.push(LoginPage);
+    }
   }
 }
