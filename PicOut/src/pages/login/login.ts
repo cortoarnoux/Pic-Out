@@ -30,7 +30,13 @@ export class LoginPage {
 
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((value) => {
-        console.log(value);
+        console.log(value.uid);
+
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            console.log(user.uid);
+          }
+        });
         this.navCtrl.push(AccueilPage);
       })
       .catch((error) => {
@@ -49,10 +55,13 @@ export class LoginPage {
             break;
         }
 
-        this.showPopup("Erreur", errorMessage);
-
-        console.log(errorCode + " " + errorMessage);
-      })
+        if(error = "undefined"){
+          this.navCtrl.push(AccueilPage);
+        } else {
+          this.showPopup("Erreur", errorMessage);
+          console.log(errorCode + " " + errorMessage);
+        }
+    })
   }
 
   public registerPage() {
@@ -67,15 +76,4 @@ export class LoginPage {
     });
     alert.present();
   }
-
-  /*alert(errorMessage: String) {
-    let alert = this.alertCtrl.create({
-      title: 'Connection fail...',
-      subTitle: errorMessage,
-      buttons: ['OK']
-    });
-    alert.present(prompt);
-  }*/
-
-
 }
