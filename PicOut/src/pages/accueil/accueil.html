@@ -15,6 +15,7 @@
 
 <ion-row class="menu">
     <ion-col>
+      <p style="color: white;">{{this.showSurname}}</p>
       <button ion-button class="home-btn" (click)="moveToMyVotes()">Mes sondages</button>
       <button ion-button class="home-btn" (click)="moveToCreateVote()">Soumettre un vote</button>
       <button ion-button class="home-btn" (click)="moveToMyAccount()">Mon compte</button>
@@ -25,7 +26,7 @@
 
 <ion-row class="deconnexion">
     <ion-col>
-      <button ion-button class="home-btn"(click)="moveToLogin()">Déconnexion</button>
+      <button ion-button class="home-btn" (click)="moveToLogin()">Déconnexion</button>
     </ion-col>
 </ion-row>
 

@@ -13,7 +13,7 @@ import { CreateVotePage } from '../pages/create-vote/create-vote';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = CreateVotePage;
+  rootPage = LoginPage;
 
   constructor(platform: Platform, data: DataService) {
     data.init();

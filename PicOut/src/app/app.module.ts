@@ -14,6 +14,7 @@ import { FriendsPage } from '../pages/friends/friends';
 import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/create-vote-second-step';
 import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
 import { AngularFireModule } from 'angularfire2';
+import { Storage } from '@ionic/storage';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -58,7 +59,8 @@ export const firebaseConf = {
   ],
   providers: [
     AuthService,
-    DataService
+    DataService,
+    Storage
   ]
 })
 export class AppModule {}

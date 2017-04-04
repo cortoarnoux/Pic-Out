@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Loading } from 'ionic-angular';
-
 import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
-
 import { RegisterPage } from '../register/register';
-import { HomePage } from '../home/home';
 import { AccueilPage } from '../accueil/accueil';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-login',
@@ -15,7 +13,6 @@ import { AccueilPage } from '../accueil/accueil';
 })
 export class LoginPage {
   private registerCredentials = {email: '', password: ''};
-  private homePage = HomePage;
 
   constructor(
     private navCtrl: NavController,
@@ -25,16 +22,27 @@ export class LoginPage {
     let imagePath: String = "/img/" ;
   }
 
+  ionViewDidLoad() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log(user);
+      }
+    });
+  }
+
   public login() {
     let authUser = new UserService();
 
+    // Deconnecte l'utilisateur si celui-ci est connecté, évite les bugs
+    firebase.auth().signOut()
+      .then(function() {
+        console.log('Signed Out');
+      }, function(error) {
+        console.error('Sign Out Error', error);
+     });
+
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((value) => {
-        firebase.auth().onAuthStateChanged((user) => {
-          if (user) {
-            console.log(user.uid);
-          }
-        });
         this.navCtrl.push(AccueilPage);
       })
       .catch((error) => {
@@ -44,20 +52,18 @@ export class LoginPage {
         switch(errorCode){
           case "auth/invalid-email":
             errorMessage = "Le format de l'adresse mail est invalide";
-            this.showPopup("Erreur", errorMessage);
             break;
           case "auth/wrong-password":
             errorMessage = "Cette combinaison login / password n'existe pas";
-            this.showPopup("Erreur", errorMessage);
             break;
           case "auth/user-not-found":
             errorMessage = "Cet utilisateur n'existe pas";
-            this.showPopup("Erreur", errorMessage);
             break;
           default:
-            this.navCtrl.push(AccueilPage);
+            errorMessage = "Erreur inconnue, merci de contacter le support";
             break;
         }
+        this.showPopup("Erreur", errorMessage);
         console.log(errorCode + " " + errorMessage);
     })
   }

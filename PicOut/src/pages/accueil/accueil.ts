@@ -7,6 +7,7 @@ import { MyVotesPage } from '../my-votes/my-votes';
 import { LoginPage } from '../login/login';
 import { MyAccountPage } from '../my-account/my-account';
 import firebase from 'firebase';
+import { Storage } from '@ionic/storage';
 
 declare var window: any;
 
@@ -17,11 +18,20 @@ declare var window: any;
 
 export class AccueilPage {
 
+  public showSurname = "Bonjour !";
+
   public constructor(
     public nav: NavController,
     private platform: Platform,
     private http: Http
   ) {}
+
+  ionViewDidLoad() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+      }
+    });
+  }
 
   public moveToCreateVote() {
     this.nav.push(CreateVotePage);
@@ -36,15 +46,12 @@ export class AccueilPage {
     this.nav.push(MyVotesPage);
   }
   public moveToLogin() {
-    let testDisconnect = false;
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut()
+    .then(function() {
       console.log('Signed Out');
-      testDisconnect = true;
     }, function(error) {
       console.error('Sign Out Error', error);
     });
-    if(testDisconnect = true){
-      this.nav.push(LoginPage);
-    }
+    this.nav.push(LoginPage);
   }
 }
