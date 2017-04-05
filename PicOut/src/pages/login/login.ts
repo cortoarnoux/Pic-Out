@@ -12,6 +12,7 @@ import firebase from 'firebase';
   providers: [UserService]
 })
 export class LoginPage {
+
   private registerCredentials = {email: '', password: ''};
 
   constructor(
@@ -22,18 +23,10 @@ export class LoginPage {
     let imagePath: String = "/img/" ;
   }
 
-  ionViewDidLoad() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        console.log(user);
-      }
-    });
-  }
-
   public login() {
     let authUser = new UserService();
 
-    // Deconnecte l'utilisateur si celui-ci est connecté, évite les bugs
+    // Corto : Deconnecte l'utilisateur si celui-ci est connecté, vérification pour éviter les conflits
     firebase.auth().signOut()
       .then(function() {
         console.log('Signed Out');
