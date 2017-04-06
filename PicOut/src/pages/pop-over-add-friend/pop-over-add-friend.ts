@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../providers/data/user-service';
 
 /*
   Generated class for the PopOverAddFriend page.
@@ -13,11 +14,25 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PopOverAddFriendPage {
 
+  public users: any;
+
   constructor(
   	public navCtrl: NavController,
-    public navParams: NavParams) {}
+    public navParams: NavParams,
+    public userData: UserService) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PopOverAddFriendPage');
+    ionViewDidLoad() {
+    // Chargement de la liste des amis courants
+    this.userData.getUserList().on('value', snapshot => {
+      let rawList = [];
+      snapshot.forEach( snap => {
+        rawList.push({
+          id: snap.key,
+          email: snap.val().email,
+        });
+      return false
+      });
+      this.users = rawList;
+    });
   }
 }
