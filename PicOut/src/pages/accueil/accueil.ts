@@ -22,6 +22,12 @@ export class AccueilPage {
   public currentUser = firebase.auth().currentUser;
   // Corto : Récupération du chemin vers la liste des users (notre user, pas celui de l'auth) dans firebase
   public userProfile = firebase.database().ref('/users');
+  public userFriends = [
+    {name: "Hugo",
+    age: 20},
+    {name: "Nico",
+    age: 21}
+  ];
 
 
   public constructor(
@@ -33,7 +39,7 @@ export class AccueilPage {
   // Corto : Au chargement de la page
   ionViewDidLoad() {
     // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
-    this.writeUserData(this.currentUser.uid, this.currentUser.email);
+    this.writeUserData(this.currentUser.uid, this.currentUser.email, this.userFriends);
 
     // Corto : Lecture de l'objet user pour vérification de son existance dans l'optique d'update. EN COURS
     /*let user = this.readUserProfile();
@@ -41,9 +47,10 @@ export class AccueilPage {
   }
 
   // Corto : Fonction qui permet d'ajouter des infos à l'utilisateur dans notre bdd
-  writeUserData(userId, email) {
+  writeUserData(userId, email, userFriends) {
     firebase.database().ref('users/' + userId).set({
-      email: email
+      email: email,
+      friends: userFriends
     });
   }
 

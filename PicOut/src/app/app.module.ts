@@ -15,6 +15,8 @@ import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/creat
 import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
 import { AngularFireModule } from 'angularfire2';
 import { Storage } from '@ionic/storage';
+import { PopOverAddFriendPage } from '../pages/pop-over-add-friend/pop-over-add-friend';
+import { FriendsService } from '../providers/data/friends-service';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -38,6 +40,7 @@ export const firebaseConf = {
     FriendsPage,
     CreateVoteSecondStepPage,
     CreateVoteThirdStepPage,
+    PopOverAddFriendPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -56,10 +59,12 @@ export const firebaseConf = {
     FriendsPage,
     CreateVoteSecondStepPage,
     CreateVoteThirdStepPage,
+    PopOverAddFriendPage,
   ],
   providers: [
     AuthService,
     DataService,
+    FriendsService,
     Storage
   ]
 })
