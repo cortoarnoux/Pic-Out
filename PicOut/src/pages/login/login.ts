@@ -52,6 +52,9 @@ export class LoginPage {
           case "auth/user-not-found":
             errorMessage = "Cet utilisateur n'existe pas";
             break;
+          case "auth/network-request-failed":
+            errorMessage = "Impossible de contacter le serveur, merci de vérifier votre connexion à internet";
+            break;
           default:
             errorMessage = "Erreur inconnue, merci de contacter le support";
             break;
