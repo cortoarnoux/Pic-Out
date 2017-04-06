@@ -35,4 +35,8 @@ export class PopOverAddFriendPage {
       this.users = rawList;
     });
   }
+
+  public selectFriend(id){
+    console.log("Utilisateur cliqué : " + id);
+  }
 }
