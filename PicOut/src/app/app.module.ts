@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -24,10 +25,10 @@ export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
   authDomain: "picout-48fe3.firebaseapp.com",
   databaseURL: "https://picout-48fe3.firebaseio.com",
+  projectId: "picout-48fe3",
   storageBucket: "picout-48fe3.appspot.com",
   messagingSenderId: "474712704020"
 };
-
 
 @NgModule({
   declarations: [

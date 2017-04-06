@@ -5,11 +5,12 @@ import { UserService } from '../../providers/data/user-service';
 import { RegisterPage } from '../register/register';
 import { AccueilPage } from '../accueil/accueil';
 import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers: [UserService]
+  providers: [UserService, Facebook]
 })
 export class LoginPage {
 
@@ -18,7 +19,8 @@ export class LoginPage {
   constructor(
     private navCtrl: NavController,
     private auth: AuthService,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private facebook: Facebook) {
 
     let imagePath: String = "/img/" ;
   }
@@ -62,6 +64,26 @@ export class LoginPage {
         this.showPopup("Erreur", errorMessage);
         console.log(errorCode + " " + errorMessage);
     })
+  }
+
+  public loginWithFacebook() {
+    let authUser = new UserService();
+    this.facebook.login(['email'])
+      .then((response) => {
+        const facebookCredential = authUser.authFacebook
+          .credential(response.authResponse.accessToken);
+
+        authUser.auth.signInWithCredential(facebookCredential)
+          .then((success) => {
+            this.showPopup("firebase success", success.toString());
+          })
+          .catch((error) => {
+            this.showPopup("firebase error", error.toString());
+          });
+      })
+      .catch((error) => {
+        this.showPopup("facebook error", error.toString());
+      });
   }
 
   public registerPage() {

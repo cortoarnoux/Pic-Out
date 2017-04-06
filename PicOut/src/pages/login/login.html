@@ -27,6 +27,7 @@
       <ion-row id="login-buttons">
         <ion-col  class="signup-col">
           <button ion-button class="submit-btn" full type="submit">Login</button> <!-- Corto : Enlevé pour tests : [disabled]="!registerForm.form.valid" -->
+          <button ion-button class="facebook-btn" block clear (click)="loginWithFacebook()">Login With Facebook</button>
           <button ion-button class="register-btn" block clear (click)="registerPage()">Create New Account</button>
         </ion-col>
       </ion-row>
