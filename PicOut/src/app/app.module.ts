@@ -18,6 +18,7 @@ import { Storage } from '@ionic/storage';
 import { PopOverAddFriendPage } from '../pages/pop-over-add-friend/pop-over-add-friend';
 import { FriendsService } from '../providers/data/friends-service';
 import { UserService } from '../providers/data/user-service';
+import { CurrentUserService } from '../providers/data/currentuser-service';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -67,6 +68,7 @@ export const firebaseConf = {
     DataService,
     FriendsService,
     UserService,
+    CurrentUserService,
     Storage
   ]
 })

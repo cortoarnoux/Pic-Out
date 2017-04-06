@@ -8,6 +8,7 @@ import { LoginPage } from '../login/login';
 import { MyAccountPage } from '../my-account/my-account';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
+import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 declare var window: any;
 
@@ -20,8 +21,10 @@ export class AccueilPage {
 
   // Corto : Récupération de l'objet user actuel de firebase
   public currentUser = firebase.auth().currentUser;
-  // Corto : Récupération du chemin vers la liste des users (notre user, pas celui de l'auth) dans firebase
-  public userProfile = firebase.database().ref('/users');
+
+  public thisUser: any;
+
+  // Corto : Données en dur pour test
   public userFriends = [
     {name: "Hugo",
     age: 20},
@@ -29,35 +32,25 @@ export class AccueilPage {
     age: 21}
   ];
 
-
   public constructor(
     public nav: NavController,
     private platform: Platform,
-    private http: Http
+    private http: Http,
+    private currentUserService: CurrentUserService
   ) {}
 
   // Corto : Au chargement de la page
   ionViewDidLoad() {
-    // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
-    this.writeUserData(this.currentUser.uid, this.currentUser.email, this.userFriends);
-
-    // Corto : Lecture de l'objet user pour vérification de son existance dans l'optique d'update. EN COURS
-    /*let user = this.readUserProfile();
-    console.log(user);*/
-  }
-
-  // Corto : Fonction qui permet d'ajouter des infos à l'utilisateur dans notre bdd
-  writeUserData(userId, email, userFriends) {
-    firebase.database().ref('users/' + userId).set({
-      email: email,
-      friends: userFriends
+    // Corto : Récupération des données de l'objet user de l'utilisateur actuel
+    this.currentUserService.getCurrentUser(this.currentUser.uid).on('value', (data) => {
+      this.thisUser = data.val();
+      // Corto : Si l'objet n'existe pas dans la base de donnée et donc ne peut être récupéré, création de l'objet
+      if(this.thisUser == null){
+        // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
+        this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email, this.userFriends);
+      }
     });
   }
-
-  // Corto : Lecture de l'objet user pour vérification de son existance dans l'optique d'update. EN COURS
-  /*readUserProfile(): firebase.database.Reference {
-    return this.userProfile.child(this.currentUser.uid);
-  }*/
 
   // Corto : Petit test pour dire bonjour à l'utilisateur en utilisant les caractères avant le @ de son pseudo s'il n'a pas renseigné son prénom
   user = firebase.auth().currentUser;
@@ -83,7 +76,7 @@ export class AccueilPage {
     .then(function() {
       console.log('Deconnecté');
     }, function(error) {
-      console.error('Erreur lors de la deconnecxion', error);
+      console.error('Erreur lors de la deconnexion', error);
     });
   }
 }
