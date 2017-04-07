@@ -24,14 +24,6 @@ export class AccueilPage {
 
   public thisUser: any;
 
-  // Corto : Données en dur pour test
-  public userFriends = [
-    {name: "Hugo",
-    age: 20},
-    {name: "Nico",
-    age: 21}
-  ];
-
   public constructor(
     public nav: NavController,
     private platform: Platform,
@@ -45,9 +37,10 @@ export class AccueilPage {
     this.currentUserService.getCurrentUser(this.currentUser.uid).on('value', (data) => {
       this.thisUser = data.val();
       // Corto : Si l'objet n'existe pas dans la base de donnée et donc ne peut être récupéré, création de l'objet
+      console.log(this.thisUser);
       if(this.thisUser == null){
         // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
-        this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email, this.userFriends);
+        this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email);
       }
     });
   }

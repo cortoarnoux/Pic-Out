@@ -36,8 +36,7 @@ export class FriendsPage {
       snapshot.forEach( snap => {
         rawList.push({
           id: snap.key,
-          name: snap.val().name,
-          age: snap.val().age,
+          email: snap.val().email,
         });
       return false
       });

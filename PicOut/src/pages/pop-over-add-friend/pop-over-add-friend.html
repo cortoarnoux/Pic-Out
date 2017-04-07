@@ -14,7 +14,7 @@
 
 <ion-content padding>
 	<ion-list *ngFor="let user of users" id="friendlist">
-      <ion-item (click)="selectFriend(user.id)">
+      <ion-item (click)="selectFriend(user.id, user.email)">
         <ion-icon name="person"></ion-icon>{{user.email}}
       </ion-item>
     </ion-list>
