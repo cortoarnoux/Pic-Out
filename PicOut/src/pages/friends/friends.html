@@ -23,7 +23,7 @@
 
   <!--Liste des amis-->
     <ion-list *ngFor="let friend of friendList" id="friendlist">
-      <ion-item>
+      <ion-item (click)="actionOnFriend(friend.id, friend.email)">
         <ion-icon name="person"></ion-icon> {{friend.email}}
       </ion-item>
     </ion-list>

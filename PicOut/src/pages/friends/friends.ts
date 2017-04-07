@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { PopoverController } from 'ionic-angular';
 import { MyPopOverPage } from './my-pop-over';
@@ -26,7 +26,8 @@ export class FriendsPage {
     public nav: NavController,
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
-    public friendsData: FriendsService) {
+    public friendsData: FriendsService,
+    private alertCtrl: AlertController,) {
   }
 
   ionViewDidLoad() {
@@ -36,12 +37,20 @@ export class FriendsPage {
       snapshot.forEach( snap => {
         rawList.push({
           id: snap.key,
+          friendUID: snap.val().friendUID,
           email: snap.val().email,
         });
       return false
       });
       this.friendList = rawList;
     });
+  }
+
+  public actionOnFriend(id, email){
+    console.log(id);
+    let infoMessage;
+    infoMessage= "Voulez-vous vraiment supprimer "+ email +" de votre liste d'amis ?";
+    this.showDeleteFriendPopup("Attention", infoMessage, id);
   }
 
   public moveToHome() {
@@ -56,4 +65,24 @@ export class FriendsPage {
     let popover = this.popoverCtrl.create(PopOverAddFriendPage);
     popover.present();
   }
+
+  showDeleteFriendPopup(title, text, id) {
+      let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: text,
+        buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.friendsData.removeFriend(id);
+          }
+        }
+      ]
+      });
+      alert.present();
+    }
 }

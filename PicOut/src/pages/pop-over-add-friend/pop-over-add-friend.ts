@@ -32,30 +32,32 @@ export class PopOverAddFriendPage {
 
     ionViewDidLoad() {
 
+    // Corto : Récupère la liste des UID des amis de l'utilisateur courant
     this.friendsData.getFriendList().on('value', snapshot => {
       let rawList = [];
       snapshot.forEach( snap => {
         rawList.push({
+          keyID: snap.key,
           friendUID: snap.val().friendUID
         });
       return false
       });
-      console.log("Liste d'amis");
       this.friendsObjectArray = rawList;
     });
 
+    // Corto : Ajoute tous les UID des utilisateurs déjà amis à la liste de vérification
     for(let friend in this.friendsObjectArray){
       this.alreadyFriendUID.push(this.friendsObjectArray[friend].friendUID);
     }
 
+    // Corto : Ajoute l'utilisateur actuel à la liste de ses propres amis (pour ne pas qu'il puisse s'ajouter en amis)
     this.alreadyFriendUID.push(this.currentUser.uid);
 
-    console.log(this.alreadyFriendUID);
-
-    // Chargement de la liste des amis courants
+    // Corto : Chargement de la liste des amis courants
     this.userData.getUserList().on('value', snapshot => {
       let rawList = [];
       snapshot.forEach( snap => {
+        // Corto : Vérifie que les utilisateurs à lister ne soient pas dans liste des utilisateurs à ne pas lister
         if(this.alreadyFriendUID.indexOf(snap.key) == -1){
           rawList.push({
             id: snap.key,
@@ -72,10 +74,10 @@ export class PopOverAddFriendPage {
     console.log("Utilisateur cliqué : " + friendUID);
     let infoMessage;
     infoMessage= "Voulez-vous vraiment ajouter "+ email +" à votre liste d'amis ?";
-    this.showPopup("Vérification", infoMessage, friendUID, email);
+    this.showAddFriendPopup("Vérification", infoMessage, friendUID, email);
   }
 
-  showPopup(title, text, friendUID, email) {
+  showAddFriendPopup(title, text, friendUID, email) {
       let alert = this.alertCtrl.create({
         title: title,
         subTitle: text,
@@ -87,7 +89,8 @@ export class PopOverAddFriendPage {
         {
           text: 'Ok',
           handler: () => {
-            this.currentUserService.addFriendForCurrentUser(friendUID, email)
+            this.currentUserService.addFriendForCurrentUser(friendUID, email);
+            alert.dismiss();
           }
         }
       ]
