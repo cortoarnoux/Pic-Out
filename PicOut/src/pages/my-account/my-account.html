@@ -4,15 +4,71 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>myAccount</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<ion-content class="myaccount-content" padding>
 
 
-<ion-content padding>
+    <ion-row class="top-row">
+      <ion-col>
+        <button ion-button class="home-btn" (click)="moveToSecondStep()">Précédent</button>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
 
-</ion-content>
+  <ion-row >
+      <ion-col>
+        <div class="title">
+          <h1>Mon compte</h1>
+        </div>
+
+        <ion-row>
+          <ion-col>
+            <h3>Email</h3>
+          </ion-col>
+          <ion-col>
+            <button class="editButton" *ngIf="!editEmailMode" (click)="editEmailMode = true"><ion-icon name="create"></ion-icon></button>
+            <button class="editButton" *ngIf="editEmailMode" (click)="editEmailMode = false"><ion-icon name="checkbox"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row >
+          <ion-col>
+            <div *ngIf="!editEmailMode" class="surname">
+              <p>{{this.showEmail}}</p>
+            </div>
+             <div *ngIf="editEmailMode" class="editemail">
+                <ion-input placeholder="{{this.showEmail}}"></ion-input>
+             </div>
+           </ion-col>
+        </ion-row>
+
+
+        <ion-row id="username-row">
+          <ion-col>
+            <h3>Username</h3>
+          </ion-col>
+          <ion-col>
+            <button class="editButton" *ngIf="!editNameMode" (click)="editNameMode = true"><ion-icon name="create"></ion-icon></button>
+            <button class="editButton" *ngIf="editNameMode" (click)="editNameMode = false"><ion-icon name="checkbox"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row >
+          <ion-col>
+            <div *ngIf="!editNameMode" class="surname">
+              <p>{{this.showSurname}}</p>
+            </div>
+             <div *ngIf="editNameMode" class="editsurname">
+                <ion-input placeholder="{{this.showSurname}}"></ion-input>
+             </div>
+           </ion-col>
+        </ion-row>
+      </ion-col>
+  </ion-row>
+
+
+
+  </ion-content>
