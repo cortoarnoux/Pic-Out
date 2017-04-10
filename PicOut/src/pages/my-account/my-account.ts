@@ -53,9 +53,9 @@ export class MyAccountPage {
   // récupération des infos de l'utilisateur
   user = firebase.auth().currentUser;
   surname = this.user.email.replace(/@.*$/,"");
-  showSurname = "Bonjour " + this.surname + " !";
+  showSurname = this.surname;
   showEmail = this.user.email;
-  
+
 
 
 
