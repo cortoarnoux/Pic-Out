@@ -29,7 +29,6 @@ export class RegisterPage {
      });
 
     let createUser = new UserService();
-    console.log(createUser.currentUser);
 
     createUser.auth.createUserWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((val) => {
