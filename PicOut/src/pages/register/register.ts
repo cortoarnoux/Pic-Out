@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-
 import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
 import { AccueilPage } from '../accueil/accueil';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-register',
@@ -20,7 +20,16 @@ export class RegisterPage {
   {}
 
   public register() {
+
+    firebase.auth().signOut()
+      .then(function() {
+        console.log('Signed Out');
+      }, function(error) {
+        console.error('Sign Out Error', error);
+     });
+
     let createUser = new UserService();
+    console.log(createUser.currentUser);
 
     createUser.auth.createUserWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((val) => {
