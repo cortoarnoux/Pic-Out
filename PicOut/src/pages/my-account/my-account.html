@@ -10,7 +10,7 @@
 
     <ion-row class="top-row">
       <ion-col>
-        <button ion-button class="home-btn" (click)="moveToSecondStep()">Précédent</button>
+        <button ion-button class="home-btn" (click)="moveToMyHome()">Précédent</button>
       </ion-col>
       <ion-col></ion-col>
       <ion-col></ion-col>
@@ -36,13 +36,14 @@
         <ion-row >
           <ion-col>
             <div *ngIf="!editEmailMode" class="surname">
-              <p>{{this.showEmail}}</p>
+              <p>{{currentUserEmail}}</p>
             </div>
              <div *ngIf="editEmailMode" class="editemail">
-                <ion-input placeholder="{{this.showEmail}}"></ion-input>
+                <ion-input [(ngModel)]="newEmail" placeholder="{{currentUserEmail}}"></ion-input>
              </div>
            </ion-col>
         </ion-row>
+        <button (click)="accountUpdateEmail(newEmail)">Enregistrer</button>
 
 
         <ion-row id="username-row">
@@ -59,13 +60,15 @@
         <ion-row >
           <ion-col>
             <div *ngIf="!editNameMode" class="surname">
-              <p>{{this.showSurname}}</p>
+              <p>{{currentUserUsername}}</p>
             </div>
              <div *ngIf="editNameMode" class="editsurname">
-                <ion-input placeholder="{{this.showSurname}}"></ion-input>
+                <ion-input [(ngModel)]="newUsername" placeholder="{{currentUserUsername}}"></ion-input>
              </div>
            </ion-col>
         </ion-row>
+        <!-- Corto : Bouton pour modifier l'information Username -->
+        <button (click)="accountUpdateUsername(newUsername)">Enregistrer</button>
       </ion-col>
   </ion-row>
 

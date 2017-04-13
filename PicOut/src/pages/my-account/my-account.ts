@@ -26,6 +26,8 @@ export class MyAccountPage {
   public currentUser = firebase.auth().currentUser;
 
   public thisUser: any;
+  public currentUserEmail = "";
+  public currentUserUsername = "";
 
   public constructor(
     public nav: NavController,
@@ -39,27 +41,24 @@ export class MyAccountPage {
     // Corto : Récupération des données de l'objet user de l'utilisateur actuel
     this.currentUserService.getCurrentUser(this.currentUser.uid).on('value', (data) => {
       this.thisUser = data.val();
-      // Corto : Si l'objet n'existe pas dans la base de donnée et donc ne peut être récupéré, création de l'objet
-      console.log(this.thisUser);
-      if(this.thisUser == null){
-        // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
-        this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email);
+      this.currentUserEmail = this.thisUser.email;
+      console.log("Username : ",this.thisUser.username);
+      
+      if(this.thisUser.username != null){
+        this.currentUserUsername = this.thisUser.username;
       }
+
     });
   }
 
+  public accountUpdateUsername(newUsername){
+    this.currentUserService.currentUserUpdateUsername(newUsername)
+  }
 
+  public accountUpdateEmail(newEmail){
+    this.currentUserService.currentUserUpdateEmail(newEmail)
+  }
 
-  // récupération des infos de l'utilisateur
-  user = firebase.auth().currentUser;
-  surname = this.user.email.replace(/@.*$/,"");
-  showSurname = this.surname;
-  showEmail = this.user.email;
-
-
-
-
-  //retour à l'accueil
   public moveToMyHome() {
     this.nav.push(AccueilPage);
   }
