@@ -27,7 +27,7 @@ export class MyAccountPage {
 
   public thisUser: any;
   public currentUserEmail = "";
-  public currentUserUsername = "";
+  public currentUserUsername = "Choisir un pseudo";
 
   public constructor(
     public nav: NavController,
@@ -42,12 +42,9 @@ export class MyAccountPage {
     this.currentUserService.getCurrentUser(this.currentUser.uid).on('value', (data) => {
       this.thisUser = data.val();
       this.currentUserEmail = this.thisUser.email;
-      console.log("Username : ",this.thisUser.username);
-      
       if(this.thisUser.username != null){
         this.currentUserUsername = this.thisUser.username;
       }
-
     });
   }
 
