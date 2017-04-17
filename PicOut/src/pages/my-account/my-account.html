@@ -22,6 +22,7 @@
           <h1>Mon compte</h1>
         </div>
 
+        <!-- Nico : Modification email -->
         <ion-row>
           <ion-col>
             <h3>Email</h3>
@@ -31,8 +32,6 @@
             <button class="editButton" *ngIf="editEmailMode" (click)="editEmailMode = false"><ion-icon name="checkbox"></ion-icon></button>
           </ion-col>
         </ion-row>
-
-
         <ion-row >
           <ion-col>
             <div *ngIf="!editEmailMode" class="surname">
@@ -46,7 +45,7 @@
         <!-- Corto : Bouton pour modifier l'information Email -->
         <button (click)="accountUpdateEmail(newEmail)">Enregistrer</button>
 
-
+        <!-- Nico : Modification username -->
         <ion-row id="username-row">
           <ion-col>
             <h3>Username</h3>
@@ -56,8 +55,6 @@
             <button class="editButton" *ngIf="editNameMode" (click)="editNameMode = false"><ion-icon name="checkbox"></ion-icon></button>
           </ion-col>
         </ion-row>
-
-
         <ion-row >
           <ion-col>
             <div *ngIf="!editNameMode" class="surname">
@@ -70,9 +67,53 @@
         </ion-row>
         <!-- Corto : Bouton pour modifier l'information Username -->
         <button (click)="accountUpdateUsername(newUsername)">Enregistrer</button>
+
+        <!-- Nico : Modification du prénom -->
+        <ion-row id="firstname-row">
+          <ion-col>
+            <h3>Prénom :</h3>
+          </ion-col>
+          <ion-col>
+            <button class="editButton" *ngIf="!editNameMode" (click)="editNameMode = true"><ion-icon name="create"></ion-icon></button>
+            <button class="editButton" *ngIf="editNameMode" (click)="editNameMode = false"><ion-icon name="checkbox"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+            <div *ngIf="!editNameMode" class="surname">
+              <p>{{currentUserFirstName}}</p>
+            </div>
+            <div *ngIf="editNameMode" class="editsurname">
+              <ion-input [(ngModel)]="newFirstName" placeholder="{{currentUserFirstName}}"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+        <button (click)="accountUpdateFirstName(newFirstName)">Enregistrer</button>
+
+        <!-- Nico : Modification du nom -->
+        <ion-row id="lastname-row">
+          <ion-col>
+            <h3>Nom :</h3>
+          </ion-col>
+          <ion-col>
+            <button class="editButton" *ngIf="!editNameMode" (click)="editNameMode = true"><ion-icon name="create"></ion-icon></button>
+            <button class="editButton" *ngIf="editNameMode" (click)="editNameMode = false"><ion-icon name="checkbox"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+            <div *ngIf="!editNameMode" class="surname">
+              <p>{{currentUserLastName}}</p>
+            </div>
+            <div *ngIf="editNameMode" class="editsurname">
+              <ion-input [(ngModel)]="newLastName" placeholder="{{currentUserLastName}}"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+        <button (click)="accountUpdateLastName(newLastName)">Enregistrer</button>
+
       </ion-col>
+
   </ion-row>
 
-
-
-  </ion-content>
+</ion-content>

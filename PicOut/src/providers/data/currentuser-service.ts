@@ -42,4 +42,16 @@ export class CurrentUserService {
       email: newEmail
     });
   }
+
+  currentUserUpdateFirstName(newFirstName: string) {
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      firstname: newFirstName
+    })
+  }
+
+  currentUserUpdateLastName(newLastName: string) {
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      lastname: newLastName
+    })
+  }
 }

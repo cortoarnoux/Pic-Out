@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Http} from '@angular/http';
-import { CreateVotePage } from '../create-vote/create-vote';
-import { FriendsPage } from '../friends/friends';
-import { MyVotesPage } from '../my-votes/my-votes';
-import { LoginPage } from '../login/login';
 import { AccueilPage } from '../accueil/accueil';
 import firebase from 'firebase';
-import { Storage } from '@ionic/storage';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 /*
@@ -28,6 +23,8 @@ export class MyAccountPage {
   public thisUser: any;
   public currentUserEmail = "";
   public currentUserUsername = "Choisir un pseudo";
+  public currentUserFirstName;
+  public currentUserLastName;
 
   public constructor(
     public nav: NavController,
@@ -43,8 +40,10 @@ export class MyAccountPage {
       this.thisUser = data.val();
       this.currentUserEmail = this.thisUser.email;
       if(this.thisUser.username != null){
-        this.currentUserUsername = this.thisUser.username;
+        this.currentUserUsername = this.thisUser.userame;
       }
+      this.currentUserFirstName = this.thisUser.firstname == null ? "Votre prénom" : this.thisUser.firstname;
+      this.currentUserLastName = this.thisUser.lastname == null ? "Votre nom" : this.thisUser.lastname;
     });
   }
 
@@ -54,6 +53,14 @@ export class MyAccountPage {
 
   public accountUpdateEmail(newEmail){
     this.currentUserService.currentUserUpdateEmail(newEmail)
+  }
+
+  public accountUpdateFirstName(newFirstname) {
+    this.currentUserService.currentUserUpdateFirstName(newFirstname);
+  }
+
+  public accountUpdateLastName(newLastname) {
+    this.currentUserService.currentUserUpdateLastName(newLastname);
   }
 
   public moveToMyHome() {
