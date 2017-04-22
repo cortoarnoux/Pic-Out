@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Http} from '@angular/http';
 import { AccueilPage } from '../accueil/accueil';
-import { EditAccountPage } from '../edit-account/edit-account';
 import firebase from 'firebase';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 /*
-  Generated class for the MyAccount page.
+  Generated class for the EditAccount page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-my-account',
-  templateUrl: 'my-account.html'
+  selector: 'page-edit-account',
+  templateUrl: 'edit-account.html'
 })
-export class MyAccountPage {
+export class EditAccountPage {
+
 
   //Récupération de l'objet user actuel de firebase
   public currentUser = firebase.auth().currentUser;
@@ -26,6 +26,7 @@ export class MyAccountPage {
   public currentUserUsername = "Choisir un pseudo";
   public currentUserFirstName;
   public currentUserLastName;
+
 
   public constructor(
     public nav: NavController,
@@ -48,14 +49,24 @@ export class MyAccountPage {
     });
   }
 
-
-
-  public moveToHome() {
-    this.nav.push(AccueilPage);
+  public accountUpdateUsername(newUsername){
+    this.currentUserService.currentUserUpdateUsername(newUsername)
   }
 
-  public moveToEditAccount() {
-    this.nav.push(EditAccountPage);
+  public accountUpdateEmail(newEmail){
+    this.currentUserService.currentUserUpdateEmail(newEmail)
+  }
+
+  public accountUpdateFirstName(newFirstname) {
+    this.currentUserService.currentUserUpdateFirstName(newFirstname);
+  }
+
+  public accountUpdateLastName(newLastname) {
+    this.currentUserService.currentUserUpdateLastName(newLastname);
+  }
+
+  public moveToMyHome() {
+    this.nav.push(AccueilPage);
   }
 
 }

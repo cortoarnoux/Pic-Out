@@ -1,20 +1,18 @@
 <!--
-  Generated template for the MyAccount page.
+  Generated template for the EditAccount page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 
-<ion-content class="myaccount-content" padding>
+<ion-content class="editaccount-content" padding>
 
 
     <ion-row class="top-row">
-      <ion-col>
-        <button ion-button class="home-btn" (click)="moveToHome()">Précédent</button>
-      </ion-col>
+      <ion-col></ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <button ion-button class="home-btn" (click)="moveToEditAccount()">Modifier</button>
+        <button ion-button class="home-btn" (click)="moveToMyHome()">Terminé</button>
       </ion-col>
     </ion-row>
 
@@ -25,39 +23,20 @@
         </div>
 
         <!-- Nico : Modification email -->
-        <!-- Hugo : Exemple de ngIf (on garde)
         <ion-row>
           <ion-col>
             <h3>Email</h3>
           </ion-col>
-          <ion-col>
-            <button class="editButton" *ngIf="!editEmailMode" (click)="editEmailMode = true"><ion-icon name="create"></ion-icon></button>
-            <button class="editButton" *ngIf="editEmailMode" (click)="editEmailMode = false"><ion-icon name="checkbox"></ion-icon></button>
-          </ion-col>
         </ion-row>
         <ion-row >
           <ion-col>
-            <div *ngIf="!editEmailMode" class="surname">
-              <p>{{currentUserEmail}}</p>
-            </div>
-             <div *ngIf="editEmailMode" class="editemail">
+             <div class="editemail">
                 <ion-input [(ngModel)]="newEmail" placeholder="{{currentUserEmail}}"></ion-input>
              </div>
            </ion-col>
         </ion-row>
-        -->
-        <ion-row>
-          <ion-col>
-            <h3>Email</h3>
-          </ion-col>
-        </ion-row>
-        <ion-row >
-          <ion-col>
-            <div class="surname">
-              <p>{{currentUserEmail}}</p>
-            </div>
-           </ion-col>
-        </ion-row>
+        <!-- Corto : Bouton pour modifier l'information Email -->
+        <button (click)="accountUpdateEmail(newEmail)">Enregistrer</button>
 
         <!-- Nico : Modification username -->
         <ion-row id="username-row">
@@ -67,39 +46,43 @@
         </ion-row>
         <ion-row >
           <ion-col>
-            <div class="surname">
-              <p>{{currentUserUsername}}</p>
-            </div>
+             <div class="editsurname">
+                <ion-input [(ngModel)]="newUsername" placeholder="{{currentUserUsername}}"></ion-input>
+             </div>
            </ion-col>
         </ion-row>
+        <!-- Corto : Bouton pour modifier l'information Username -->
+        <button (click)="accountUpdateUsername(newUsername)">Enregistrer</button>
 
         <!-- Nico : Modification du prénom -->
         <ion-row id="firstname-row">
           <ion-col>
-            <h3>Prénom</h3>
+            <h3>Prénom :</h3>
           </ion-col>
         </ion-row>
         <ion-row >
           <ion-col>
-            <div class="surname">
-              <p>{{currentUserFirstName}}</p>
+            <div class="editsurname">
+              <ion-input [(ngModel)]="newFirstName" placeholder="{{currentUserFirstName}}"></ion-input>
             </div>
           </ion-col>
         </ion-row>
+        <button (click)="accountUpdateFirstName(newFirstName)">Enregistrer</button>
 
         <!-- Nico : Modification du nom -->
         <ion-row id="lastname-row">
           <ion-col>
-            <h3>Nom</h3>
+            <h3>Nom :</h3>
           </ion-col>
         </ion-row>
         <ion-row >
           <ion-col>
-            <div class="surname">
-              <p>{{currentUserLastName}}</p>
+            <div class="editsurname">
+              <ion-input [(ngModel)]="newLastName" placeholder="{{currentUserLastName}}"></ion-input>
             </div>
           </ion-col>
         </ion-row>
+        <button (click)="accountUpdateLastName(newLastName)">Enregistrer</button>
 
       </ion-col>
 
