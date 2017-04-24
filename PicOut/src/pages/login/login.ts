@@ -4,7 +4,6 @@ import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
 import { RegisterPage } from '../register/register';
 import { AccueilPage } from '../accueil/accueil';
-import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
 import { User } from '../../providers/models/user';
 
@@ -91,11 +90,11 @@ export class LoginPage {
             this.navCtrl.push(AccueilPage);
           })
           .catch((error) => {
-            this.showPopup("firebase error", error.toString());
+            this.showPopup("firebase error", JSON.stringify(error));
           });
       })
       .catch((error) => {
-        this.showPopup("facebook error", error.toString());
+        this.showPopup("facebook error", JSON.stringify(error));
       });
   }
 

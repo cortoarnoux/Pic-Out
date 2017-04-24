@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Http} from '@angular/http';
 import { AccueilPage } from '../accueil/accueil';
-import firebase from 'firebase';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 /*
