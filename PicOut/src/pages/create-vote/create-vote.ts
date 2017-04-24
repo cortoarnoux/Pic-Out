@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { FriendsPage } from '../friends/friends';
+import { AddFriendVotePage } from '../add-friend-vote/add-friend-vote';
 import { CreateVoteSecondStepPage } from '../create-vote-second-step/create-vote-second-step';
 import { AccueilPage } from '../accueil/accueil';
 
@@ -32,6 +33,7 @@ export class CreateVotePage {
   constructor(
     public navCtrl: NavController,
     private alertCtrl: AlertController,
+    private navParams: NavParams,
     public af: AngularFire) {
     this.voteList = af.database.list('/votes');
   }
@@ -40,6 +42,7 @@ export class CreateVotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateVotePage');
+    console.log(this.navParams.get('emails_added'));
   }
 
   //create vote object
@@ -77,7 +80,9 @@ export class CreateVotePage {
 
    // to page friends
     public moveToFriends() {
-      this.navCtrl.push(FriendsPage);
+      this.navCtrl.push(AddFriendVotePage, {
+        registered_vote_state: this.vote
+      });
     }
     // to page second step
     public moveToSecondStepPage() {

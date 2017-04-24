@@ -13,6 +13,7 @@ import { MyVotesPage } from '../pages/my-votes/my-votes';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { EditAccountPage } from '../pages/edit-account/edit-account';
 import { FriendsPage } from '../pages/friends/friends';
+import { AddFriendVotePage } from '../pages/add-friend-vote/add-friend-vote';
 import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/create-vote-second-step';
 import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
 import { AngularFireModule } from 'angularfire2';
@@ -39,6 +40,7 @@ export const firebaseConf = {
     RegisterPage,
     AccueilPage,
     CreateVotePage,
+    AddFriendVotePage,
     MyVotesPage,
     MyAccountPage,
     EditAccountPage,
@@ -60,6 +62,7 @@ export const firebaseConf = {
     RegisterPage,
     CreateVotePage,
     MyVotesPage,
+    AddFriendVotePage,
     MyAccountPage,
     EditAccountPage,
     FriendsPage,

@@ -27,7 +27,7 @@
       <ion-input [(ngModel)]="title" type="text" placeholder="Titre du vote" name="title"></ion-input>
       <h3>Date d'échéance</h3>
       <label class="item item-input">
-        <input type="date" id="sondageDate">
+        <input [(ngModel)]="expiration_date" type="date" id="sondageDate">
       </label>
     </ion-col>
 </ion-row>
