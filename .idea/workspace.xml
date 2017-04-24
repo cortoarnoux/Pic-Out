@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542af1ae-9c93-45cd-a751-843ef6538d56" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.ts" afterPath="$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut/src/pages/login/login.html" afterPath="$PROJECT_DIR$/PicOut/src/pages/login/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,21 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="my-account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.html">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+            <state relative-caret-position="374">
+              <caret line="34" column="108" lean-forward="false" selection-start-line="34" selection-start-column="108" selection-end-line="34" selection-end-column="108" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my-account.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.ts">
+      <file leaf-file-name="login.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state relative-caret-position="-714">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -52,6 +52,7 @@
       <list>
         <option value="$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.html" />
         <option value="$PROJECT_DIR$/PicOut/src/pages/my-account/my-account.ts" />
+        <option value="$PROJECT_DIR$/PicOut/src/pages/login/login.html" />
       </list>
     </option>
   </component>
@@ -175,7 +176,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="my-account" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -213,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1491814869293</updated>
       <workItem from="1491814871808" duration="4010000" />
-      <workItem from="1493018566862" duration="1459000" />
+      <workItem from="1493018566862" duration="1736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5469000" />
+    <option name="totallyTimeSpent" value="5746000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,6 +299,24 @@
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="34" column="108" lean-forward="false" selection-start-line="34" selection-start-column="108" selection-end-line="34" selection-end-column="108" />
+          <folding />
         </state>
       </provider>
     </entry>
