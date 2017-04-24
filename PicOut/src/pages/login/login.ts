@@ -6,6 +6,7 @@ import { RegisterPage } from '../register/register';
 import { AccueilPage } from '../accueil/accueil';
 import { Facebook } from '@ionic-native/facebook';
 import { User } from '../../providers/models/user';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-login',
