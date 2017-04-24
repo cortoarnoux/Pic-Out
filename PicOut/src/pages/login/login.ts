@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, Loading } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
 import { RegisterPage } from '../register/register';
 import { AccueilPage } from '../accueil/accueil';
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { User } from '../../providers/models/user';
 
 @Component({
   selector: 'page-login',
@@ -21,8 +22,6 @@ export class LoginPage {
     private auth: AuthService,
     private alertCtrl: AlertController,
     private facebook: Facebook) {
-
-    let imagePath: String = "/img/" ;
   }
 
   public login() {
@@ -68,14 +67,28 @@ export class LoginPage {
 
   public loginWithFacebook() {
     let authUser = new UserService();
-    this.facebook.login(['email'])
+    var authInfo: User;
+    this.facebook.login(['public_profile', 'email'])
       .then((response) => {
         const facebookCredential = authUser.authFacebook
           .credential(response.authResponse.accessToken);
 
+        this.facebook.api("/me?fields=first_name,last_name,name,age_range,gender,email",
+          ['public_profile', 'email'])
+          .then((response) => {
+            authInfo = new User(response.name, response.last_name, response.first_name);
+            if(response.email) authInfo.setEmail(response.email);
+            if(response.age_range.min) authInfo.setRangeMin(response.age_range.min);
+            if(response.age_range.max) authInfo.setRangeMax(response.age_range.max);
+          })
+          .catch((error) =>{
+            this.showPopup("facebook api error", JSON.stringify(error));
+          });
+
         authUser.auth.signInWithCredential(facebookCredential)
           .then((success) => {
-            this.showPopup("firebase success", success.toString());
+            authUser.setUserInfos(authInfo, authUser.auth.currentUser.uid);
+            this.navCtrl.push(AccueilPage);
           })
           .catch((error) => {
             this.showPopup("firebase error", error.toString());
@@ -93,7 +106,7 @@ export class LoginPage {
   showPopup(title, text) {
     let alert = this.alertCtrl.create({
       title: title,
-      subTitle: text,
+      message: text,
       buttons: ["OK"]
     });
     alert.present();

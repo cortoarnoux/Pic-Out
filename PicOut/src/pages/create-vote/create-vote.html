@@ -26,7 +26,9 @@
       <h3>Titre du vote</h3>
       <ion-input [(ngModel)]="title" type="text" placeholder="Titre du vote" name="title"></ion-input>
       <h3>Date d'échéance</h3>
-      <ion-input [(ngModel)]="expiration_date" type="date" placeholder="Date de fin du sondage" required></ion-input>
+      <label class="item item-input">
+        <input type="date" id="sondageDate">
+      </label>
     </ion-col>
 </ion-row>
 
@@ -40,12 +42,12 @@
 
       <ion-input [(ngModel)]="mail_invite" type="email" placeholder="Saisir un mail invité"></ion-input>
       <h3>Ajoutés au sondage</h3>
-      <ion-row id="users-list">
-        <!-- afficher ici les invités sous forme de mosaique-->
-        <div class="invited"><ion-icon name="person"></ion-icon>  User</div>
-        <div class="invited"><ion-icon name="person"></ion-icon>  User</div>
-        <div class="invited"><ion-icon name="person"></ion-icon>  User</div>
-      </ion-row >
+      <!--Liste des amis-->
+        <ion-list *ngFor="let addedFriend of addedFriends" id="friendlist">
+          <ion-item>
+            <ion-icon name="person"></ion-icon> friend.email
+          </ion-item>
+        </ion-list>
     </ion-col>
 </ion-row>
 

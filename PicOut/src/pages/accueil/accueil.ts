@@ -37,7 +37,6 @@ export class AccueilPage {
     this.currentUserService.getCurrentUser(this.currentUser.uid).on('value', (data) => {
       this.thisUser = data.val();
       // Corto : Si l'objet n'existe pas dans la base de donnée et donc ne peut être récupéré, création de l'objet
-      console.log(this.thisUser);
       if(this.thisUser == null){
         // Corto : Appel de la fonction writeUserData avec en paramètre les infos de l'objet User
         this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email);

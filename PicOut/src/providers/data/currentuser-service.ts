@@ -19,7 +19,7 @@ export class CurrentUserService {
 
   // Corto : Fonction qui permet d'ajouter des infos à l'utilisateur dans notre bdd
   setCurrentUser(userId, email) {
-    firebase.database().ref('users/' + this.currentUser.uid).set({
+    firebase.database().ref('users/' + userId).set({
       email: email
     });
   }
@@ -29,5 +29,29 @@ export class CurrentUserService {
       friendUID: friendUID,
       email: email
     });
+  }
+
+  currentUserUpdateUsername(newUsername){
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      username: newUsername
+    });
+  }
+
+  currentUserUpdateEmail(newEmail){
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      email: newEmail
+    });
+  }
+
+  currentUserUpdateFirstName(newFirstName: string) {
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      firstname: newFirstName
+    })
+  }
+
+  currentUserUpdateLastName(newLastName: string) {
+    firebase.database().ref('users/' + this.currentUser.uid).update({
+      lastname: newLastName
+    })
   }
 }

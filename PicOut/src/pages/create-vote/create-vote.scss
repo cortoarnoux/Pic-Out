@@ -41,6 +41,10 @@ page-create-vote {
 
 
       //bloc users
+      .users-add{
+        margin-top:20px;
+      }
+
       #users-list{
         flex-wrap:wrap;
         justify-content: space-between;
@@ -67,6 +71,11 @@ page-create-vote {
         border-bottom: 2px solid #ffffff!important;
       }
 
+      #sondageDate{
+        background-color:transparent;
+        color:#ffffff;
+        border-color:2px solid #ffffff;
+      }
 
       //bouton
       .home-btn{

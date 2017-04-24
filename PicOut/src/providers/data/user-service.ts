@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { User } from '../models/user';
+import {isBlank} from "ionic-angular/util/util";
 
 @Injectable()
 export class UserService {
@@ -17,5 +19,21 @@ export class UserService {
 
   getUserList(): firebase.database.Reference {
   	return this.users;
+  }
+
+  // Nico : insertion des infos de l'utilisateur en base de données.
+  public setUserInfos(user: User, userId: any) {
+    let email: string = user.getEmail();
+    let rangeMin: number = user.getRangeMin();
+    let rangeMax: number = user.getRangeMax();
+
+    firebase.database().ref('/users/' + userId).set({
+      lastname: user.getLastName(),
+      firstname: user.getFirstName(),
+      username: user.getName(),
+      email: isBlank(email) ? "" : email,
+      rangemin: rangeMin ? rangeMin : 0,
+      rangemax: rangeMax ? rangeMax : 0
+    });
   }
 }
