@@ -42,7 +42,7 @@ export class EditAccountPage {
       this.thisUser = data.val();
       this.currentUserEmail = this.thisUser.email;
       if(this.thisUser.username != null){
-        this.currentUserUsername = this.thisUser.userame;
+        this.currentUserUsername = this.thisUser.username;
       }
       this.currentUserFirstName = this.thisUser.firstname == null ? "Votre prénom" : this.thisUser.firstname;
       this.currentUserLastName = this.thisUser.lastname == null ? "Votre nom" : this.thisUser.lastname;
