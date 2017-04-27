@@ -71,7 +71,6 @@ export class PopOverAddFriendPage {
   }
 
   public selectFriend(friendUID, email){
-    console.log("Utilisateur cliqué : " + friendUID);
     let infoMessage;
     infoMessage= "Voulez-vous vraiment ajouter "+ email +" à votre liste d'amis ?";
     this.showAddFriendPopup("Vérification", infoMessage, friendUID, email);

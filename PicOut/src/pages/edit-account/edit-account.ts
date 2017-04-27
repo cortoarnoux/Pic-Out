@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Http} from '@angular/http';
 import { AccueilPage } from '../accueil/accueil';
+import firebase from 'firebase';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 /*
@@ -10,6 +11,7 @@ import { CurrentUserService } from '../../providers/data/currentuser-service';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
 @Component({
   selector: 'page-edit-account',
   templateUrl: 'edit-account.html'

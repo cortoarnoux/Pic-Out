@@ -6,6 +6,7 @@ import { MyPopOverPage } from './my-pop-over';
 import { PopOverAddFriendPage } from '../pop-over-add-friend/pop-over-add-friend';
 import firebase from 'firebase';
 import { FriendsService } from '../../providers/data/friends-service';
+import { CurrentUserService } from '../../providers/data/currentuser-service';
 
 /*
   Generated class for the Friends page.
@@ -20,36 +21,57 @@ import { FriendsService } from '../../providers/data/friends-service';
 
 export class FriendsPage {
 
-  public friendList: any;
+  public friendList = [];
+  public userFriendRecupere = [];
 
   constructor(
     public nav: NavController,
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     public friendsData: FriendsService,
-    private alertCtrl: AlertController,) {
+    private alertCtrl: AlertController,
+    private userData: CurrentUserService,) {
   }
 
   ionViewDidLoad() {
-    // Chargement de la liste des amis courants
+   this.refreshFriendList();
+  }
+
+  public refreshFriendList(){
+    this.friendList = [];
+    this.userFriendRecupere = [];
+
+    // Corto : Chargement de la liste des amis courants
     this.friendsData.getFriendList().on('value', snapshot => {
       let rawList = [];
       snapshot.forEach( snap => {
         rawList.push({
           id: snap.key,
-          friendUID: snap.val().friendUID,
-          email: snap.val().email,
+          friendUID: snap.val().friendUID
         });
       return false
       });
       this.friendList = rawList;
+
+      // Corto : Récupère les amis par leur id et stocke leurs informations pour avoir les infos en temps réel
+      for(let user in this.friendList){
+
+        let thisFriendID = this.friendList[user].friendUID;
+
+        this.userData.getCurrentUser(thisFriendID).on('value', data => {
+          let thisUser = data.val();
+          // Corto : Ajout d'une key value dans un tableau Json
+          thisUser.friendID = this.friendList[user].id
+          this.userFriendRecupere.push(thisUser);
+        });
+      }
     });
   }
 
   public actionOnFriend(id, email){
-    console.log(id);
     let infoMessage;
-    infoMessage= "Voulez-vous vraiment supprimer "+ email +" de votre liste d'amis ?";
+    console.log(id);
+    infoMessage = "Voulez-vous vraiment supprimer "+ email +" de votre liste d'amis ?";
     this.showDeleteFriendPopup("Attention", infoMessage, id);
   }
 
@@ -64,6 +86,9 @@ export class FriendsPage {
   presentPopover() {
     let popover = this.popoverCtrl.create(PopOverAddFriendPage);
     popover.present();
+    popover.onWillDismiss(() => {
+      this.refreshFriendList();
+   });
   }
 
   showDeleteFriendPopup(title, text, id) {
@@ -79,6 +104,7 @@ export class FriendsPage {
           text: 'Ok',
           handler: () => {
             this.friendsData.removeFriend(id);
+            this.refreshFriendList();
           }
         }
       ]
