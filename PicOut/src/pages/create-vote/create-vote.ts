@@ -4,6 +4,7 @@ import { FriendsPage } from '../friends/friends';
 import { AddFriendVotePage } from '../add-friend-vote/add-friend-vote';
 import { CreateVoteSecondStepPage } from '../create-vote-second-step/create-vote-second-step';
 import { AccueilPage } from '../accueil/accueil';
+import firebase from 'firebase';
 
 // Corto : Ajout du vote, import de AngularFire et Firebase + import de l'objet vote pour stocker le vote
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
@@ -38,9 +39,10 @@ export class CreateVotePage {
     this.voteList = af.database.list('/votes');
   }
 
-
+  public currentUserID = firebase.auth().currentUser.uid;
 
   ionViewDidLoad() {
+    console.log(this.currentUserID);
     console.log('ionViewDidLoad CreateVotePage');
     console.log(this.navParams.get('emails_added'));
   }
@@ -60,6 +62,7 @@ export class CreateVotePage {
       }
     } else {
       this.voteList.push({
+          voteMasterID: this.currentUserID,
           title: title,
           expiration_date: expiration_date,
           mail_invite: mail_invite || 0
