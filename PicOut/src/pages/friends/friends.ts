@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { PopoverController } from 'ionic-angular';
-import { MyPopOverPage } from './my-pop-over';
 import { PopOverAddFriendPage } from '../pop-over-add-friend/pop-over-add-friend';
 import firebase from 'firebase';
 import { FriendsService } from '../../providers/data/friends-service';

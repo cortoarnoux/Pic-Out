@@ -70,13 +70,13 @@ export class PopOverAddFriendPage {
     });
   }
 
-  public selectFriend(friendUID, email){
+  public selectFriend(friendUID){
     let infoMessage;
-    infoMessage= "Voulez-vous vraiment ajouter "+ email +" à votre liste d'amis ?";
-    this.showAddFriendPopup("Vérification", infoMessage, friendUID, email);
+    infoMessage= "Voulez-vous vraiment ajouter "+ friendUID +" à votre liste d'amis ?";
+    this.showAddFriendPopup("Vérification", infoMessage, friendUID);
   }
 
-  showAddFriendPopup(title, text, friendUID, email) {
+  showAddFriendPopup(title, text, friendUID) {
       let alert = this.alertCtrl.create({
         title: title,
         subTitle: text,
@@ -88,7 +88,7 @@ export class PopOverAddFriendPage {
         {
           text: 'Ok',
           handler: () => {
-            this.currentUserService.addFriendForCurrentUser(friendUID, email);
+            this.currentUserService.addFriendForCurrentUser(friendUID);
             alert.dismiss();
           }
         }

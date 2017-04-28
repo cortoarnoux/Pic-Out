@@ -24,10 +24,9 @@ export class CurrentUserService {
     });
   }
 
-  addFriendForCurrentUser(friendUID, email){
+  addFriendForCurrentUser(friendUID){
     firebase.database().ref('users/' + this.currentUser.uid + '/friends').push({
-      friendUID: friendUID,
-      email: email
+      friendUID: friendUID
     });
   }
 
