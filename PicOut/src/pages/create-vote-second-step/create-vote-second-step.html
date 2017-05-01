@@ -32,20 +32,26 @@
     </ion-col>
 </ion-row>
 
+<ion-row style="text-align: center;">
+  <h2 style="color: white;">Récapitulatif vote</h2>
+</ion-row>
+<ion-row>
+  <h4 style="color: white;">Question : {{vote.title}}</h4>
+</ion-row>
+<ion-row>
+    <p style="color: white;">Date d'expiration : {{vote.expiration_date}}</p>
+</ion-row>
 
-<h3>Ajoutés</h3>
+<h3>Choix de réponses :</h3>
 <ion-grid>
   <ion-row class="choices-list">
-    <div class="choice"><i class="fa fa-user-circle-o" aria-hidden="true"></i>choice 1</div>
-    <div class="choice"><i class="fa fa-user-circle-o" aria-hidden="true"></i>choice 1</div>
-    <div class="choice"><i class="fa fa-user-circle-o" aria-hidden="true"></i>choice 1</div>
-    <div class="choice"><i class="fa fa-user-circle-o" aria-hidden="true"></i>choice 1</div>
+    <ion-item class="choice" style="" *ngFor="let eachChoix of choix">Réponse {{eachChoix}}</ion-item>
   </ion-row >
 </ion-grid>
 
 <ion-row>
   <ion-col>
-    <button ion-button class="home-btn" (click)="moveToThirdStepPage()">Ajouter un vote</button>
+    <button ion-button class="home-btn" (click)="addNewResponse()">Ajouter une réponse</button>
   </ion-col>
 </ion-row>
 

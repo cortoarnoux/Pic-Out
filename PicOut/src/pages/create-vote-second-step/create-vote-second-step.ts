@@ -16,10 +16,12 @@ import { AccueilPage } from '../accueil/accueil';
 })
 export class CreateVoteSecondStepPage {
 
-  vote;
+  public options;
+  public vote;
   // tabbar links
-  tab1Root = CreateVotePage;
-  tab2Root = CreateVoteSecondStepPage;
+  public tab1Root = CreateVotePage;
+  public tab2Root = CreateVoteSecondStepPage;
+  public choix = [0, 1, 2, 3, 4, 5];
 
   constructor(public nav: NavController, public navParams: NavParams) {
     this.vote = navParams.get('registered_vote_state');
@@ -29,6 +31,21 @@ export class CreateVoteSecondStepPage {
     console.log(this.vote);
     console.log('ionViewDidLoad CreateVoteSecondStepPage');
   }
+
+  /*public addImage(){
+    let options = {
+    destinationType   : Camera.DestinationType.DATA_URL,
+    sourceType        : Camera.PictureSourceType.PHOTOLIBRARY
+    };
+
+    this.nav.camera.getPicture(
+        (data)  => {
+          let image = "data:image/jpeg;base64," + data;
+        },
+        (error) => {  },
+        options
+    );
+  }*/
 
   public moveToFirstStepPage() {
     this.nav.push(CreateVotePage, {}, {animate: true, direction: 'back'});
