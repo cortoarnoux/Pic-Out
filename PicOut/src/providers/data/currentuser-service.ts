@@ -14,7 +14,7 @@ export class CurrentUserService {
   }
 
   getCurrentUser(id): firebase.database.Reference {
-    return firebase.database().ref(`/users/${id}`);
+    return firebase.database().ref(`users/${id}`);
   }
 
   // Corto : Fonction qui permet d'ajouter des infos à l'utilisateur dans notre bdd
