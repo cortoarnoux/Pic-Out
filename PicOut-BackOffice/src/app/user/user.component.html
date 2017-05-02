@@ -1,0 +1,12 @@
+<h2>
+  Utilisateurs
+</h2>
+
+<section>
+  <ul>
+    <li class="text" *ngFor="let user of users | async">
+      {{ user.email }}
+    </li>
+  </ul>
+
+</section>
