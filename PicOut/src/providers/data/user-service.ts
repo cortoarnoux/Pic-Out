@@ -33,7 +33,12 @@ export class UserService {
       username: user.getName(),
       email: isBlank(email) ? "" : email,
       rangemin: rangeMin ? rangeMin : 0,
-      rangemax: rangeMax ? rangeMax : 0
+      rangemax: rangeMax ? rangeMax : 0,
+      params: {
+        enable: true,
+        status: 'user',
+        delete: false
+      }
     });
   }
 }
