@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AccueilPage } from '../pages/accueil/accueil';
-import { AuthService } from '../providers/auth-service';
 import { DataService } from '../providers/data/data-service';
 import { RegisterPage } from '../pages/register/register';
 import { CreateVotePage } from '../pages/create-vote/create-vote';
@@ -37,7 +35,6 @@ export const firebaseConf = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LoginPage,
     RegisterPage,
     AccueilPage,
@@ -59,7 +56,6 @@ export const firebaseConf = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LoginPage,
     AccueilPage,
     RegisterPage,
@@ -75,7 +71,6 @@ export const firebaseConf = {
     PopOverVoteAddFriendPage,
   ],
   providers: [
-    AuthService,
     DataService,
     FriendsService,
     UserService,

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
 import { RegisterPage } from '../register/register';
 import { AccueilPage } from '../accueil/accueil';
@@ -19,7 +18,6 @@ export class LoginPage {
 
   constructor(
     private navCtrl: NavController,
-    private auth: AuthService,
     private alertCtrl: AlertController,
     private facebook: Facebook) {
   }
@@ -37,7 +35,19 @@ export class LoginPage {
 
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((value) => {
-        this.navCtrl.push(AccueilPage);
+        authUser.getUserInfos(value.uid).on('value', (data) => {
+          let ui = data.val();
+          if(!ui.params.enable) {
+            this.showPopup('Connexion impossible', 'Votre compte a été bloqué');
+            firebase.auth().signOut();
+          }
+          else if(ui.params.delete) {
+            this.showPopup('Connexion impossible', 'Votre compte a été supprimé');
+            firebase.auth().signOut();
+          }
+          else
+            this.navCtrl.push(AccueilPage);
+        });
       })
       .catch((error) => {
         let errorCode = error.code;
@@ -87,6 +97,7 @@ export class LoginPage {
 
         authUser.auth.signInWithCredential(facebookCredential)
           .then((success) => {
+            authUser.getUserInfos(success.uid).on('value', (data) => {});
             authUser.setUserInfos(authInfo, authUser.auth.currentUser.uid);
             this.navCtrl.push(AccueilPage);
           })

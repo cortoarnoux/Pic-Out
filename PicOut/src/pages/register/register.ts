@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
 import { UserService } from '../../providers/data/user-service';
 import { AccueilPage } from '../accueil/accueil';
 import firebase from 'firebase';
@@ -15,7 +14,6 @@ export class RegisterPage {
 
   constructor(
     private nav: NavController,
-    private auth: AuthService,
     private alertCtrl: AlertController)
   {}
 

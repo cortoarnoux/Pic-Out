@@ -21,6 +21,10 @@ export class UserService {
   	return this.users;
   }
 
+  getUserInfos(uid): firebase.database.Reference {
+    return firebase.database().ref(`/users/${uid}`);
+  }
+
   // Nico : insertion des infos de l'utilisateur en base de données.
   public setUserInfos(user: User, userId: any) {
     let email: string = user.getEmail();
