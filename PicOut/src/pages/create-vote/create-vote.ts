@@ -19,7 +19,6 @@ import {Vote} from '../../providers/models/vote';
 })
 export class CreateVotePage {
 
-  voteList: FirebaseListObservable<any>;
   vote;
 
   constructor(
@@ -29,7 +28,6 @@ export class CreateVotePage {
     public af: AngularFire,
     public popoverCtrl: PopoverController,
     public storage: Storage) {
-    this.voteList = af.database.list('/votes');
   }
 
   public voteMasterID = firebase.auth().currentUser.uid;
@@ -42,13 +40,14 @@ export class CreateVotePage {
   //create vote object
   addVote(title, expiration_date, mail_invite){
 
-    this.vote = new Vote(this.voteMasterID, title, expiration_date, this.friendAddedToVote, mail_invite);
+    this.vote = [this.voteMasterID, title, expiration_date, this.friendAddedToVote, mail_invite];
+    console.log(this.vote);
 
-    if(this.vote.title == "" || this.vote.expiration_date == null || this.friendAddedToVote.length < 1){
-      if(this.vote.title == ""){
+    if(this.vote[1] == "" || this.vote[2] == null || this.friendAddedToVote.length < 1){
+      if(this.vote[1] == ""){
         let errorMessage= "Vous n'avez pas renseigné de titre à votre sondage";
         this.showErrorMessage("Attention", errorMessage);
-      } else if(this.vote.expiration_date == null){
+      } else if(this.vote[2] == null){
         let errorMessage= "Vous n'avez pas renseigné de date à votre sondage";
         this.showErrorMessage("Attention", errorMessage);
       } else if(this.friendAddedToVote.length < 1){
@@ -56,21 +55,9 @@ export class CreateVotePage {
         this.showErrorMessage("Attention", errorMessage);
       }
     } else {
-      this.voteList.push({
-          voteMasterID: this.voteMasterID,
-          title: title,
-          expiration_date: expiration_date,
-          friendAddedToVote: this.friendAddedToVote || 0,
-          mail_invite: mail_invite || 0
-      }).then( newContact => {
-
-        // Sharing datas between pages
-        this.navCtrl.push(CreateVoteSecondStepPage, {
-          registered_vote_state: this.vote
-        });
-
-      }, error => {
-        console.log(error);
+      // Sharing datas between pages
+      this.navCtrl.push(CreateVoteSecondStepPage, {
+        registered_vote_state: this.vote
       });
     }
    }

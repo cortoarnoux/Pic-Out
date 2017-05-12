@@ -36,18 +36,33 @@
   <h2 style="color: white;">Récapitulatif vote</h2>
 </ion-row>
 <ion-row>
-  <h4 style="color: white;">Question : {{vote.title}}</h4>
+  <h4 style="color: white;">Question : {{vote[1]}}</h4>
 </ion-row>
 <ion-row>
-    <p style="color: white;">Date d'expiration : {{vote.expiration_date}}</p>
+    <p style="color: white;">Date d'expiration : {{vote[2]}}</p>
 </ion-row>
 
 <h3>Choix de réponses :</h3>
 <ion-grid>
   <ion-row class="choices-list">
-    <ion-item class="choice" style="" *ngFor="let eachChoix of choix">Réponse {{eachChoix}}</ion-item>
+    <ion-item (click)="addAChoice()">+ Ajouter une réponse</ion-item>
   </ion-row >
 </ion-grid>
+<ion-grid>
+  <ion-row class="choices-list jq-choice-list">
+    <ion-item class="choice" *ngFor="let eachChoix of choix" [ngStyle]="{'background-image':'url('+choixPhoto[eachChoix]+')'}">Réponse {{eachChoix}}</ion-item>
+
+  </ion-row >
+</ion-grid>
+
+<ion-list>
+   <ion-item *ngFor="let item of picturesArray; let i = index; trackBy:index">
+     <p>{{i}} - {{item.name}}</p>
+     <p>{{item.lastUpdated}}</p>
+ <p>{{item.email}}</p>
+     <img [src]=item.URL width="180px" class="padding"/>
+   </ion-item>
+</ion-list>
 
 <ion-row>
   <ion-col>
