@@ -29,7 +29,7 @@ export class RegisterPage {
     let createUser = new UserService();
 
     createUser.auth.createUserWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
-      .then((val) => {
+      .then((_) => {
         this.showValidPopup("Success", "Compte créé avec succès");
       })
       .catch((error) =>{

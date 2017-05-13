@@ -8,8 +8,9 @@ export class User {
   private email: string;
   private rangeMin: number;
   private rangeMax: number;
+  private uid: string;
 
-  constructor(name: string, lastName: string, firstName: string,
+  constructor(uname: string, lastName: string, firstName: string,
               email?: string, rangeMin?: number, rangeMax?: number) {
     this.name = name;
     this.firstName = firstName;
@@ -20,6 +21,7 @@ export class User {
     if(rangeMax) this.rangeMax = rangeMax;
   }
 
+  public getUid(): string { return this.uid; }
   public getLastName(): string { return this.lastName; }
   public getFirstName(): string { return this.firstName; }
   public getName(): string { return this.name; }
@@ -27,6 +29,7 @@ export class User {
   public getRangeMin(): number { return this.rangeMin; }
   public getRangeMax(): number { return this.rangeMax; }
 
+  public setUid(uid: string): void { this.uid = uid; }
   public setEmail(email: string): void { this.email = email; }
   public setRangeMin(rangeMin: number): void { this.rangeMin = rangeMin; }
   public setRangeMax(rangeMax: number): void { this.rangeMax = rangeMax; }

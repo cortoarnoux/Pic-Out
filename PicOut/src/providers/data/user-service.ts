@@ -41,7 +41,8 @@ export class UserService {
       params: {
         enable: true,
         status: 'user',
-        delete: false
+        delete: false,
+        uid: user.getUid()
       }
     });
   }

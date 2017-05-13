@@ -29,7 +29,8 @@ export class CurrentUserService {
       params: {
         enable: true,
         status: 'user',
-        delete: false
+        delete: false,
+        uid: userId
       }
     });
   }
