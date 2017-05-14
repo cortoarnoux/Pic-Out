@@ -45,17 +45,31 @@ export class CreateVoteSecondStepPage {
     this.nav.push(CreateVotePage, {}, {animate: true, direction: 'back'});
   }
 
-  // Ajouter un choix
-  public addAChoice(){
+  // Ajouter un choix via camera
+  public addAChoiceCamera(){
    // Prendre une photo
    this.doGetPicture(this.choixIndex);
    // Ajouter le choix dans le tableau des choix pour le faire apparaitre dans le visuel
    this.choix.push(this.choixIndex);
    this.choixTemp = this.choix;
    this.choixIndex++;
-   // Hack pour ne pas avoir à recharger la page 
+   // Hack pour ne pas avoir à recharger la page
    this._zone.run(() => this.choix = this.choixTemp);
   }
+
+  // Ajouter un choix via Galerie photo
+  public addAChoiceGallery(){
+   // Prendre une photo
+   this.doGetPictureGallery(this.choixIndex);
+   // Ajouter le choix dans le tableau des choix pour le faire apparaitre dans le visuel
+   this.choix.push(this.choixIndex);
+   this.choixTemp = this.choix;
+   this.choixIndex++;
+   // Hack pour ne pas avoir à recharger la page
+   this._zone.run(() => this.choix = this.choixTemp);
+  }
+
+
 
   // Confirmation avant envoi du vote
   public confirmVote(){
@@ -157,6 +171,34 @@ export class CreateVoteSecondStepPage {
    });
  }
 
+
+
+ // Fonction permettant de faire fonctionne le plugin cordova pour la prise de photo
+ doGetPictureGallery(eachChoix) {
+
+   this.currentChoice = eachChoix;
+
+   //let imageSource = (Device.isVirtual ? Camera.PictureSourceType.PHOTOLIBRARY : Camera.PictureSourceType.CAMERA);
+
+   Camera.getPicture({
+     destinationType: Camera.DestinationType.FILE_URI,
+     sourceType:  Camera.PictureSourceType.SAVEDPHOTOALBUM,
+     targetHeight: 640,
+     correctOrientation: true
+   }).then((imagePath) => {
+     return this.convertIntoBlob(imagePath);
+   }).then((imageBlob) => {
+     return this.uploadToFirebase(imageBlob);
+   }).then((uploadSnapshot: any) => {
+     return this.saveToDatabaseAssetList(uploadSnapshot);
+   }).then((uploadSnapshot: any) => {
+   }, (error) => {
+     alert('Error ' + (error.message || error));
+   });
+ }
+
+
+
  // Vérification du vote et envoi dans la BDD
  showPopup(title, text) {
       let alert = this.alertCtrl.create({
@@ -176,7 +218,7 @@ export class CreateVoteSecondStepPage {
             } else {
               this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, this.vote[4]);
             }
-            
+
             var ref = firebase.database().ref('votes');
             ref.push(this.objectVote);
 
@@ -189,5 +231,3 @@ export class CreateVoteSecondStepPage {
       alert.present();
     }
 }
-
-     
