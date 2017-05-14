@@ -9,9 +9,11 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ImageComponent } from './image/image.component';
 import { UserComponent } from './user/user.component';
 
+import { UsersService } from './services/users.service';
+
 const appRoutes: Routes = [
-  { path: 'user', component: UserComponent },
-  { path: 'image', component: ImageComponent },
+  { path: 'users', component: UserComponent },
+  { path: 'images', component: ImageComponent },
 ];
 
 export const firebaseConfig = {
@@ -42,7 +44,7 @@ const firebaseAuthConfig = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

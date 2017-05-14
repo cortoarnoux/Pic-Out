@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +10,23 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class UserComponent implements OnInit {
   users : FirebaseListObservable<any[]>;
 
-  constructor(af: AngularFire) {
-    this.users = af.database.list('/users');
+  constructor(public us: UsersService) {
+    this.users = us.users;
   }
 
   ngOnInit() {
+  }
+
+  onEnable(uid: string): void {
+    this.us.updateUserParams(uid, { enable: true });
+  }
+
+  onDisable(uid: string): void {
+    this.us.updateUserParams(uid, { enable: false });
+  }
+
+  onDelete(uid: string): void {
+    this.us.updateUserParams(uid, { delete: true });
   }
 
 }
