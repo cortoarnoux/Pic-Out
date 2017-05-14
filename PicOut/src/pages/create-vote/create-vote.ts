@@ -11,7 +11,6 @@ import { Storage } from '@ionic/storage';
 
 // Corto : Ajout du vote, import de AngularFire et Firebase + import de l'objet vote pour stocker le vote
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import {Vote} from '../../providers/models/vote';
 
 @Component({
   selector: 'page-create-vote',

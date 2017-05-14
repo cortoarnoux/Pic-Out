@@ -21,10 +21,4 @@ export class VotesService {
   getVoteList(currentUserID): firebase.database.Reference {
     return this.votePath.orderByChild("voteMasterID").equalTo(currentUserID);
   }
-
-  addFriendForCurrentVote(currentVoteID, friendUID){
-    /*firebase.database().ref('users/' + this.currentVoteID + '/friends').push({
-      friendUID: friendUID
-    });*/
-  }
 }

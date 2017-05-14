@@ -20,7 +20,7 @@
   </ion-col>
   <ion-col></ion-col>
   <ion-col>
-    <button ion-button class="home-btn" (click)="moveToHome()">Terminé</button>
+    <button ion-button class="home-btn" (click)="confirmVote()">Terminé</button>
   </ion-col>
 </ion-row>
 
@@ -44,29 +44,14 @@
 
 <h3>Choix de réponses :</h3>
 <ion-grid>
-  <ion-row class="choices-list">
-    <ion-item (click)="addAChoice()">+ Ajouter une réponse</ion-item>
-  </ion-row >
-</ion-grid>
-<ion-grid>
   <ion-row class="choices-list jq-choice-list">
     <ion-item class="choice" *ngFor="let eachChoix of choix" [ngStyle]="{'background-image':'url('+choixPhoto[eachChoix]+')'}">Réponse {{eachChoix}}</ion-item>
-
   </ion-row >
 </ion-grid>
-
-<ion-list>
-   <ion-item *ngFor="let item of picturesArray; let i = index; trackBy:index">
-     <p>{{i}} - {{item.name}}</p>
-     <p>{{item.lastUpdated}}</p>
- <p>{{item.email}}</p>
-     <img [src]=item.URL width="180px" class="padding"/>
-   </ion-item>
-</ion-list>
 
 <ion-row>
   <ion-col>
-    <button ion-button class="home-btn" (click)="addNewResponse()">Ajouter une réponse</button>
+    <button ion-button class="home-btn" (click)="addAChoice()">Ajouter une réponse</button>
   </ion-col>
 </ion-row>
 
