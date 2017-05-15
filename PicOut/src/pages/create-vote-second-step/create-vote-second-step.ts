@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs/Rx';
 import firebase from 'firebase';
 import { Vote } from '../../providers/models/vote';
 import { VotesService } from '../../providers/data/votes-service';
+import { CurrentUserService } from '../../providers/data/currentuser-service';
 import * as $ from 'jquery';
 
 declare var window: any;
@@ -34,7 +35,12 @@ export class CreateVoteSecondStepPage {
   public currentChoice: any;
   public responsesUrl = [];
 
-  constructor(public nav: NavController, public navParams: NavParams, private _zone: NgZone, private alertCtrl: AlertController) {
+  constructor(
+    public nav: NavController, 
+    public navParams: NavParams, 
+    private _zone: NgZone, 
+    private alertCtrl: AlertController, 
+    private currentUserService: CurrentUserService) {
     this.vote = navParams.get('registered_vote_state');
   }
 
@@ -220,10 +226,29 @@ export class CreateVoteSecondStepPage {
             }
 
             var ref = firebase.database().ref('votes');
-            ref.push(this.objectVote);
+            var key: any;
+
+            ref.push(this.objectVote)
+            .then((snap) => {
+              key = snap.key;
+              console.log(key);
+
+              for(let friend in this.vote[3]){
+                console.log(this.vote[3][friend]);
+                this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend], key);
+              }
+              
+            });
+
+            // Envoyer le vote aux amis
+            /*for(let friend in this.vote[3]){
+              console.log(this.vote[3][friend]);
+              this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend], key);
+            }*/
 
             console.log(this.objectVote);
             this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});
+
           }
         }
       ]

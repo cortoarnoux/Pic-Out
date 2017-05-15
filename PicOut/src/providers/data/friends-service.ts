@@ -19,9 +19,6 @@ export class FriendsService {
 
   }
 
-
-
-
   getFriendList(): firebase.database.Reference {
   	return this.friendList;
   }

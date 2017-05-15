@@ -5,12 +5,6 @@ import firebase from 'firebase';
 import { FriendsService } from '../../providers/data/friends-service';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 
-/*
-  Generated class for the PopOverAddFriend page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-pop-over-add-friend',
   templateUrl: 'pop-over-add-friend.html'
@@ -70,9 +64,9 @@ export class PopOverAddFriendPage {
     });
   }
 
-  public selectFriend(friendUID){
+  public selectFriend(friendUID, email){
     let infoMessage;
-    infoMessage= "Voulez-vous vraiment ajouter "+ friendUID +" à votre liste d'amis ?";
+    infoMessage= "Voulez-vous vraiment ajouter "+ email +" à votre liste d'amis ?";
     this.showAddFriendPopup("Vérification", infoMessage, friendUID);
   }
 

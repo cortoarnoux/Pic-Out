@@ -41,6 +41,12 @@ export class CurrentUserService {
     });
   }
 
+  addvoteForCurrentFriend(friendUID, voteID){
+    firebase.database().ref('users/' + friendUID + '/votesinvitedat').push({
+      voteID: voteID
+    });
+  }
+
   currentUserUpdateUsername(newUsername){
     firebase.database().ref('users/' + this.currentUser.uid).update({
       username: newUsername
