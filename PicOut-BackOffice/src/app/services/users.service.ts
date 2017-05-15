@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import {AngularFire, FirebaseListObservable, } from 'angularfire2';
 import { User } from '../models/user';
 
 @Injectable()
 export class UsersService {
   users : FirebaseListObservable<any[]>;
 
-  constructor(public db: AngularFireDatabase) {
-    this.users = db.list('/users');
+  constructor(public af: AngularFire) {
+    this.users = af.database.list('/users');
   }
 
   updateUserParams(uid: string, params: object): boolean {
-    let user = this.db.object(`/users/${uid}/params`);
+    let user = this.af.database.object(`/users/${uid}/params`);
 
     user.update(params)
       .then(_ => { return true })

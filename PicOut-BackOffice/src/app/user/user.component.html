@@ -3,31 +3,34 @@
 </h3>
 
 <section class="users_container">
-  <div *ngFor="let user of users | async" class="panel_container panel panel-default">
-    <div class="panel-heading">
-      <h4 class="user_name">{{ user.email }}</h4>
-    </div>
-    <div class="user_panel panel-body">
-      <div class="user_info">
-        <p *ngIf="user.firstname != null && user.lastname != null">Nom prénom :
-          {{ user.lastname }} {{ user.firstname }}
-        </p>
-        <p *ngIf="user.firstname == null && user.lastname == null">Nom prénom :
-          n/a
-        </p>
-        <p>Statut : {{ user.params.status }}</p>
-      </div>
-      <div class="admin_button" *ngIf="!user.params.delete">
-        <button class="delete_user btn btn-danger" (click)="onDelete(user.params.uid)">Supprimé</button>
-        <div *ngIf="user.params.enable">
-          <button class="disable_user btn btn-warning" (click)="onDisable(user.params.uid)">Bloqué</button>
+  <div *ngFor="let user of users | async" class="panel_container">
+    <div [hidden]="user.params.status == 'admin'">
+      <div class=" panel panel-default">
+        <div class="panel-heading">
+          <h4 class="user_name">{{ user.email }}</h4>
         </div>
-        <div *ngIf="!user.params.enable">
-          <button class="enable_user btn btn-success" (click)="onEnable(user.params.uid)">Débloqué</button>
+        <div class="user_panel panel-body">
+          <div class="user_info">
+            <p *ngIf="user.firstname != null && user.lastname != null">Nom prénom :
+              {{ user.lastname }} {{ user.firstname }}
+            </p>
+            <p *ngIf="user.firstname == null && user.lastname == null">Nom prénom : n/a
+            </p>
+            <p>Statut : {{ user.params.status }}</p>
+          </div>
+          <div class="admin_button" *ngIf="!user.params.delete">
+            <button class="delete_user btn btn-danger" (click)="onDelete(user.params.uid)">Bannir</button>
+            <div *ngIf="user.params.enable">
+              <button class="disable_user btn btn-warning" (click)="onDisable(user.params.uid)">Bloquer</button>
+            </div>
+            <div *ngIf="!user.params.enable">
+              <button class="enable_user btn btn-success" (click)="onEnable(user.params.uid)">Débloquer</button>
+            </div>
+          </div>
+          <div class="user_deleted alert alert-danger" *ngIf="user.params.delete">
+            <p class="">Utilisateur bannie</p>
+          </div>
         </div>
-      </div>
-      <div class="user_deleted alert alert-danger" *ngIf="user.params.delete">
-        <p class="">Utilisateur supprimé</p>
       </div>
     </div>
   </div>

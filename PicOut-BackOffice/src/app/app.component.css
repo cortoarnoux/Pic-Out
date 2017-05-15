@@ -1,7 +1,44 @@
 * { margin: 0; padding: 0; }
 
+@font-face {
+  font-family: 'oswald';
+  src: url('/../../assets/fonts/oswald/Oswald-Medium.eot');
+  src: url('/../../assets/fonts/oswald/Oswald-Medium.woff2') format('woff2'),
+  url('/../../assets/fonts/oswald/Oswald-Medium.woff') format('woff'),
+  url('/../../assets/fonts/oswald/Oswald-Medium.ttf') format('truetype'),
+  url('/../../assets/fonts/oswald/Oswald-Medium.svg#Oswald-Medium') format('svg'),
+  url('/../../assets/fonts/oswald/Oswald-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 header {
+  background-color: #f5f5f5;
   display: flex;
+  align-content: center;
   justify-content: space-between;
   border-bottom: solid 1px darkgray;
 }
+header {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+}
+header a {
+  text-decoration: none;
+  color: black;
+}
+header a:hover {
+  color: #7f7f7f;
+}
+header h1 {
+  padding: 10px;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  padding: 10px;
+  margin: 0 auto;
+}
+
+
