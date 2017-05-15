@@ -12,7 +12,7 @@
       <ion-col></ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <button ion-button class="home-btn" (click)="moveToMyHome()">Terminé</button>
+        <button ion-button class="home-btn" (click)="moveToMyHome(newUsername, newEmail, newFirstname, newLastName)">Terminé</button>
       </ion-col>
     </ion-row>
 
@@ -36,8 +36,12 @@
            </ion-col>
         </ion-row>
         <!-- Corto : Bouton pour modifier l'information Email -->
-        <button (click)="accountUpdateEmail(newEmail)">Enregistrer</button>
-
+        <ion-row >
+          <ion-col>
+            <button ion-button class="home-btn" (click)="accountUpdateEmail(newEmail)">Enregistrer</button>
+          </ion-col>
+          <ion-col></ion-col>
+       </ion-row>
         <!-- Nico : Modification username -->
         <ion-row id="username-row">
           <ion-col>
@@ -52,8 +56,12 @@
            </ion-col>
         </ion-row>
         <!-- Corto : Bouton pour modifier l'information Username -->
-        <button (click)="accountUpdateUsername(newUsername)">Enregistrer</button>
-
+      <ion-row >
+        <ion-col>
+          <button ion-button class="home-btn" (click)="accountUpdateUsername(newUsername)">Enregistrer</button>
+        </ion-col>
+        <ion-col></ion-col>
+     </ion-row>
         <!-- Nico : Modification du prénom -->
         <ion-row id="firstname-row">
           <ion-col>
@@ -67,8 +75,12 @@
             </div>
           </ion-col>
         </ion-row>
-        <button (click)="accountUpdateFirstName(newFirstName)">Enregistrer</button>
-
+        <ion-row >
+          <ion-col>
+            <button ion-button class="home-btn" (click)="accountUpdateFirstName(newFirstName)">Enregistrer</button>
+          </ion-col>
+          <ion-col></ion-col>
+       </ion-row>
         <!-- Nico : Modification du nom -->
         <ion-row id="lastname-row">
           <ion-col>
@@ -82,8 +94,12 @@
             </div>
           </ion-col>
         </ion-row>
-        <button (click)="accountUpdateLastName(newLastName)">Enregistrer</button>
-
+        <ion-row >
+          <ion-col>
+            <button ion-button class="home-btn" (click)="accountUpdateLastName(newLastName)">Enregistrer</button>
+          </ion-col>
+          <ion-col></ion-col>
+       </ion-row>
       </ion-col>
 
   </ion-row>
