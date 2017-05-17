@@ -10,23 +10,23 @@ import { UsersService } from '../services/users.service';
 export class UserComponent implements OnInit {
   users : FirebaseListObservable<any[]>;
 
-  constructor(public us: UsersService) {
-    this.users = us.users;
+  constructor(public usrs: UsersService) {
+    this.users = usrs.users;
   }
 
   ngOnInit() {
   }
 
   onEnable(uid: string): void {
-    this.us.updateUserParams(uid, { enable: true });
+    this.usrs.updateUserParams(uid, { enable: true });
   }
 
   onDisable(uid: string): void {
-    this.us.updateUserParams(uid, { enable: false });
+    this.usrs.updateUserParams(uid, { enable: false });
   }
 
   onDelete(uid: string): void {
-    this.us.updateUserParams(uid, { delete: true });
+    this.usrs.updateUserParams(uid, { delete: true });
   }
 
 }

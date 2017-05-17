@@ -16,6 +16,9 @@
       "es2016",
       "dom"
     ],
-    "types": ["node"]
+    "types": [
+      "node",
+      "firebase"
+    ]
   }
 }

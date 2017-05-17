@@ -1,10 +1,12 @@
-<h3 id="user_title">
-  Utilisateurs
-</h3>
+
+<div class="page-header">
+  <h3 id="user_title"> Utilisateurs </h3>
+</div>
 
 <section class="users_container">
   <div *ngFor="let user of users | async" class="panel_container">
-    <div [hidden]="user.params.status == 'admin'">
+    <span *ngIf="user.params.status == 'admin'" class="hide_admin"></span>
+    <div *ngIf="user.params.status != 'admin'">
       <div class=" panel panel-default">
         <div class="panel-heading">
           <h4 class="user_name">{{ user.email }}</h4>
@@ -35,3 +37,4 @@
     </div>
   </div>
 </section>
+

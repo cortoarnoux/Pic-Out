@@ -1,5 +1,12 @@
-<h3 id="image_title">Images</h3>
+<div class="page-header">
+  <h4 id="page_title">Images</h4>
+</div>
 
-<section>
-
+<section class="images">
+  <div *ngFor="let img of images | async" class="image_main">
+    <div class="image_container panel panel-default">
+      <div class="panel-body background_cover" [style.background-image]="sanitizeUrlImage(img.URL)"><div class="fake_elem"></div></div>
+      <div class="panel-footer"><div class="btn_delete btn btn-danger" (click)="onDelete(img.name)">Supprimer</div></div>
+    </div>
+  </div>
 </section>

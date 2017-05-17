@@ -10,6 +10,7 @@ import { ImageComponent } from './image/image.component';
 import { UserComponent } from './user/user.component';
 
 import { UsersService } from './services/users.service';
+import { ImagesService } from './services/images.service';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserComponent },
@@ -44,7 +45,10 @@ const firebaseAuthConfig = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    ImagesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
