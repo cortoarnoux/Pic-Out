@@ -11,10 +11,9 @@ import { DomSanitizer, SafeStyle } from "@angular/platform-browser";
 export class ImageComponent implements OnInit {
   images: FirebaseListObservable<any[]>;
 
-  constructor(public imgs: ImagesService, private _sanitize: DomSanitizer) {
-    this.images = imgs.imagesAF;
-    //imgs.readImages();
-    //console.log(imgs.imagesList);
+  constructor(public imgs: ImagesService,
+              private _sanitize: DomSanitizer) {
+    this.images = imgs.images;
   }
 
   ngOnInit() {
@@ -27,8 +26,8 @@ export class ImageComponent implements OnInit {
   onUpload() {}
 
   onDelete(image_title: string) {
-    console.log(image_title);
-    this.imgs.deleteImages(image_title);
+    this.imgs.deleteStoragedImage(image_title);
+    this.imgs.deleteDatabaseImage(image_title);
   }
 
 }
