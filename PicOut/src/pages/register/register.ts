@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { UserService } from '../../providers/data/user-service';
 import { AccueilPage } from '../accueil/accueil';
+import { User } from '../../providers/models/user';
 import firebase from 'firebase';
 
 @Component({
@@ -29,7 +30,15 @@ export class RegisterPage {
     let createUser = new UserService();
 
     createUser.auth.createUserWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
-      .then((_) => {
+      .then((success) => {
+        var newUser = new User("","","");
+        newUser.setUid(success.uid);
+        newUser.setEmail(this.registerCredentials.email);
+        newUser.setRangeMin(0);
+        newUser.setRangeMax(0);
+
+        createUser.setUserInfos(newUser, success.uid);
+
         this.showValidPopup("Success", "Compte créé avec succès");
       })
       .catch((error) =>{
