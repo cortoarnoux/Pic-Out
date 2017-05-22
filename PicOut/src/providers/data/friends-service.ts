@@ -28,4 +28,8 @@ export class FriendsService {
         .ref(`users/${this.currentUser}/friends/${id}`);
     this.friendIDList.remove();
   }
+
+  getFriendEmail(id){
+    return firebase.database().ref(`/users/${id}/email`);
+  }
 }

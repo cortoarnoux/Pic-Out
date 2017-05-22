@@ -36,7 +36,7 @@ export class LoginPage {
     authUser.auth.signInWithEmailAndPassword(this.registerCredentials.email, this.registerCredentials.password)
       .then((value) => {
         authUser.getUserInfos(value.uid).on('value', (data) => {
-         /*let ui = data.val();
+         let ui = data.val();
           if(!ui.params.enable) {
             this.showPopup('Connexion impossible', 'Votre compte a été bloqué');
             firebase.auth().signOut();
@@ -45,7 +45,7 @@ export class LoginPage {
             this.showPopup('Connexion impossible', 'Votre compte a été supprimé');
             firebase.auth().signOut();
           }
-          else*/
+          else
             this.navCtrl.push(AccueilPage);
         });
       })

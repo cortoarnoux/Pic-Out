@@ -43,9 +43,9 @@
       <ion-input [(ngModel)]="mail_invite" type="email" placeholder="Saisir un mail invité"></ion-input>
       <h3>Ajoutés au sondage</h3>
       <!--Liste des amis-->
-        <ion-list *ngFor="let addedFriend of addedFriends" id="friendlist">
+        <ion-list *ngFor="let addedFriend of friendAddedToVote" id="friendlist">
           <ion-item>
-            <ion-icon name="person"></ion-icon> friend.email
+            <ion-icon name="person"></ion-icon>{{addedFriend.email}}
           </ion-item>
         </ion-list>
     </ion-col>

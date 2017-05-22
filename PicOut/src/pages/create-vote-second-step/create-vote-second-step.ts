@@ -184,8 +184,6 @@ export class CreateVoteSecondStepPage {
 
    this.currentChoice = eachChoix;
 
-   //let imageSource = (Device.isVirtual ? Camera.PictureSourceType.PHOTOLIBRARY : Camera.PictureSourceType.CAMERA);
-
    Camera.getPicture({
      destinationType: Camera.DestinationType.FILE_URI,
      sourceType:  Camera.PictureSourceType.SAVEDPHOTOALBUM,
@@ -202,8 +200,6 @@ export class CreateVoteSecondStepPage {
      alert('Error ' + (error.message || error));
    });
  }
-
-
 
  // Vérification du vote et envoi dans la BDD
  showPopup(title, text) {

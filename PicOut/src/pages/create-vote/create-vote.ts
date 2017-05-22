@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { FriendsPage } from '../friends/friends';
 import { AddFriendVotePage } from '../add-friend-vote/add-friend-vote';
@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import { PopoverController } from 'ionic-angular';
 import { PopOverVoteAddFriendPage } from '../pop-over-vote-add-friend/pop-over-vote-add-friend';
 import { Storage } from '@ionic/storage';
+import { FriendsService } from '../../providers/data/friends-service';
 
 // Corto : Ajout du vote, import de AngularFire et Firebase + import de l'objet vote pour stocker le vote
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
@@ -25,12 +26,15 @@ export class CreateVotePage {
     private alertCtrl: AlertController,
     private navParams: NavParams,
     public af: AngularFire,
+    private _zone: NgZone,
     public popoverCtrl: PopoverController,
-    public storage: Storage) {
+    public storage: Storage,
+    private friendsService: FriendsService) {
   }
 
   public voteMasterID = firebase.auth().currentUser.uid;
   public friendAddedToVote = [];
+  public friendsEmail = [];
 
   ionViewDidLoad() {
     this.storage.set('friendAddedToVote', this.friendAddedToVote);
@@ -85,9 +89,15 @@ export class CreateVotePage {
       popover.present();
       popover.onDidDismiss(() => {
         this.storage.get('friendAddedToVote').then((val) => {
-           this.friendAddedToVote = val;
+          this.friendAddedToVote = val;
         })
+        for(let friend in this.friendAddedToVote) {
+          let id = this.friendsService.getFriendEmail(this.friendAddedToVote[friend]);
+          console.log(id);
+          this.friendsEmail.push(id);
+        }
         console.log(this.friendAddedToVote);
+        console.log(this.friendsEmail);
       });
     }
 
