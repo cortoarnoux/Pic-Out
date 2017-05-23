@@ -18,7 +18,16 @@ export class VotesService {
     return this.votes;
   }
 
-  getVoteList(currentUserID): firebase.database.Reference {
+  getVoteListCreated(currentUserID): firebase.database.Reference {
     return this.votePath.orderByChild("voteMasterID").equalTo(currentUserID);
+  }
+
+  getVoteListInvited(currentUserID): firebase.database.Reference {
+    return this.votePath.orderByChild("friendAddedToVote").equalTo(currentUserID);
+  }
+
+
+  getVoteData(id): firebase.database.Reference {
+    return firebase.database().ref(`votes/${id}`);
   }
 }

@@ -21,13 +21,37 @@
       </ion-col>
   </ion-row>
 
-  <!--Liste des votes
+  <ion-row>
+    <ion-col>
+        <h3>Votes créés</h3>
+    </ion-col>
+  </ion-row>
 
-   <ion-list *ngFor="let vote of voteListDisp" id="votelist">
-      <ion-item (click)="">
-        <ion-icon name="vote"></ion-icon>
-      </ion-item>
-    </ion-list>
--->
+  <ion-list *ngFor="let vote of voteListCreated" id="votelist">
+     <ion-item>
+       <ion-icon name="vote"></ion-icon>{{vote.title}}              Date : {{vote.expiration_date}}
+     </ion-item>
+   </ion-list>
+
+
+  <ion-row>
+    <ion-col>
+        <h3>Votes ou je suis invité</h3>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- Pas fini
+
+  <ion-list *ngFor="let vote of voteListInvited" id="votelist">
+     <ion-item>
+       <ion-icon name="vote"></ion-icon>{{vote.title}}
+     </ion-item>
+   </ion-list> -->
+
+
+
+
+
 
 </ion-content>

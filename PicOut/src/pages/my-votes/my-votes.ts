@@ -18,9 +18,12 @@ import { Vote } from '../../providers/models/vote';
 export class MyVotesPage {
 
   public currentUser = firebase.auth().currentUser.uid;
-  public voteList = [];
   public voteListDisp = [];
   public voteIDs = [];
+  public voteListCreated = [];
+  public voteListInvited = [];
+
+
 
   constructor(
     public nav: NavController,
@@ -29,32 +32,32 @@ export class MyVotesPage {
   ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyVotesPage');
 
-    console.log(this.currentUser);
+    //Votes créés
+    let i = 0;
+    this.votesData.getVoteListCreated(this.currentUser).on("child_added", (snapshot) => {
+      //Remplit la liste avec les ID
+      this.voteListCreated[i]=snapshot.val();
+      i ++;
+    });
 
-    // Trouver tous les votes ou l'ID du createur est l'ID courant
-    /*this.votesData.getVoteList(this.currentUser).on("child_added", function(snapshot) {
-      // affiche bien les votes ou le voteMasterID est celui de l'user courant
-      let snapshotID = "";
-      snapshotID = snapshot.key;
-      console.log(snapshotID);
-      this.voteIDs.push(snapshotID);
-    });*/
+    //Votes invités
+    // /!\ Ne fonctionne pas encore
+    let j = 0;
+    this.votesData.getVoteListInvited(this.currentUser).on("child_added", (snapshot) => {
+      //Remplit la liste avec les ID
+      this.voteListInvited[j]=snapshot.val();
+      j ++;
+    });
+
+
   }
 
   public moveToHome() {
-    //this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});
+    this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});
   }
-      
-/*
-        for(let vote in this.voteList){
-          let thisVoteID = this.voteList[vote].id;
-            ref.equalTo(thisVoteID).on("child_added", function(snapshot) {
-              this.voteListDisp.push(snapshot.key);
-            });
-        }
-*/
+
+
 
 
 }
