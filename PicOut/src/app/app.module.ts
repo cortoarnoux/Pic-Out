@@ -22,6 +22,7 @@ import { FriendsService } from '../providers/data/friends-service';
 import { UserService } from '../providers/data/user-service';
 import { CurrentUserService } from '../providers/data/currentuser-service';
 import { VotesService } from '../providers/data/votes-service';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -76,7 +77,8 @@ export const firebaseConf = {
     UserService,
     CurrentUserService,
     VotesService,
-    Storage
+    Storage,
+    Push,
   ]
 })
 export class AppModule {}
