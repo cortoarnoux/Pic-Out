@@ -40,7 +40,8 @@ export class CreateVoteSecondStepPage {
     public navParams: NavParams, 
     private _zone: NgZone, 
     private alertCtrl: AlertController, 
-    private currentUserService: CurrentUserService) {
+    private currentUserService: CurrentUserService,
+    private voteService: VotesService) {
     this.vote = navParams.get('registered_vote_state');
   }
 
@@ -177,8 +178,6 @@ export class CreateVoteSecondStepPage {
    });
  }
 
-
-
  // Fonction permettant de faire fonctionne le plugin cordova pour la prise de photo
  doGetPictureGallery(eachChoix) {
 
@@ -215,7 +214,6 @@ export class CreateVoteSecondStepPage {
           text: 'Valider le vote',
           handler: () => {
             if(typeof this.vote[4] === 'undefined') {
-              console.log("Ca passe");
               this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl);
             } else {
               this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, this.vote[4]);
@@ -227,24 +225,19 @@ export class CreateVoteSecondStepPage {
             ref.push(this.objectVote)
             .then((snap) => {
               key = snap.key;
-              console.log(key);
 
               for(let friend in this.vote[3]){
                 console.log(this.vote[3][friend]);
                 this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend], key);
               }
+
+              // Ajouter à l'utilisateur ses votes MasterID
+              this.voteService.pushThisVoteAsMaster(key);
               
             });
 
-            // Envoyer le vote aux amis
-            /*for(let friend in this.vote[3]){
-              console.log(this.vote[3][friend]);
-              this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend], key);
-            }*/
-
             console.log(this.objectVote);
             this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});
-
           }
         }
       ]

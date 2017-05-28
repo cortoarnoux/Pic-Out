@@ -18,16 +18,31 @@ export class VotesService {
     return this.votes;
   }
 
-  getVoteListCreated(currentUserID): firebase.database.Reference {
-    return this.votePath.orderByChild("voteMasterID").equalTo(currentUserID);
+  getVoteListCreated(): firebase.database.Reference {
+    return firebase.database().ref(`users/${this.currentID}/voteMasterList`);
   }
 
   getVoteListInvited(currentUserID): firebase.database.Reference {
     return this.votePath.orderByChild("friendAddedToVote").equalTo(currentUserID);
   }
 
-
   getVoteData(id): firebase.database.Reference {
     return firebase.database().ref(`votes/${id}`);
+  }
+
+  getCurrentUserMasterVotes(): firebase.database.Reference {
+    return firebase.database().ref(`votes/${this.currentID}`);
+  }
+
+  pushThisVoteAsMaster(voteID) {
+    firebase.database().ref(`users/${this.currentID}/voteMasterList/${voteID}`).set({
+      verifUser: this.currentID
+    });
+  }
+
+  addvoteForCurrentFriend(friendUID, voteID){
+    firebase.database().ref('users/' + friendUID + '/votesinvitedat').push({
+      voteID: voteID
+    });
   }
 }
