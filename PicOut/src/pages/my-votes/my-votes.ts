@@ -42,6 +42,7 @@ export class MyVotesPage {
       }
       // Et voilà =)
       console.log("Liste des votes de cet user : ", this.voteListCreated);
+      // Hello @github
 
     // Votes invités
     // /!\ Ne fonctionne pas encore
