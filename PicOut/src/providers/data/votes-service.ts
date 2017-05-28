@@ -23,7 +23,9 @@ export class VotesService {
   }
 
   getVoteListInvited(currentUserID): firebase.database.Reference {
-    return this.votePath.orderByChild("friendAddedToVote").equalTo(currentUserID);
+    for(var _i = 0; _i < 100; _i++){
+      return this.votePath.orderByChild(`friendAddedToVote/${_i}`).equalTo(currentUserID);
+    }
   }
 
 
