@@ -28,11 +28,20 @@ export class MyVotesPage {
 
   ionViewDidLoad() {
 
-    this.votesData.getVoteListCreated().on('value', (data) => {
-      this.voteListCreated.push(data.val());
-    });
-
-    console.log("Liste des votes de cet user : ", this.voteListCreated);
+    // ** POUR HUGO ** //
+      // Pour récupérer les clefs d'objet dans un taleau d'objets
+      // On crée un tampon pour stocker le premier tableau d'objets
+      let stampCreatedData = [];
+      // On récupère le tableau brut depuis firebase
+      this.votesData.getVoteListCreated().on('value', (data) => {
+        stampCreatedData.push(data.val());
+      });
+      // On récupère simplment les clefs comme on le ferait pour l'index d'un tableau ordinaire
+      for(let key in stampCreatedData[0]) {
+        this.voteListCreated.push(key);
+      }
+      // Et voilà =)
+      console.log("Liste des votes de cet user : ", this.voteListCreated);
 
     // Votes invités
     // /!\ Ne fonctionne pas encore
