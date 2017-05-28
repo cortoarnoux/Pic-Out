@@ -33,22 +33,30 @@ export class PopOverVoteAddFriendPage {
   ionViewDidLoad() {
   	this.storage.get('friendAddedToVote').then((val) => {
        this.friendAddedToVote = val;
+       console.log(this.friendAddedToVote);
+
+       let stampFriendVerif = [];
+
+       for(let friend in this.friendAddedToVote) {
+         stampFriendVerif.push(this.friendAddedToVote[friend].friendUID);
+       }
+       console.log(stampFriendVerif);
 
       // Corto : Récupère la liste des UID des amis de l'utilisateur courant
-	    this.friendsData.getFriendList().on('value', snapshot => {
-	      let rawList = [];
-	      snapshot.forEach( snap => {
-	      	if(this.friendAddedToVote.indexOf(snap.val().friendUID) == -1){
-		        rawList.push({
-		          keyID: snap.key,
-		          friendUID: snap.val().friendUID
-		        });
-		    }
-	      return false
-	      });
-	      this.friendsObjectArray = rawList;
-	    });
-
+      this.friendsData.getFriendList().on('value', snapshot => {
+        let rawList = [];
+        snapshot.forEach( snap => {
+          if(stampFriendVerif.indexOf(snap.val().friendUID) == -1){
+            rawList.push({
+              keyID: snap.key,
+              friendUID: snap.val().friendUID
+            });
+        }
+        return false
+        });
+        this.friendsObjectArray = rawList;
+      });
+      
       for(let user in this.friendsObjectArray){
         this.currentUserService.getCurrentUser(this.friendsObjectArray[user].friendUID).on('value', (data) => {
             this.friendToUsersData.push({id: this.friendsObjectArray[user].friendUID, email: data.val().email});
@@ -60,13 +68,13 @@ export class PopOverVoteAddFriendPage {
     })
   }
 
-  public selectFriend(friendUID){
+  public selectFriend(friendUID, email){
     let infoMessage;
-    infoMessage= "Voulez-vous vraiment ajouter "+ friendUID +" à votre liste d'amis ?";
-    this.showAddFriendPopup("Vérification", infoMessage, friendUID);
+    infoMessage= "Voulez-vous vraiment ajouter "+ email +" à votre liste d'amis ?";
+    this.showAddFriendPopup("Vérification", infoMessage, friendUID, email);
   } 
 
-  showAddFriendPopup(title, text, friendUID) {
+  showAddFriendPopup(title, text, friendUID, email) {
       let alert = this.alertCtrl.create({
         title: title,
         subTitle: text,
@@ -78,7 +86,7 @@ export class PopOverVoteAddFriendPage {
         {
           text: 'Ok',
           handler: () => {
-          	this.friendAddedToVote.push(friendUID);
+          	this.friendAddedToVote.push({friendUID, email});
           	this.storage.set('friendAddedToVote', this.friendAddedToVote);
             alert.dismiss();
           }

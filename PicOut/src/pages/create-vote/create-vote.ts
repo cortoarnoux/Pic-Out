@@ -44,7 +44,6 @@ export class CreateVotePage {
   addVote(title, expiration_date, mail_invite){
 
     this.vote = [this.voteMasterID, title, expiration_date, this.friendAddedToVote, mail_invite];
-    console.log(this.vote);
 
     if(this.vote[1] == "" || this.vote[2] == null || this.friendAddedToVote.length < 1){
       if(this.vote[1] == ""){
@@ -82,6 +81,13 @@ export class CreateVotePage {
       this.showPopup("Attention", errorMessage);
     }
 
+    public actionOnFriend(id, email){
+      let infoMessage;
+      console.log(id);
+      infoMessage = "Voulez-vous vraiment supprimer "+ email +" de ce vote ?";
+      this.showDeleteFriendPopup("Attention", infoMessage, id);
+    }
+
     presentPopover() {
       let popover = this.popoverCtrl.create(PopOverVoteAddFriendPage, {
         SelectedFriendID: this.friendAddedToVote
@@ -91,17 +97,33 @@ export class CreateVotePage {
         this.storage.get('friendAddedToVote').then((val) => {
           this.friendAddedToVote = val;
         })
-        for(let friend in this.friendAddedToVote) {
-          let id = this.friendsService.getFriendEmail(this.friendAddedToVote[friend]);
-          console.log(id);
-          this.friendsEmail.push(id);
-        }
-        console.log(this.friendAddedToVote);
-        console.log(this.friendsEmail);
       });
     }
 
-    // cancel or ok with clear vote object
+    showDeleteFriendPopup(title, text, id) {
+      let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: text,
+        buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            // Corto : Petite technique pour sortir un objet du tableau d'objet si un cet objet a une propriété qu'on ne souhaite pas conserver
+            for( let i = this.friendAddedToVote.length-1; i>=0; i--) {
+              if( this.friendAddedToVote[i].friendUID == id) this.friendAddedToVote.splice(i,1);
+            }
+            this.storage.set('friendAddedToVote', this.friendAddedToVote);
+          }
+        }
+      ]
+      });
+      alert.present();
+    }
+
     showPopup(title, text) {
       let alert = this.alertCtrl.create({
         title: title,
@@ -123,7 +145,6 @@ export class CreateVotePage {
       alert.present();
     }
 
-    // cancel or ok with clear vote object without redirection
     showErrorMessage(title, text) {
       let alert = this.alertCtrl.create({
         title: title,

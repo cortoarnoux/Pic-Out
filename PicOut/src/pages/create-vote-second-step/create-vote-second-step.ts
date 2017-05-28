@@ -228,7 +228,7 @@ export class CreateVoteSecondStepPage {
 
               for(let friend in this.vote[3]){
                 console.log(this.vote[3][friend]);
-                this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend], key);
+                this.currentUserService.addvoteForCurrentFriend(this.vote[3][friend].friendUID, key);
               }
 
               // Ajouter à l'utilisateur ses votes MasterID

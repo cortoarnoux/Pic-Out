@@ -91,23 +91,23 @@ export class FriendsPage {
   }
 
   showDeleteFriendPopup(title, text, id) {
-      let alert = this.alertCtrl.create({
-        title: title,
-        subTitle: text,
-        buttons: [
-        {
-          text: 'Annuler',
-          role: 'cancel',
-        },
-        {
-          text: 'Ok',
-          handler: () => {
-            this.friendsData.removeFriend(id);
-            this.refreshFriendList();
-          }
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+      {
+        text: 'Annuler',
+        role: 'cancel',
+      },
+      {
+        text: 'Ok',
+        handler: () => {
+          this.friendsData.removeFriend(id);
+          this.refreshFriendList();
         }
-      ]
-      });
-      alert.present();
-    }
+      }
+    ]
+    });
+    alert.present();
+  }
 }
