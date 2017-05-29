@@ -20,6 +20,9 @@ export class MyVotesPage {
   public currentUser = firebase.auth().currentUser.uid;
   public voteListCreated = [];
   public voteListInvited = [];
+  public voteListInvitedData = [];
+  public voteListCreatedData = [];
+
 
   constructor(
     public nav: NavController,
@@ -29,29 +32,43 @@ export class MyVotesPage {
 
   ionViewDidLoad() {
 
-    // ** POUR HUGO ** //
-      // Pour récupérer les clefs d'objet dans un taleau d'objets
-      // On crée un tampon pour stocker le premier tableau d'objets
-      let stampCreatedData = [];
-      // On récupère le tableau brut depuis firebase
-      this.votesData.getVoteListCreated().on('value', (data) => {
-        stampCreatedData.push(data.val());
-      });
-      // On récupère simplment les clefs comme on le ferait pour l'index d'un tableau ordinaire
-      for(let key in stampCreatedData[0]) {
-        this.voteListCreated.push(key);
-      }
-      // Et voilà =)
-      console.log("Liste des votes de cet user : ", this.voteListCreated);
-      // Hello @github
-
-    // Votes invités
-    let j = 0;
-    this.votesData.getVoteListInvited(this.currentUser).on("child_added", (snapshot) => {
-      // Remplit la liste avec les ID
-      this.voteListInvited[j]=snapshot.val();
-      j ++;
+    // Pour récupérer les clefs d'objet dans un taleau d'objets
+    // On crée un tampon pour stocker le premier tableau d'objets
+    let stampCreatedData = [];
+    // On récupère le tableau brut depuis firebase
+    this.votesData.getVoteListCreated().on('value', (data) => {
+      stampCreatedData.push(data.val());
     });
+    // On récupère simplment les clefs comme on le ferait pour l'index d'un tableau ordinaire
+    for(let key in stampCreatedData[0]) {
+      this.voteListCreated.push(key);
+    }
+    // Récupération des datas de chaque vote 
+    for(let voteKey in this.voteListCreated) {
+      this.votesData.getVoteData(this.voteListCreated[voteKey]).on('value', (data) => {
+        this.voteListCreatedData.push([this.voteListCreated[voteKey], data.val().title]);
+      });
+    }
+    console.log("Liste des votes de cet user : ", this.voteListCreatedData);
+
+    // Pour récupérer les clefs d'objet dans un taleau d'objets
+    // On crée un tampon pour stocker le premier tableau d'objets
+    let stampInvitedData = [];
+    // On récupère le tableau brut depuis firebase
+    this.votesData.getVoteListInvited().on('value', (data) => {
+      stampInvitedData.push(data.val());
+    });
+    // On récupère simplment les clefs comme on le ferait pour l'index d'un tableau ordinaire
+    for(let key in stampInvitedData[0]) {
+      this.voteListInvited.push(key);
+    }
+    // Récupération des datas de chaque vote 
+    for(let voteKey in this.voteListInvited) {
+      this.votesData.getVoteData(this.voteListInvited[voteKey]).on('value', (data) => {
+        this.voteListInvitedData.push([this.voteListInvited[voteKey], data.val().title]);
+      });
+    }
+    console.log("Liste des votes de cet user : ", this.voteListInvitedData);
   }
 
 
