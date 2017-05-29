@@ -22,10 +22,8 @@ export class VotesService {
     return firebase.database().ref(`users/${this.currentID}/voteMasterList`);
   }
 
-  getVoteListInvited(currentUserID): firebase.database.Reference {
-    for(var _i = 0; _i < 100; _i++){
-      return this.votePath.orderByChild(`friendAddedToVote/${_i}`).equalTo(currentUserID);
-    }
+  getVoteListInvited(): firebase.database.Reference {
+    return firebase.database().ref(`users/${this.currentID}/votesinvitedat`);
   }
 
   getVoteData(id): firebase.database.Reference {
