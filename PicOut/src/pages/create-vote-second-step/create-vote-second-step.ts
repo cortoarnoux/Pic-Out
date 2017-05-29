@@ -76,7 +76,17 @@ export class CreateVoteSecondStepPage {
    this._zone.run(() => this.choix = this.choixTemp);
   }
 
-
+  // Enlever un des choix effecté
+  public actionOnThisChoice(i) {
+    // Définition d'un index grâce à l'élement clické
+    let index = this.choix.indexOf(i);
+    // On enlève cet index dans le tableau des choix
+    this.choix.splice(index, 1);
+    // On l'enlève également dans le tableau des URls si celui-ci n'est pas vide, vérification pour débug
+    if(this.responsesUrl != []) {
+      this.responsesUrl.splice(index, 1);
+    }
+  }
 
   // Confirmation avant envoi du vote
   public confirmVote(){
