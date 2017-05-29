@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Http} from '@angular/http';
 import { AccueilPage } from '../accueil/accueil';
+import { MyVotesPage } from '../my-votes/my-votes';
 import firebase from 'firebase';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 import { VotesService } from '../../providers/data/votes-service';
@@ -43,29 +44,27 @@ export class MyCreatedVotePage {
 
   }
 
+  //Supprimer le vote
+  public supprimerVote(){
+    this.navCtrl.push(MyVotesPage);
+    this.voteService.deleteThisVote(this.voteID);
+  }
 
-//   public supprimerVote(){
-//     this.voteService.deleteThisVote(this.voteID)
-//   }
-//
-// ///////////////////
-//   deleteThisVote(voteID): firebase.database.Reference {
-//     firebase.database().ref(`votes/${voteID}`).remove();
-//   }
-// ///////////////////
-
-
+  //update new title
   public voteUpdateTitle(newTitle){
     this.voteService.thisVoteUpdateTitle(newTitle, this.voteID)
   }
 
+  //update new date
   public voteUpdateDate(newDate){
     this.voteService.thisVoteUpdateDate(newDate, this.voteID)
   }
 
-
-  public moveToMyHome() {
-    this.navCtrl.push(AccueilPage);
+  //Retour à l'accueil
+  public moveToMyVotesPage() {
+    this.navCtrl.push(MyVotesPage);
   }
+
+
 
 }

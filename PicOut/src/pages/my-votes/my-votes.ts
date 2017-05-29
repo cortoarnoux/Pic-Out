@@ -46,12 +46,12 @@ export class MyVotesPage {
       // Hello @github
 
     // Votes invités
-    let j = 0;
-    this.votesData.getVoteListInvited(this.currentUser).on("child_added", (snapshot) => {
-      // Remplit la liste avec les ID
-      this.voteListInvited[j]=snapshot.val();
-      j ++;
-    });
+    // let j = 0;
+    // this.votesData.getVoteListInvited(this.currentUser).on("child_added", (snapshot) => {
+    //   // Remplit la liste avec les ID
+    //   this.voteListInvited[j]=snapshot.val();
+    //   j ++;
+    // });
   }
 
 

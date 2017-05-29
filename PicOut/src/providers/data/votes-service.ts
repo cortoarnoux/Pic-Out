@@ -48,18 +48,40 @@ export class VotesService {
 
 
 
+
+// modification du titre du vote
   thisVoteUpdateTitle(newTitle, voteID){
     firebase.database().ref('votes/' + voteID).update({
       title: newTitle
     });
   }
 
+//modification de la date du vote
   thisVoteUpdateDate(newDate, voteID){
     firebase.database().ref('votes/' + voteID).update({
       expiration_date: newDate
     });
   }
 
+//suppression du voteID
+deleteThisVote(voteID) {
+  let stampCreatedData = [];
+
+  firebase.database().ref('users').on('value', (data) => {
+    stampCreatedData.push(data.val());
+  });
+  console.log(stampCreatedData);
+  for(let key in stampCreatedData[0]) {
+    console.log(key);
+    firebase.database().ref(`users/${key}/voteMasterList/${voteID}`).remove();
+    firebase.database().ref(`users/${key}/votesinvitedat/${voteID}`).remove();
+  }
+  // suppression
+  firebase.database().ref(`votes/${voteID}`).remove();
+  // firebase.database().ref('users').child(`voteMasterList/${voteID}`).remove();
+  // firebase.database().ref('users').child(`votesinvitedat/${voteID}`).remove();
+
+}
 
 
 
