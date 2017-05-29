@@ -32,7 +32,7 @@
 <h3>Choix de réponses :</h3>
 <ion-grid>
   <ion-row class="choices-list jq-choice-list">
-    <ion-item class="choice" *ngFor="let eachChoix of choix" [ngStyle]="{'background-image':'url('+choixPhoto[eachChoix]+')'}">Réponse {{eachChoix}}</ion-item>
+    <ion-item class="choice" *ngFor="let eachChoix of choix" (click)="actionOnThisChoice(eachChoix)">Réponse {{eachChoix}}</ion-item>
   </ion-row >
 </ion-grid>
 
