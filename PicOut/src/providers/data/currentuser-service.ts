@@ -42,7 +42,7 @@ export class CurrentUserService {
   }
 
   addvoteForCurrentFriend(friendUID, voteID){
-    firebase.database().ref('users/' + friendUID + '/votesinvitedat').push({
+    firebase.database().ref(`users/${friendUID}/votesinvitedat/${voteID}`).push({
       voteID: voteID
     });
   }

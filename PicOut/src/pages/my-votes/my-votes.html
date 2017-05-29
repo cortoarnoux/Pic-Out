@@ -27,9 +27,9 @@
     </ion-col>
   </ion-row>
 
-  <ion-list *ngFor="let vote of voteListCreated" id="votelist">
-     <ion-item (click)="moveToMyCreatedVote(vote)">
-       <ion-icon name="vote" ></ion-icon>{{vote}}
+  <ion-list *ngFor="let vote of voteListCreatedData" id="votelist">
+     <ion-item (click)="moveToMyCreatedVote(vote[0])">
+       <ion-icon name="vote" ></ion-icon>{{vote[1]}}
      </ion-item>
    </ion-list>
 
@@ -44,9 +44,9 @@
 
 
 
-  <ion-list *ngFor="let vote of voteListInvited" id="votelist">
-     <ion-item>
-       <ion-icon name="vote"></ion-icon>{{vote.title}} Date : {{vote.expiration_date}}
+  <ion-list *ngFor="let vote of voteListInvitedData" id="votelist">
+     <ion-item (click)="moveToMyCreatedVote(vote[0])">
+       <ion-icon name="vote" ></ion-icon>{{vote[1]}}
      </ion-item>
    </ion-list>
 
