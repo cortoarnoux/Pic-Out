@@ -44,6 +44,17 @@ export class MyCreatedVotePage {
   }
 
 
+//   public supprimerVote(){
+//     this.voteService.deleteThisVote(this.voteID)
+//   }
+//
+// ///////////////////
+//   deleteThisVote(voteID): firebase.database.Reference {
+//     firebase.database().ref(`votes/${voteID}`).remove();
+//   }
+// ///////////////////
+
+
   public voteUpdateTitle(newTitle){
     this.voteService.thisVoteUpdateTitle(newTitle, this.voteID)
   }
