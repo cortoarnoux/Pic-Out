@@ -47,4 +47,22 @@ export class VotesService {
       voteID: voteID
     });
   }
+
+
+
+  thisVoteUpdateTitle(newTitle, voteID){
+    firebase.database().ref('votes/' + voteID).update({
+      title: newTitle
+    });
+  }
+
+  thisVoteUpdateDate(newDate, voteID){
+    firebase.database().ref('votes/' + voteID).update({
+      expiration_date: newDate
+    });
+  }
+
+
+
+
 }

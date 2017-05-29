@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { VotesService } from '../../providers/data/votes-service';
+import { MyCreatedVotePage } from '../my-created-vote/my-created-vote';
 import firebase from 'firebase';
 
 /*
@@ -45,7 +46,6 @@ export class MyVotesPage {
       // Hello @github
 
     // Votes invités
-    // /!\ Ne fonctionne pas encore
     let j = 0;
     this.votesData.getVoteListInvited(this.currentUser).on("child_added", (snapshot) => {
       // Remplit la liste avec les ID
@@ -53,6 +53,14 @@ export class MyVotesPage {
       j ++;
     });
   }
+
+
+  public moveToMyCreatedVote(id) {
+    this.nav.push(MyCreatedVotePage, {
+      vote_id: id
+    });
+  }
+
 
   public moveToHome() {
     this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});

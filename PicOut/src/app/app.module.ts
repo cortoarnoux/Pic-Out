@@ -11,6 +11,7 @@ import { MyVotesPage } from '../pages/my-votes/my-votes';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { EditAccountPage } from '../pages/edit-account/edit-account';
 import { FriendsPage } from '../pages/friends/friends';
+import { MyCreatedVotePage } from '../pages/my-created-vote/my-created-vote';
 import { AddFriendVotePage } from '../pages/add-friend-vote/add-friend-vote';
 import { CreateVoteSecondStepPage } from '../pages/create-vote-second-step/create-vote-second-step';
 import { CreateVoteThirdStepPage } from '../pages/create-vote-third-step/create-vote-third-step';
@@ -42,6 +43,7 @@ export const firebaseConf = {
     CreateVotePage,
     AddFriendVotePage,
     MyVotesPage,
+    MyCreatedVotePage,
     MyAccountPage,
     EditAccountPage,
     FriendsPage,
@@ -63,6 +65,7 @@ export const firebaseConf = {
     CreateVotePage,
     MyVotesPage,
     AddFriendVotePage,
+    MyCreatedVotePage,
     MyAccountPage,
     EditAccountPage,
     FriendsPage,

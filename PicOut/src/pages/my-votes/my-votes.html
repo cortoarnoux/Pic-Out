@@ -28,8 +28,8 @@
   </ion-row>
 
   <ion-list *ngFor="let vote of voteListCreated" id="votelist">
-     <ion-item>
-       <ion-icon name="vote"></ion-icon>{{vote}}
+     <ion-item (click)="moveToMyCreatedVote(vote)">
+       <ion-icon name="vote" ></ion-icon>{{vote}}
      </ion-item>
    </ion-list>
 
