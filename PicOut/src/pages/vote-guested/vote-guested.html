@@ -13,30 +13,27 @@
   <ion-row >
       <ion-col>
         <div class="title">
-          <h1>Titre du vote</h1>
+          <h1>{{voteTitle}}</h1>
         </div>
       </ion-col>
   </ion-row>
-
 
   <ion-row style="text-align: center;">
     <h2 style="color: white;">Récapitulatif vote</h2>
   </ion-row>
   <ion-row>
-    <h4 style="color: white;">Question : Quel est votre acteur préféré</h4>
+      <p style="color: white;">Date d'expiration du vote : {{voteExpDate}}</p>
   </ion-row>
   <ion-row>
-      <p style="color: white;">Date : 25-03-2018</p>
-  </ion-row>
-  <ion-row>
-      <p style="color: white;">Créateur : VoteMaster</p>
+      <p style="color: white;">VoteMaster : {{voteMasterName}}</p>
   </ion-row>
 
-
-  <h3>Choix de réponses :</h3>
+  <h3>Faites votre choix</h3>
   <ion-grid>
     <ion-row class="choices-list jq-choice-list">
-      <ion-item class="choice" *ngFor="let eachChoix of choix" [ngStyle]="{'background-image':'url('+choixPhoto[eachChoix]+')'}">Réponse</ion-item>
+      <ion-item class="choice" *ngFor="let reponse of voteResponsesArray">
+        <img src="{{reponse}}" />
+      </ion-item>
     </ion-row >
   </ion-grid>
 

@@ -50,7 +50,6 @@ export class MyVotesPage {
         this.voteListCreatedData.push([this.voteListCreated[voteKey], data.val().title]);
       });
     }
-    console.log("Liste des votes de cet user : ", this.voteListCreatedData);
 
     // Pour récupérer les clefs d'objet dans un taleau d'objets
     // On crée un tampon pour stocker le premier tableau d'objets
@@ -69,7 +68,6 @@ export class MyVotesPage {
         this.voteListInvitedData.push([this.voteListInvited[voteKey], data.val().title]);
       });
     }
-    console.log("Liste des votes de cet user : ", this.voteListInvitedData);
   }
 
 

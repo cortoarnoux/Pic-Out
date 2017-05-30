@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { VotesService } from '../../providers/data/votes-service';
+import { CurrentUserService } from '../../providers/data/currentuser-service';
+import * as $ from 'jquery';
 
 /*
   Generated class for the VoteGuested page.
@@ -13,10 +16,37 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class VoteGuestedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public voteID = this.navParams.get('vote_id');
+  public voteTitle = "";
+  public voteExpDate = "";
+  public voteMasterID = 0;
+  public voteMasterName = "";
+  public voteResponsesArray: any;
+  public invitedPeopleUserIDs: any;
+
+  constructor(
+  	public navCtrl: NavController, 
+  	public navParams: NavParams,
+  	private votesData: VotesService,
+  	private currentUserData: CurrentUserService) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VoteGuestedPage');
+
+    // Récupération des Datas du vote courant
+    this.votesData.getVoteData(this.voteID).on('value', (data) => {
+      	console.log(data.val());
+      	this.voteTitle = data.val().title;
+      	this.voteExpDate = data.val().expiration_date;
+      	this.voteMasterID = data.val().voteMasterID;
+      	this.invitedPeopleUserIDs = data.val().friendAddedToVote;
+      	this.voteResponsesArray = data.val().responsesUrl;
+    });
+
+    // Récupération des datas du voteMaster
+    this.currentUserData.getCurrentUser(this.voteMasterID).on('value', (data) => {
+    	console.log("VoteMaster Datas : ", data.val());
+    	this.voteMasterName = data.val().email;
+    });
   }
 
 }
