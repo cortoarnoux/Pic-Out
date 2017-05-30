@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 
 import { UsersService } from './services/users.service';
 import { ImagesService } from './services/images.service';
+import { ModalUploadComponent } from './image/modal-upload.component';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserComponent },
@@ -36,7 +37,8 @@ const firebaseAuthConfig = {
   declarations: [
     AppComponent,
     ImageComponent,
-    UserComponent
+    UserComponent,
+    ModalUploadComponent
   ],
   imports: [
     BrowserModule,

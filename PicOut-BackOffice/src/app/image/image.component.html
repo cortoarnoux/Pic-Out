@@ -1,4 +1,8 @@
+
 <div class="page-header">
+  <div class="btn-toolbar pull-right">
+    <button id="btn_open_modal" type="button" class="btn btn-default" (click)="upload_image.show()">Ajout d'images</button>
+  </div>
   <h3 id="page_title">Images</h3>
 </div>
 
@@ -12,3 +16,20 @@
 
   </div>
 </section>
+
+<app-modal-upload #upload_image>
+  <div class="app-modal-header">
+    <h3>Ajouter des images</h3>
+  </div>
+  <div class="app-modal-body">
+    <span class="btn btn-default btn-file">
+      <input class="file" type="file" name="image_uploader" id="image_uploader" accept="image/*" multiple/>
+    </span>
+  </div>
+  <div class="app-modal-footer">
+    <button class="btn btn-default" (click)="upload_image.hide()">Annuler</button>
+    <button class="btn btn-primary" (click)="onUpload();
+                                           upload_image.hide()">Envoyer</button>
+  </div>
+</app-modal-upload>
+

@@ -1,5 +1,10 @@
 * { margin: 0; padding: 0; }
 
+.btn {
+  padding: 5px 10px;
+}
+
+
 .background_cover {
   background-size: cover;
   border-radius: 4px 4px 0 0;
@@ -7,6 +12,9 @@
 
 #page_title {
   margin: 10px 0 10px 10px;
+}
+#btn_open_modal {
+  margin: 0 5px 0 0;
 }
 
 .images {
@@ -29,3 +37,5 @@
   width: 100%;
   border-radius: 0 0 4px 4px;
 }
+
+
