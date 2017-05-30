@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { VotesService } from '../../providers/data/votes-service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-pop-over-zoom-choice',
@@ -12,7 +14,9 @@ export class PopOverZoomChoicePage {
   constructor(
    public navCtrl: NavController,
    public navParams: NavParams,
-   public viewCtrl: ViewController) {}
+   public viewCtrl: ViewController,
+   private votesData: VotesService,
+   private storage: Storage) {}
 
   ionViewDidLoad() {
 
@@ -20,6 +24,11 @@ export class PopOverZoomChoicePage {
 
   public closePopover() {
   	this.viewCtrl.dismiss();
+  }
+
+  public selectThisUrl(url) {
+    this.storage.set('choosenUrl', this.selectedUrl);
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -4,14 +4,9 @@ import { VotesService } from '../../providers/data/votes-service';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 import { PopOverZoomChoicePage } from '../pop-over-zoom-choice/pop-over-zoom-choice';
 import { MyVotesPage } from '../my-votes/my-votes';
+import { Storage } from '@ionic/storage';
 import * as $ from 'jquery';
 
-/*
-  Generated class for the VoteGuested page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-vote-guested',
   templateUrl: 'vote-guested.html'
@@ -25,6 +20,7 @@ export class VoteGuestedPage {
   public voteMasterName = "";
   public voteResponsesArray: any;
   public invitedPeopleUserIDs: any;
+  public choosenUrl: any;
 
   constructor(
   	public navCtrl: NavController, 
@@ -32,6 +28,7 @@ export class VoteGuestedPage {
   	private votesData: VotesService,
   	private currentUserData: CurrentUserService,
     public popoverCtrl: PopoverController,
+    public storage: Storage,
     ) {}
 
   ionViewDidLoad() {
@@ -59,10 +56,18 @@ export class VoteGuestedPage {
 
   presentPopover(url) {
     let popover = this.popoverCtrl.create(PopOverZoomChoicePage, {
-        selectedUrl: url
+        selectedUrl: url,
+        voteID: this.voteID
     });
     popover.present();
     popover.onWillDismiss(() => {
+      this.storage.get('choosenUrl').then((val) => {
+        this.choosenUrl = val;
+        console.log("Image choisie : ", this.choosenUrl);
+        $('.choice').removeClass('selected');
+        $(`img[src="${this.choosenUrl}"]`).closest('.choice').addClass('selected');
+      })
    });
   }
 }
+

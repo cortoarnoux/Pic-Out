@@ -46,7 +46,12 @@ export class VotesService {
     });
   }
 
-
+  userHasChoosenThisResponse(url, voteID) {
+    firebase.database().ref(`users/${this.currentID}/votesinvitedat/${voteID}`).set({
+      responseChoosen: url,
+      voteID: voteID
+    });
+  }
 
 
 // modification du titre du vote
