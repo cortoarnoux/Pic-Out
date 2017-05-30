@@ -80,9 +80,5 @@ deleteThisVote(voteID) {
   firebase.database().ref(`votes/${voteID}`).remove();
   // firebase.database().ref('users').child(`voteMasterList/${voteID}`).remove();
   // firebase.database().ref('users').child(`votesinvitedat/${voteID}`).remove();
-
-}
-
-
-
+  }
 }

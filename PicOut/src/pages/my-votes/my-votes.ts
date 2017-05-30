@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { VotesService } from '../../providers/data/votes-service';
 import { MyCreatedVotePage } from '../my-created-vote/my-created-vote';
+import { VoteGuestedPage } from '../vote-guested/vote-guested';
 import firebase from 'firebase';
 
 /*
@@ -74,6 +75,12 @@ export class MyVotesPage {
 
   public moveToMyCreatedVote(id) {
     this.nav.push(MyCreatedVotePage, {
+      vote_id: id
+    });
+  }
+
+  public moveToMyInvitedVote(id) {
+    this.nav.push(VoteGuestedPage, {
       vote_id: id
     });
   }

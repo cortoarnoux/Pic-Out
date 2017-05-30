@@ -24,6 +24,7 @@ import { UserService } from '../providers/data/user-service';
 import { CurrentUserService } from '../providers/data/currentuser-service';
 import { VotesService } from '../providers/data/votes-service';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { VoteGuestedPage } from '../pages/vote-guested/vote-guested';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -51,6 +52,7 @@ export const firebaseConf = {
     CreateVoteThirdStepPage,
     PopOverAddFriendPage,
     PopOverVoteAddFriendPage,
+    VoteGuestedPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -73,6 +75,7 @@ export const firebaseConf = {
     CreateVoteThirdStepPage,
     PopOverAddFriendPage,
     PopOverVoteAddFriendPage,
+    VoteGuestedPage,
   ],
   providers: [
     DataService,
