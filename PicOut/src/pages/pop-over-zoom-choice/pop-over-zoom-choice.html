@@ -1,0 +1,22 @@
+<ion-header class="PopOverZoomChoiceContainer">
+
+  <ion-navbar>
+    <ion-title>Zoom</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="PopOverZoomChoiceContainer" padding>
+    <ion-row >
+      <img src="{{selectedUrl}}" />
+    </ion-row>
+    <ion-row >
+    	<ion-col>
+    		<button class="button-select">Choisir</button>
+    	</ion-col>
+    	<ion-col>
+    		<button (click)="closePopover()" class="button-close">Fermer</button>
+    	</ion-col>
+    </ion-row>
+</ion-content>
+

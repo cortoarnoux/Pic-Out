@@ -1,7 +1,7 @@
 <ion-content class="voteguested-content">
   <ion-row class="top-row">
     <ion-col>
-      <button ion-button class="home-btn" (click)="moveToFirstStepPage()">Précédent</button>
+      <button ion-button class="home-btn" (click)="moveToMyVotes()">Précédent</button>
     </ion-col>
     <ion-col></ion-col>
     <ion-col>
@@ -32,9 +32,8 @@
   <ion-grid>
     <ion-row class="choices-list jq-choice-list">
       <ion-item class="choice" *ngFor="let reponse of voteResponsesArray">
-        <img src="{{reponse}}" />
+        <img (click)="presentPopover(reponse)" src="{{reponse}}" />
       </ion-item>
     </ion-row >
   </ion-grid>
-
 </ion-content>

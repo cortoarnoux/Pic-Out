@@ -1,0 +1,26 @@
+page-pop-over-zoom-choice {
+
+	button {
+	    width: 100%;
+	    height: 25px;
+	    &.button-select {
+	    	background-color: #85A5CC;
+	    }
+	}
+
+	img {
+		margin-top: 57px;
+	}
+}
+
+.popover-md .popover-content {
+	width: 85% !important;
+}
+
+.popover-content {
+	left: 8%;
+}
+
+ion-app.md [padding], ion-app.md [padding] .scroll-content {
+	padding: 2px;
+}

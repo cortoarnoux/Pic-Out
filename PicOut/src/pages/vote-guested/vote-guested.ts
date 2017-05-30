@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { VotesService } from '../../providers/data/votes-service';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
+import { PopOverZoomChoicePage } from '../pop-over-zoom-choice/pop-over-zoom-choice';
+import { MyVotesPage } from '../my-votes/my-votes';
 import * as $ from 'jquery';
 
 /*
@@ -28,7 +30,9 @@ export class VoteGuestedPage {
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	private votesData: VotesService,
-  	private currentUserData: CurrentUserService) {}
+  	private currentUserData: CurrentUserService,
+    public popoverCtrl: PopoverController,
+    ) {}
 
   ionViewDidLoad() {
 
@@ -49,4 +53,16 @@ export class VoteGuestedPage {
     });
   }
 
+  public moveToMyVotes() {
+    this.navCtrl.push(MyVotesPage);
+  }
+
+  presentPopover(url) {
+    let popover = this.popoverCtrl.create(PopOverZoomChoicePage, {
+        selectedUrl: url
+    });
+    popover.present();
+    popover.onWillDismiss(() => {
+   });
+  }
 }
