@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular';
 import { VotesService } from '../../providers/data/votes-service';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 import { PopOverZoomChoicePage } from '../pop-over-zoom-choice/pop-over-zoom-choice';
@@ -20,7 +20,7 @@ export class VoteGuestedPage {
   public voteMasterName = "";
   public voteResponsesArray: any;
   public invitedPeopleUserIDs: any;
-  public choosenUrl: any;
+  public choosenUrl = "";
 
   constructor(
   	public navCtrl: NavController, 
@@ -29,6 +29,7 @@ export class VoteGuestedPage {
   	private currentUserData: CurrentUserService,
     public popoverCtrl: PopoverController,
     public storage: Storage,
+    public alertCtrl: AlertController,
     ) {}
 
   ionViewDidLoad() {
@@ -48,10 +49,21 @@ export class VoteGuestedPage {
     	console.log("VoteMaster Datas : ", data.val());
     	this.voteMasterName = data.val().email;
     });
+
+    $(`img[src="${this.choosenUrl}"]`).closest('.choice').addClass('selected');
   }
 
   public moveToMyVotes() {
     this.navCtrl.push(MyVotesPage);
+  }
+
+  public confirmAnswer() {
+    if(this.choosenUrl != "") {
+      this.votesData.userHasChoosenThisResponse(this.choosenUrl, this.voteID);
+    } else {
+      let errorMessage= "Veuillez choisir une réponse pour confirmer";
+      this.showErrorMessage("Attention", errorMessage);
+    }
   }
 
   presentPopover(url) {
@@ -63,11 +75,23 @@ export class VoteGuestedPage {
     popover.onWillDismiss(() => {
       this.storage.get('choosenUrl').then((val) => {
         this.choosenUrl = val;
-        console.log("Image choisie : ", this.choosenUrl);
         $('.choice').removeClass('selected');
         $(`img[src="${this.choosenUrl}"]`).closest('.choice').addClass('selected');
       })
    });
   }
-}
 
+  showErrorMessage(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+      {
+        text: 'Ok',
+        role: 'cancel',
+      }
+    ]
+    });
+    alert.present();
+  }
+}
