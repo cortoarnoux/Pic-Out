@@ -24,8 +24,9 @@ import { UserService } from '../providers/data/user-service';
 import { CurrentUserService } from '../providers/data/currentuser-service';
 import { VotesService } from '../providers/data/votes-service';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-import { VoteGuestedPage } from '../pages/vote-guested/vote-guested';PopOverZoomChoicePage
+import { VoteGuestedPage } from '../pages/vote-guested/vote-guested';
 import { PopOverZoomChoicePage } from '../pages/pop-over-zoom-choice/pop-over-zoom-choice';
+import { MyFinishedVotesPage } from '../pages/my-finished-votes/my-finished-votes';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -55,6 +56,7 @@ export const firebaseConf = {
     PopOverVoteAddFriendPage,
     VoteGuestedPage,
     PopOverZoomChoicePage,
+    MyFinishedVotesPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -79,6 +81,7 @@ export const firebaseConf = {
     PopOverVoteAddFriendPage,
     VoteGuestedPage,
     PopOverZoomChoicePage,
+    MyFinishedVotesPage,
   ],
   providers: [
     DataService,

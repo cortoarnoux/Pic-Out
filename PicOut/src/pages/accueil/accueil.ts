@@ -9,6 +9,8 @@ import { MyAccountPage } from '../my-account/my-account';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
+import { MyFinishedVotesPage } from '../my-finished-votes/my-finished-votes';
+
 
 declare var window: any;
 
@@ -70,5 +72,9 @@ export class AccueilPage {
     }, function(error) {
       console.error('Erreur lors de la deconnexion', error);
     });
+  }
+
+  public moveToMyFinishedVotes() {
+    this.nav.push(MyFinishedVotesPage);
   }
 }
