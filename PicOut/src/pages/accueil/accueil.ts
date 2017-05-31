@@ -10,6 +10,7 @@ import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
 import { MyFinishedVotesPage } from '../my-finished-votes/my-finished-votes';
+import { VotesService } from '../../providers/data/votes-service';
 
 
 declare var window: any;
@@ -25,12 +26,19 @@ export class AccueilPage {
   public currentUser = firebase.auth().currentUser;
 
   public thisUser: any;
+  public voteListCreated = [];
+  public voteListInvited = [];
+  public numberOfNotif = 0;
+  public voteListCreatedClosed = [];
+  public voteListInvitedClosed = [];
+  public numberOfNotifClosed = 0;
 
   public constructor(
     public nav: NavController,
     private platform: Platform,
     private http: Http,
-    private currentUserService: CurrentUserService
+    private currentUserService: CurrentUserService,
+    private votesData: VotesService
   ) {}
 
   // Corto : Au chargement de la page
@@ -44,6 +52,9 @@ export class AccueilPage {
         this.currentUserService.setCurrentUser(this.currentUser.uid, this.currentUser.email);
       }
     });
+
+    this.countNumberOfOpenedVotes();
+    this.countNumberOfClosedVotes();
   }
 
   // Corto : Petit test pour dire bonjour à l'utilisateur en utilisant les caractères avant le @ de son pseudo s'il n'a pas renseigné son prénom
@@ -76,5 +87,69 @@ export class AccueilPage {
 
   public moveToMyFinishedVotes() {
     this.nav.push(MyFinishedVotesPage);
+  }
+
+  public countNumberOfOpenedVotes() {
+    let stampCreatedData = [];
+    this.votesData.getVoteListCreated().on('value', (data) => {
+      stampCreatedData.push(data.val());
+    });
+    for(let key in stampCreatedData[0]) {
+      this.voteListCreated.push(key);
+    }
+    for(let voteKey in this.voteListCreated) {
+      this.votesData.getVoteData(this.voteListCreated[voteKey]).on('value', (data) => {
+        if(data.val().state != "closed") {
+          this.numberOfNotif++;
+        }
+      });
+    }
+
+    let stampInvitedData = [];
+    this.votesData.getVoteListInvited().on('value', (data) => {
+      stampInvitedData.push(data.val());
+    });
+    for(let key in stampInvitedData[0]) {
+      this.voteListInvited.push(key);
+    }
+    for(let voteKey in this.voteListInvited) {
+      this.votesData.getVoteData(this.voteListInvited[voteKey]).on('value', (data) => {
+        if(data.val().state != "closed") {
+          this.numberOfNotif++;
+        }
+      });
+    }
+  }
+
+  public countNumberOfClosedVotes() {
+    let stampCreatedData = [];
+    this.votesData.getVoteListCreated().on('value', (data) => {
+      stampCreatedData.push(data.val());
+    });
+    for(let key in stampCreatedData[0]) {
+      this.voteListCreatedClosed.push(key);
+    }
+    for(let voteKey in this.voteListCreatedClosed) {
+      this.votesData.getVoteData(this.voteListCreatedClosed[voteKey]).on('value', (data) => {
+        if(data.val().state == "closed") {
+          this.numberOfNotifClosed++;
+        }
+      });
+    }
+
+    let stampInvitedData = [];
+    this.votesData.getVoteListInvited().on('value', (data) => {
+      stampInvitedData.push(data.val());
+    });
+    for(let key in stampInvitedData[0]) {
+      this.voteListInvitedClosed.push(key);
+    }
+    for(let voteKey in this.voteListInvitedClosed) {
+      this.votesData.getVoteData(this.voteListInvitedClosed[voteKey]).on('value', (data) => {
+        if(data.val().state == "closed") {
+          this.numberOfNotifClosed++;
+        }
+      });
+    }
   }
 }

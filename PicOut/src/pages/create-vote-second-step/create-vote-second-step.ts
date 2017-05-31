@@ -224,9 +224,9 @@ export class CreateVoteSecondStepPage {
           text: 'Valider le vote',
           handler: () => {
             if(typeof this.vote[4] === 'undefined') {
-              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl);
+              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened");
             } else {
-              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, this.vote[4]);
+              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened", this.vote[4]);
             }
 
             var ref = firebase.database().ref('votes');

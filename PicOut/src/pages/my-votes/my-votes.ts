@@ -47,7 +47,9 @@ export class MyVotesPage {
     // Récupération des datas de chaque vote
     for(let voteKey in this.voteListCreated) {
       this.votesData.getVoteData(this.voteListCreated[voteKey]).on('value', (data) => {
-        this.voteListCreatedData.push([this.voteListCreated[voteKey], data.val().title]);
+        if(data.val().state != "closed") {
+          this.voteListCreatedData.push([this.voteListCreated[voteKey], data.val().title]);
+        }
       });
     }
 
@@ -65,7 +67,9 @@ export class MyVotesPage {
     // Récupération des datas de chaque vote
     for(let voteKey in this.voteListInvited) {
       this.votesData.getVoteData(this.voteListInvited[voteKey]).on('value', (data) => {
-        this.voteListInvitedData.push([this.voteListInvited[voteKey], data.val().title]);
+        if(data.val().state != "closed") {
+          this.voteListInvitedData.push([this.voteListInvited[voteKey], data.val().title]);
+        }
       });
     }
   }
