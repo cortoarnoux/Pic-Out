@@ -10,14 +10,16 @@ export class Vote {
   private friendAddedToVote;
   private responsesUrl;
   private state;
+  private voteScore;
 
-  constructor(voteMasterID, title, expiration_date, friendAddedToVote, responsesUrl, state, mail_invite?){
+  constructor(voteMasterID, title, expiration_date, friendAddedToVote, responsesUrl, state, voteScore, mail_invite?){
   	this.voteMasterID = voteMasterID;
     this.title = title;
     this.expiration_date = expiration_date;
     this.friendAddedToVote = friendAddedToVote;
     this.responsesUrl = responsesUrl;
     this.state = state;
+    this.voteScore = voteScore;
     if(mail_invite){
       this.mail_invite = mail_invite;
     }

@@ -34,6 +34,7 @@ export class CreateVoteSecondStepPage {
   public choixPhotoTemp = [];
   public currentChoice: any;
   public responsesUrl = [];
+  public scoreArray = [];
 
   constructor(
     public nav: NavController, 
@@ -223,10 +224,17 @@ export class CreateVoteSecondStepPage {
         {
           text: 'Valider le vote',
           handler: () => {
+
+            console.log("test");
+            for(let reponseIndex in this.responsesUrl) {
+              console.log(reponseIndex);
+              this.scoreArray.push(0);
+            }
+
             if(typeof this.vote[4] === 'undefined') {
-              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened");
+              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened", this.scoreArray);
             } else {
-              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened", this.vote[4]);
+              this.objectVote = new Vote(this.vote[0], this.vote[1], this.vote[2], this.vote[3], this.responsesUrl, "opened", this.scoreArray, this.vote[4]);
             }
 
             var ref = firebase.database().ref('votes');

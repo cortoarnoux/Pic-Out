@@ -53,6 +53,17 @@ export class VotesService {
     });
   }
 
+  getClickedVoteInvitedAt(voteID): firebase.database.Reference {
+    return firebase.database().ref(`users/${this.currentID}/votesinvitedat/${voteID}`);
+  }
+
+  addScoreToChoosenIndex(voteID, index, score) {
+    firebase.database().ref(`votes/${voteID}/voteScore/${index}`).set(score);
+  }
+
+  getScoreOfChoosenIndex(voteID, index) {
+    return firebase.database().ref(`votes/${voteID}/voteScore/${index}`);
+  }
 
 // modification du titre du vote
   thisVoteUpdateTitle(newTitle, voteID){
