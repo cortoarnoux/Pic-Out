@@ -8,6 +8,19 @@ page-vote-guested {
     background-position: center center;
   }
 
+  #creator{
+    margin-bottom:-10px;
+  }
+
+  #expdate{
+
+  }
+
+  #choice{
+    text-align: center;
+    margin-top:-5px;
+    margin-bottom:-10px;
+  }
 
   //fonts
   h1{
@@ -19,6 +32,15 @@ page-vote-guested {
     font-size: 35px;
   }
 
+  h2{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
   h3{
     font-family: 'Crimson Text', serif;
     letter-spacing: 2px;
@@ -26,6 +48,15 @@ page-vote-guested {
     color: #ffffff;
     font-size: 20px;
   }
+
+  p{
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 17px;
+  }
+
   .useragent-cheat{
     margin-top: 14px!important;
   }
