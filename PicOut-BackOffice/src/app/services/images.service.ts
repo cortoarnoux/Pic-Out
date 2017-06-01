@@ -14,8 +14,8 @@ export class ImagesService {
   uploadImages(image_list): any {
     swal({
       title: 'Succès',
-      text: 'Chargement des images en cours',
-      type: 'success'
+      text: 'Chargement des images en tâche de fond',
+      type: 'info'
     });
 
     for(let i of image_list) {

@@ -98,7 +98,7 @@ export class LoginPage {
         authUser.auth.signInWithCredential(facebookCredential)
           .then((success) => {
             authInfo.setUid(success.uid);
-            authUser.getUserInfos(success.uid).on('value', (data) => {});
+            authUser.getUserInfos(success.uid).on('value', (_) => {});
             authUser.setUserInfos(authInfo, authUser.auth.currentUser.uid);
             this.navCtrl.push(AccueilPage);
           })

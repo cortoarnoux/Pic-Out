@@ -31,7 +31,7 @@ export class UserService {
     let rangeMin: number = user.getRangeMin();
     let rangeMax: number = user.getRangeMax();
 
-    firebase.database().ref('/users/' + userId).set({
+    firebase.database().ref('/users/' + userId).update({
       lastname: user.getLastName(),
       firstname: user.getFirstName(),
       username: user.getName(),
