@@ -79,7 +79,15 @@ export class VotesService {
     });
   }
 
-//suppression du voteID
+//terminer vote
+  shutDownVote(voteID){
+    firebase.database().ref('votes/' + voteID).update({
+      state: "closed"
+    });
+  }
+
+
+//suppression du vote
 deleteThisVote(voteID) {
   let stampCreatedData = [];
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http} from '@angular/http';
 import { AccueilPage } from '../accueil/accueil';
 import { MyVotesPage } from '../my-votes/my-votes';
@@ -27,6 +27,7 @@ export class MyCreatedVotePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     private voteService: VotesService
   ) {}
 
@@ -50,6 +51,13 @@ export class MyCreatedVotePage {
     this.voteService.deleteThisVote(this.voteID);
   }
 
+  //terminer vote
+  public terminerVote(newTitle){
+    let errorMessage;
+    errorMessage= "Etes vous sur de vouloir terminer votre vote ?";
+    this.showPopup("Attention", errorMessage);
+  }
+
   //update new title
   public voteUpdateTitle(newTitle){
     this.voteService.thisVoteUpdateTitle(newTitle, this.voteID)
@@ -65,6 +73,27 @@ export class MyCreatedVotePage {
     this.navCtrl.push(MyVotesPage);
   }
 
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+      {
+        text: 'Annuler',
+        role: 'cancel',
+      },
+      {
+        text: 'Ok',
+        handler: () => {
+          this.voteService.shutDownVote(this.voteID);
+          this.navCtrl.push(MyVotesPage, {}, {animate: true, direction: 'back'});
+        }
+      }
+    ]
+    });
+    alert.present();
+  }
 
 
 }
