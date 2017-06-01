@@ -22,8 +22,8 @@
   </ion-row>
 
   <ion-list *ngFor="let vote of voteListCreatedData" id="votelist">
-     <ion-item (click)="moveToMyCreatedVote(vote[0])">
-       <ion-icon name="vote" ></ion-icon>{{vote[1]}}
+     <ion-item>
+       <div class="clickable" (click)="moveToMyCreatedVote(vote[0])">{{vote[1]}}</div><div class="suppr" (click)="supprimerVote(vote[0])"><ion-icon name="close"></ion-icon></div>
      </ion-item>
    </ion-list>
 

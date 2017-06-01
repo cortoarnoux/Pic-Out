@@ -87,22 +87,31 @@ export class VotesService {
   }
 
 
-//suppression du vote
-deleteThisVote(voteID) {
-  let stampCreatedData = [];
+  //suppression du vote
+  deleteThisVote(voteID) {
+    let stampCreatedData = [];
+    var voteListCreated = [];
 
-  firebase.database().ref('users').on('value', (data) => {
-    stampCreatedData.push(data.val());
-  });
-  console.log(stampCreatedData);
-  for(let key in stampCreatedData[0]) {
-    console.log(key);
-    firebase.database().ref(`users/${key}/voteMasterList/${voteID}`).remove();
-    firebase.database().ref(`users/${key}/votesinvitedat/${voteID}`).remove();
-  }
-  // suppression
-  firebase.database().ref(`votes/${voteID}`).remove();
-  // firebase.database().ref('users').child(`voteMasterList/${voteID}`).remove();
-  // firebase.database().ref('users').child(`votesinvitedat/${voteID}`).remove();
+
+    var query = firebase.database().ref(`votes/${voteID}/friendAddedToVote`).orderByKey();
+    query.once("value")
+      .then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var key = childSnapshot.val().friendUID;
+          stampCreatedData.push(key);
+      });
+    });
+
+    firebase.database().ref(`users/${this.currentID}/voteMasterList/${voteID}`).remove();
+
+    console.log(stampCreatedData);
+    for(var key in stampCreatedData) {
+      var id = stampCreatedData[key];
+      console.log(id);
+      firebase.database().ref(`users/${id}/votesinvitedat/${voteID}`).remove();
+    }
+    // suppression
+    firebase.database().ref(`votes/${voteID}`).remove();
+
   }
 }

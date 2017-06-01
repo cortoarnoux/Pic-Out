@@ -7,6 +7,15 @@ page-my-votes {
     background-position: center center;
   }
 
+  .suppr{
+    z-index:50;
+    float:right;
+  }
+
+  .clickable{
+    width: 80%;
+    float: left;
+  }
 
   //fonts
   h1{

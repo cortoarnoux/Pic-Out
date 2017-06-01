@@ -25,7 +25,7 @@ export class FriendsPage {
 
   constructor(
     public nav: NavController,
-    public navParams: NavParams, 
+    public navParams: NavParams,
     public popoverCtrl: PopoverController,
     public friendsData: FriendsService,
     private alertCtrl: AlertController,
@@ -51,7 +51,7 @@ export class FriendsPage {
       return false
       });
       this.friendList = rawList;
-
+      console.log(this.friendList);
       // Corto : Récupère les amis par leur id et stocke leurs informations pour avoir les infos en temps réel
       for(let user in this.friendList){
 

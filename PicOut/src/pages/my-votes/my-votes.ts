@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { VotesService } from '../../providers/data/votes-service';
 import { MyCreatedVotePage } from '../my-created-vote/my-created-vote';
@@ -28,11 +28,18 @@ export class MyVotesPage {
   constructor(
     public nav: NavController,
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     private votesData: VotesService
   ) {}
 
   ionViewDidLoad() {
 
+    this.refreshVoteList();
+
+  }
+
+
+  public refreshVoteList(){
     // Pour récupérer les clefs d'objet dans un taleau d'objets
     // On crée un tampon pour stocker le premier tableau d'objets
     let stampCreatedData = [];
@@ -44,6 +51,7 @@ export class MyVotesPage {
     for(let key in stampCreatedData[0]) {
       this.voteListCreated.push(key);
     }
+    console.log(this.voteListCreated);
     // Récupération des datas de chaque vote
     for(let voteKey in this.voteListCreated) {
       this.votesData.getVoteData(this.voteListCreated[voteKey]).on('value', (data) => {
@@ -74,6 +82,33 @@ export class MyVotesPage {
     }
   }
 
+  //Supprimer le vote
+  public supprimerVote(voteID){
+    let errorMessage;
+    errorMessage= "Etes vous sur de vouloir terminer votre vote ?";
+    this.supprimerVotePop("Attention" ,errorMessage, voteID);
+  }
+
+  supprimerVotePop(title, text, voteID) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+      {
+        text: 'Annuler',
+        role: 'cancel',
+      },
+      {
+        text: 'Ok',
+        handler: () => {
+          this.votesData.deleteThisVote(voteID);
+          this.refreshVoteList();
+        }
+      }
+    ]
+    });
+    alert.present();
+  }
 
   public moveToMyCreatedVote(id) {
     this.nav.push(MyCreatedVotePage, {
