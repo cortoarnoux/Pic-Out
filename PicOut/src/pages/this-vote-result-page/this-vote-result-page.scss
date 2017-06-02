@@ -1,0 +1,143 @@
+page-this-vote-result-page {
+
+	//background
+  .voteguested-content {
+    background-image:url(../assets/img/login-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #creator{
+    margin-bottom:-10px;
+  }
+
+  #expdate{
+
+  }
+
+  #choice{
+    text-align: center;
+    margin-top:-5px;
+    margin-bottom:-10px;
+  }
+
+  //fonts
+  h1{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 35px;
+  }
+
+  h2{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
+  h3{
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 20px;
+  }
+
+  p{
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 17px;
+  }
+
+  .useragent-cheat{
+    margin-top: 14px!important;
+  }
+  .title{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ion-item.choice{
+    height: 130px;
+  }
+
+
+  //blocs
+
+
+  //bloc votes
+  .choices-list{
+    flex-wrap:wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  //invités au sondage
+  .choice{
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 15px;
+    width:48%;
+    margin-top:15px;
+    text-align:center;
+    display: inline-block;
+    border: 1px solid white;
+    background-color: transparent;
+
+    &.selected {
+      border: 2px solid green;
+    }
+  }
+
+  .label-md {
+    margin: 0 !important;
+  }
+
+  .item-md {
+    padding-left: 0px !important;
+  }
+
+  .choice .item-inner {
+    padding: 0 !important;
+    width: 100%;
+  }
+
+
+  //inputs
+  .text-input{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+
+  ion-input{
+    background: transparent;
+    border-bottom: 2px solid #ffffff!important;
+  }
+
+
+  //bouton
+  .home-btn{
+    background: transparent;
+    border-radius:0;
+    border: 2px solid #ffffff;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    width: 100%;
+  }
+
+}

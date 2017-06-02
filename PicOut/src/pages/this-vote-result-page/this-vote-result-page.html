@@ -1,0 +1,35 @@
+<ion-content class="voteguested-content">
+  <ion-row class="top-row">
+    <ion-col>
+      <button ion-button class="home-btn" (click)="moveToMyVotes()">Précédent</button>
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button class="home-btn" (click)="confirmAnswer()">Valider</button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row >
+      <ion-col>
+        <div class="title">
+          <h1>Résultats du vote : {{voteTitle}}</h1>
+        </div>
+      </ion-col>
+  </ion-row>
+  <ion-col>
+    <p id="creator"><ion-icon name="person"></ion-icon>  Par {{voteMasterName}}</p>
+    <p id="expdate"></p>
+  </ion-col>
+
+
+  <h2 id="choice">Résultats</h2>
+  <ion-grid>
+    <ion-row class="choices-list jq-choice-list">
+      <ion-item class="choice" *ngFor="let reponse of voteResponsesArray">
+        <img src="{{reponse}}" />
+      </ion-item>
+    </ion-row >
+  </ion-grid>
+
+</ion-content>

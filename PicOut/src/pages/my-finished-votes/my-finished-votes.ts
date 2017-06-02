@@ -4,6 +4,7 @@ import { AccueilPage } from '../accueil/accueil';
 import { VotesService } from '../../providers/data/votes-service';
 import { MyCreatedVotePage } from '../my-created-vote/my-created-vote';
 import { VoteGuestedPage } from '../vote-guested/vote-guested';
+import { ThisVoteResultPage } from '../this-vote-result-page/this-vote-result-page';
 import firebase from 'firebase';
 
 /*
@@ -74,18 +75,13 @@ export class MyFinishedVotesPage {
     }
   }
 
-
-  public moveToMyCreatedVote(id) {
-    this.nav.push(MyCreatedVotePage, {
+  public moveToThisVoteResult(id) {
+    this.nav.push(ThisVoteResultPage, {
       vote_id: id
     });
   }
 
-  public moveToMyInvitedVote(id) {
-    this.nav.push(VoteGuestedPage, {
-      vote_id: id
-    });
-  }
+
 
   public moveToHome() {
     this.nav.push(AccueilPage, {}, {animate: true, direction: 'back'});

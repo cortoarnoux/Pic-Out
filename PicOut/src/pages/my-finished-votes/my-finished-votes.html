@@ -22,7 +22,7 @@
   </ion-row>
 
   <ion-list *ngFor="let vote of voteListCreatedData" id="votelist">
-     <ion-item (click)="moveToMyCreatedVote(vote[0])">
+     <ion-item (click)="moveToThisVoteResult(vote[0])">
        <ion-icon name="vote" ></ion-icon>{{vote[1]}}
      </ion-item>
    </ion-list>
@@ -34,7 +34,7 @@
   </ion-row>
 
   <ion-list *ngFor="let vote of voteListInvitedData" id="votelist">
-     <ion-item (click)="moveToMyInvitedVote(vote[0])">
+     <ion-item (click)="moveToThisVoteResult(vote[0])">
        <ion-icon name="vote" ></ion-icon>{{vote[1]}}
      </ion-item>
    </ion-list>
