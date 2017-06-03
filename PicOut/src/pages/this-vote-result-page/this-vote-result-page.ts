@@ -29,6 +29,9 @@ export class ThisVoteResultPage {
   public invitedPeopleUserIDs: any;
   public choosenUrl = "";
   public alreadyChoosenUrl = "";
+  public scoreOriginalArray: any;
+  public urlAndScores: any;
+  public compactScoreArray = [];
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
@@ -48,6 +51,7 @@ export class ThisVoteResultPage {
       	this.voteMasterID = data.val().voteMasterID;
       	this.invitedPeopleUserIDs = data.val().friendAddedToVote;
       	this.voteResponsesArray = data.val().responsesUrl;
+      	this.scoreOriginalArray = data.val().voteScore;
     });
 
     // Récupération des datas du voteMaster
@@ -56,10 +60,13 @@ export class ThisVoteResultPage {
     	this.voteMasterName = data.val().email;
     });
 
-    this.votesData.getClickedVoteInvitedAt(this.voteID).on('value', (data) => {
-      this.alreadyChoosenUrl =  data.val().responseChoosen;
-      $(`img[src="${this.alreadyChoosenUrl}"]`).closest('.choice').addClass('selected');
-    });
+    // Enlever le -1 du tableau des scores
+    for(let i in this.scoreOriginalArray) {
+    	this.compactScoreArray.push(this.scoreOriginalArray[i]);
+    }
+    let index = this.compactScoreArray.indexOf(-1);
+	this.compactScoreArray.splice(index, 1);
+    console.log(this.compactScoreArray);
   }
 
   public moveToMyFinishedVotes() {

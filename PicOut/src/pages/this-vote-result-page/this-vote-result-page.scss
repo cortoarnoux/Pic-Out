@@ -70,10 +70,6 @@ page-this-vote-result-page {
     height: 130px;
   }
 
-
-  //blocs
-
-
   //bloc votes
   .choices-list{
     flex-wrap:wrap;
@@ -94,9 +90,14 @@ page-this-vote-result-page {
     display: inline-block;
     border: 1px solid white;
     background-color: transparent;
+    max-height: 225px;
 
     &.selected {
       border: 2px solid green;
+    }
+
+    .input-wrapper {
+    	max-height: 170px;
     }
   }
 

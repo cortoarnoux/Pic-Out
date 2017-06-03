@@ -26,9 +26,13 @@
   <h2 id="choice">Résultats</h2>
   <ion-grid>
     <ion-row class="choices-list jq-choice-list">
-      <ion-item class="choice" *ngFor="let reponse of voteResponsesArray">
-        <img src="{{reponse}}" />
-      </ion-item>
+      <div class="choice" *ngFor="let reponse of voteResponsesArray; let i = index">
+      	<ion-item>
+        	<img src="{{reponse}}" />   
+      	</ion-item>
+      	<p>Score : {{compactScoreArray[i]}}</p>
+      </div>
+      
     </ion-row >
   </ion-grid>
 
