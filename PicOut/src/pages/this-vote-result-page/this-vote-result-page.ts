@@ -57,7 +57,7 @@ export class ThisVoteResultPage {
     	this.compactScoreArray.push(this.scoreOriginalArray[i]);
     }
     let index = this.compactScoreArray.indexOf(-1);
-	this.compactScoreArray.splice(index, 1);
+	  this.compactScoreArray.splice(index, 1);
     console.log(this.compactScoreArray);
   }
 

@@ -35,6 +35,7 @@ export class CreateVoteSecondStepPage {
   public currentChoice: any;
   public responsesUrl = [];
   public scoreArray = [];
+  public myChoice = null;
 
   constructor(
     public nav: NavController, 
@@ -79,14 +80,44 @@ export class CreateVoteSecondStepPage {
 
   // Enlever un des choix effecté
   public actionOnThisChoice(i) {
-    // Définition d'un index grâce à l'élement clické
-    let index = this.choix.indexOf(i);
-    // On enlève cet index dans le tableau des choix
-    this.choix.splice(index, 1);
-    // On l'enlève également dans le tableau des URls si celui-ci n'est pas vide, vérification pour débug
-    if(this.responsesUrl != []) {
-      this.responsesUrl.splice(index, 1);
-    }
+    let infoMessage = "Quelle action voulez-vous effectuer sur l'élement ?";
+    this.chooseActionOnChoicePopUp("Choix", infoMessage, i);
+  }
+
+  chooseActionOnChoicePopUp(title, text, i) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+      {
+        text: 'Choisir',
+        handler: () => {
+          // Définition d'un index grâce à l'élement clické
+          let index = this.choix.indexOf(i);
+          console.log("Choix numero :", i);
+          this.myChoice = i;
+        }
+      },
+      {
+        text: 'Effacer',
+        handler: () => {
+          // Définition d'un index grâce à l'élement clické
+          let index = this.choix.indexOf(i);
+          // On enlève cet index dans le tableau des choix
+          this.choix.splice(index, 1);
+          // On l'enlève également dans le tableau des URls si celui-ci n'est pas vide, vérification pour débug
+          if(this.responsesUrl != []) {
+            this.responsesUrl.splice(index, 1);
+          }
+        }
+      },
+      {
+        text: 'Annuler',
+        role: 'cancel',
+      }      
+    ]
+    });
+    alert.present();
   }
 
   // Confirmation avant envoi du vote
@@ -158,8 +189,7 @@ export class CreateVoteSecondStepPage {
        reject(error);
      });
 
-     var tempCurrentChoice = this.currentChoice + 1;
-     $('.jq-choice-list .choice:nth-child('+tempCurrentChoice+')').css({'backgroundImage': 'url('+dataToSave.URL+')', 'background-size': 'cover'});
+     $('.jq-choice-list .choice:last-child').css({'backgroundImage': 'url('+dataToSave.URL+')', 'background-size': 'cover'});
      this.responsesUrl.push(dataToSave.URL);
 
    });
