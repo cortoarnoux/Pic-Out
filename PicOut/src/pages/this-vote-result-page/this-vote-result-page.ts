@@ -5,6 +5,7 @@ import { CurrentUserService } from '../../providers/data/currentuser-service';
 import { PopOverZoomChoicePage } from '../pop-over-zoom-choice/pop-over-zoom-choice';
 import { MyFinishedVotesPage } from '../my-finished-votes/my-finished-votes';
 import { MyVotesPage } from '../my-votes/my-votes';
+import { AccueilPage } from '../accueil/accueil';
 import { Storage } from '@ionic/storage';
 import * as $ from 'jquery';
 
@@ -71,5 +72,9 @@ export class ThisVoteResultPage {
 
   public moveToMyFinishedVotes() {
     this.navCtrl.push(MyFinishedVotesPage);
+  }
+
+  public moveToHome() {
+  	this.navCtrl.push(AccueilPage);
   }
 }
