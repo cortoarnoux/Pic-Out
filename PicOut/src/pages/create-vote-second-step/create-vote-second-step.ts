@@ -219,7 +219,7 @@ export class CreateVoteSecondStepPage {
    });
  }
 
- // Fonction permettant de faire fonctionne le plugin cordova pour la prise de photo
+ // Fonction permettant de faire fonctionne le plugin cordova pour la récupération de photo directement dans le mobile
  doGetPictureGallery(eachChoix) {
 
    this.currentChoice = eachChoix;
@@ -255,10 +255,13 @@ export class CreateVoteSecondStepPage {
           text: 'Valider le vote',
           handler: () => {
 
-            console.log("test");
             for(let reponseIndex in this.responsesUrl) {
               console.log(reponseIndex);
-              this.scoreArray.push(0);
+              if(reponseIndex == this.myChoice) {
+                this.scoreArray.push(1);
+              } else {
+                this.scoreArray.push(0);
+              }
             }
 
             if(typeof this.vote[4] === 'undefined') {
