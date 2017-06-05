@@ -1,0 +1,19 @@
+
+#link_container {
+  height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  font-size: 15em;
+  color: #000000;
+  height: 10%;
+}
+
+a:hover {
+  color: #525252;
+  cursor: pointer;
+}
+

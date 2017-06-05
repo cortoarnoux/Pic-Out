@@ -12,8 +12,10 @@ import { UserComponent } from './user/user.component';
 import { UsersService } from './services/users.service';
 import { ImagesService } from './services/images.service';
 import { ModalUploadComponent } from './image/modal-upload.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'users', component: UserComponent },
   { path: 'images', component: ImageComponent },
 ];
@@ -38,7 +40,8 @@ const firebaseAuthConfig = {
     AppComponent,
     ImageComponent,
     UserComponent,
-    ModalUploadComponent
+    ModalUploadComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@ export class LoginPage {
             firebase.auth().signOut();
           }
           else if(ui.params.delete) {
-            this.showPopup('Connexion impossible', 'Votre compte a été supprimé');
+            this.showPopup('Connexion impossible', 'Votre compte a été banni');
             firebase.auth().signOut();
           }
           else
