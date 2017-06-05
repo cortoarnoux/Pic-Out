@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="542af1ae-9c93-45cd-a751-843ef6538d56" name="Default" comment="Delete suppression on the back office : Done&#10;Need to fix the reload bug in the ImagesComponent">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/modal-upload.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/modal-upload.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/modal-upload.component.spec.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/modal-upload.component.ts" />
+    <list default="true" id="542af1ae-9c93-45cd-a751-843ef6538d56" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json" afterPath="$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/package.json" afterPath="$PROJECT_DIR$/PicOut-BackOffice/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.css" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.ts" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/images.service.ts" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/images.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut-BackOffice/src/index.html" afterPath="$PROJECT_DIR$/PicOut-BackOffice/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PicOut/src/pages/login/login.ts" afterPath="$PROJECT_DIR$/PicOut/src/pages/login/login.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,26 +29,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="image.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.ts">
+      <file leaf-file-name="login.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="42" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="447">
+              <caret line="44" column="76" lean-forward="false" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="images.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/services/images.service.ts">
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-679">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="48">
+              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16">
+              <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,29 +118,31 @@
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/images.service.spec.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/users.service.spec.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/models/user.ts" />
-        <option value="$PROJECT_DIR$/PicOut/src/pages/login/login.ts" />
         <option value="$PROJECT_DIR$/PicOut/src/providers/data/user-service.ts" />
         <option value="$PROJECT_DIR$/PicOut/src/providers/models/user.ts" />
         <option value="$PROJECT_DIR$/PicOut/src/pages/register/register.ts" />
         <option value="$PROJECT_DIR$/PicOut/src/providers/data/currentuser-service.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/index.html" />
-        <option value="$PROJECT_DIR$/PicOut-BackOffice/package.json" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.css" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/users.service.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/user/user.component.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/tsconfig.json" />
-        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/models/image.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/user/user.component.css" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/user/user.component.html" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.css" />
-        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html" />
-        <option value="$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.ts" />
         <option value="$PROJECT_DIR$/PicOut/src/pages/create-vote-second-step/create-vote-second-step.ts" />
         <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/services/images.service.ts" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/package.json" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.html" />
+        <option value="$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.css" />
+        <option value="$PROJECT_DIR$/PicOut/src/pages/login/login.ts" />
       </list>
     </option>
   </component>
@@ -136,7 +160,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="46" />
     <option name="y" value="-11" />
-    <option name="width" value="1315" />
+    <option name="width" value="1321" />
     <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -157,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -168,8 +193,18 @@
               <option name="myItemId" value="Pic-Out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PicOut-BackOffice" />
+              <option name="myItemId" value="Pic-Out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pic-Out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PicOut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -183,7 +218,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PicOut-BackOffice" />
+              <option name="myItemId" value="PicOut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -201,7 +236,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PicOut-BackOffice" />
+              <option name="myItemId" value="PicOut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -209,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,7 +258,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PicOut-BackOffice" />
+              <option name="myItemId" value="PicOut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -231,54 +266,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pic-Out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pic-Out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PicOut-BackOffice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="image" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pic-Out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pic-Out" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,13 +311,10 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/app/app.module.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/my-votes/my-votes.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/my-votes/my-votes.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/pop-over-vote-add-friend/pop-over-vote-add-friend.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/vote-guested/vote-guested.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/vote-guested/vote-guested.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/vote-guested/vote-guested.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/providers/data/votes-service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/create-vote-second-step/create-vote-second-step.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/create-vote-second-step/create-vote-second-step.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/my-finished-votes/my-finished-votes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/my-finished-votes/my-finished-votes.ts</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -327,9 +322,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/pop-over-zoom-choice/pop-over-zoom-choice.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/pop-over-zoom-choice/pop-over-zoom-choice.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/pop-over-zoom-choice/pop-over-zoom-choice.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/this-vote-result-page/this-vote-result-page.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/this-vote-result-page/this-vote-result-page.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PicOut/src/pages/this-vote-result-page/this-vote-result-page.ts</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -572,6 +567,7 @@
       <workItem from="1496042633407" duration="13369000" />
       <workItem from="1496084706519" duration="2178000" />
       <workItem from="1496170491631" duration="6537000" />
+      <workItem from="1496654016432" duration="5704000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed facebook connection">
       <created>1493036660280</created>
@@ -608,11 +604,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494686155980</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed bug when connexion with facebook account">
+      <created>1496348706472</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1496348706472</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216627000" />
+    <option name="totallyTimeSpent" value="222930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -624,11 +627,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="-11" width="1315" height="780" extended-state="6" />
+    <frame x="46" y="-11" width="1321" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.251548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2511556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4631902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -646,6 +649,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58435583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4631902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40797547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2511556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58435583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4202454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -695,7 +718,8 @@
     <MESSAGE value="Fixed connection bug" />
     <MESSAGE value="Update currentuser-service and user-service for data working with the backoffice" />
     <MESSAGE value="Update some elements in the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update some elements in the project" />
+    <MESSAGE value="Fixed bug when connexion with facebook account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug when connexion with facebook account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -704,36 +728,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PicOut/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="109" lean-forward="false" selection-start-line="1" selection-start-column="109" selection-end-line="1" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut/src/providers/models/vote.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/node_modules/angularfire2/interfaces.d.ts" />
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/node_modules/angularfire2/database/database.d.ts" />
-    <entry file="file://$PROJECT_DIR$/PicOut/src/providers/models/user.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="101" column="29" lean-forward="false" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PicOut/src/pages/register/register.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -782,13 +776,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_panels.scss" />
     <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss" />
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="50" lean-forward="false" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -813,8 +800,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PicOut/src/providers/data/user-service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        <state relative-caret-position="500">
+          <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -882,28 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/tslint.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1375">
@@ -911,24 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
           <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -960,21 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="25" column="105" lean-forward="false" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PicOut/src/pages/create-vote-second-step/create-vote-second-step.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-576">
           <caret line="149" column="50" lean-forward="true" selection-start-line="149" selection-start-column="50" selection-end-line="149" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -982,9 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -992,9 +930,114 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-679">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/image/image.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/tsconfig.spec.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/typings.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/image/modal-upload.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut-BackOffice/src/app/home/home.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PicOut/src/pages/login/login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="44" column="76" lean-forward="false" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>

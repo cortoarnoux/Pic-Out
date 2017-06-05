@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss",
-        "../node_modules/sweetalert2/dist/sweetalert2.css"
+        "../node_modules/sweetalert2/dist/sweetalert2.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
         "../node_modules/sweetalert2/dist/sweetalert2.js"
