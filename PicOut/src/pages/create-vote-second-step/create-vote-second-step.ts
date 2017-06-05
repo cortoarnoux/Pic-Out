@@ -10,6 +10,9 @@ import firebase from 'firebase';
 import { Vote } from '../../providers/models/vote';
 import { VotesService } from '../../providers/data/votes-service';
 import { CurrentUserService } from '../../providers/data/currentuser-service';
+import { ChooseImageFromPicOutPage } from '../choose-image-from-pic-out/choose-image-from-pic-out';
+import { PopoverController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import * as $ from 'jquery';
 
 declare var window: any;
@@ -36,6 +39,7 @@ export class CreateVoteSecondStepPage {
   public responsesUrl = [];
   public scoreArray = [];
   public myChoice = null;
+  public choosenPicOutUrl = null;
 
   constructor(
     public nav: NavController, 
@@ -43,11 +47,14 @@ export class CreateVoteSecondStepPage {
     private _zone: NgZone, 
     private alertCtrl: AlertController, 
     private currentUserService: CurrentUserService,
-    private voteService: VotesService) {
+    private voteService: VotesService,
+    public popoverCtrl: PopoverController,
+    public storage: Storage,) {
     this.vote = navParams.get('registered_vote_state');
   }
 
   ionViewDidLoad() {
+
   }
 
   public moveToFirstStepPage() {
@@ -58,24 +65,12 @@ export class CreateVoteSecondStepPage {
   public addAChoiceCamera(){
    // Prendre une photo
    this.doGetPicture(this.choixIndex);
-   // Ajouter le choix dans le tableau des choix pour le faire apparaitre dans le visuel
-   this.choix.push(this.choixIndex);
-   this.choixTemp = this.choix;
-   this.choixIndex++;
-   // Hack pour ne pas avoir à recharger la page
-   this._zone.run(() => this.choix = this.choixTemp);
   }
 
   // Ajouter un choix via Galerie photo
   public addAChoiceGallery(){
    // Prendre une photo
    this.doGetPictureGallery(this.choixIndex);
-   // Ajouter le choix dans le tableau des choix pour le faire apparaitre dans le visuel
-   this.choix.push(this.choixIndex);
-   this.choixTemp = this.choix;
-   this.choixIndex++;
-   // Hack pour ne pas avoir à recharger la page
-   this._zone.run(() => this.choix = this.choixTemp);
   }
 
   // Enlever un des choix effecté
@@ -189,7 +184,15 @@ export class CreateVoteSecondStepPage {
        reject(error);
      });
 
-     $('.jq-choice-list .choice:last-child').css({'backgroundImage': 'url('+dataToSave.URL+')', 'background-size': 'cover'});
+     // Ajouter le choix dans le tableau des choix pour le faire apparaitre dans le visuel
+     this.choix.push(this.choixIndex);
+     this.choixTemp = this.choix;
+     this.choixIndex++;
+     // Hack pour ne pas avoir à recharger la page
+     this._zone.run(() => this.choix = this.choixTemp);
+     setTimeout(function (){
+        $('.jq-choice-list .choice:last-child').css({'backgroundImage': 'url('+dataToSave.URL+')', 'background-size': 'cover'});
+      }, 1000);
      this.responsesUrl.push(dataToSave.URL);
 
    });
@@ -239,6 +242,11 @@ export class CreateVoteSecondStepPage {
    }, (error) => {
      alert('Error ' + (error.message || error));
    });
+ }
+
+ // Ouvre la page images de PicOut
+ addAPicOutPicture() {
+   this.presentPopover();
  }
 
  // Vérification du vote et envoi dans la BDD
@@ -295,4 +303,25 @@ export class CreateVoteSecondStepPage {
       });
       alert.present();
     }
+
+  presentPopover() {
+    let popover = this.popoverCtrl.create(ChooseImageFromPicOutPage);
+    popover.present();
+    popover.onWillDismiss(() => {
+      let urlStamp = this.storage.get('choosenPicOutUrl');
+      let url: any;
+      urlStamp.then(data => {
+        url = data;
+        this.choix.push(this.choixIndex);
+        this.choixIndex++;
+
+        setTimeout(function (){
+          $('.jq-choice-list .choice:last-child').css({'backgroundImage': 'url('+url+')', 'background-size': 'cover'});
+        }, 1000);
+
+        this.responsesUrl.push(url);
+      });
+      
+   });
+  }
 }

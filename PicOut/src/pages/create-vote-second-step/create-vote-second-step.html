@@ -32,10 +32,15 @@
 <h3>Choix de réponses :</h3>
 <ion-grid>
   <ion-row class="choices-list jq-choice-list">
-    <ion-item class="choice" *ngFor="let eachChoix of choix,  let i = index" (click)="actionOnThisChoice(i)"></ion-item>
+    <ion-item class="choice" *ngFor="let eachChoix of choix,  let i = index" (click)="actionOnThisChoice(i)">Choix {{i+1}}</ion-item>
   </ion-row >
 </ion-grid>
 
+<ion-row>
+  <ion-col>
+    <button ion-button class="home-btn" (click)="addAPicOutPicture()">Choisir une image de PicOut</button>
+  </ion-col>
+</ion-row>
 <ion-row>
   <ion-col>
     <button ion-button class="home-btn" (click)="addAChoiceCamera()">Prendre une photo</button>

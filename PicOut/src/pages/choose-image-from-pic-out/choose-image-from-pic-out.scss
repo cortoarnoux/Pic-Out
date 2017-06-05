@@ -1,0 +1,16 @@
+page-choose-image-from-pic-out {
+  .scroll-content {
+    padding-top: 50px !important;
+    max-height: 60vh;
+  }
+
+  .choice {
+  	height: 150px;
+    width: 48%;
+    display: inline-block;
+  }
+
+  .choice:nth-child(odd) {
+  	margin-right: 5px;
+  }
+}

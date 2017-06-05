@@ -1,0 +1,10 @@
+<ion-header class="PopOverAddPicOutImageContainer">
+
+  <ion-navbar>
+    <ion-title>Choisir une image PicOut</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="choice" *ngFor="let image of imageList" [ngStyle]="{ 'background-image': 'url(' + image + ')', 'background-size': 'cover'}" (click)="actionOnThisChoice(image)"></div>
+</ion-content>

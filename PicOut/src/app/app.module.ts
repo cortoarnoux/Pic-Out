@@ -28,6 +28,7 @@ import { VoteGuestedPage } from '../pages/vote-guested/vote-guested';
 import { PopOverZoomChoicePage } from '../pages/pop-over-zoom-choice/pop-over-zoom-choice';
 import { MyFinishedVotesPage } from '../pages/my-finished-votes/my-finished-votes';
 import { ThisVoteResultPage } from '../pages/this-vote-result-page/this-vote-result-page';
+import { ChooseImageFromPicOutPage } from '../pages/choose-image-from-pic-out/choose-image-from-pic-out';
 
 export const firebaseConf = {
   apiKey: "AIzaSyDYlV5tQMwkE_gWbT3bET_O9fk_FcvieR4",
@@ -59,6 +60,7 @@ export const firebaseConf = {
     PopOverZoomChoicePage,
     MyFinishedVotesPage,
     ThisVoteResultPage,
+    ChooseImageFromPicOutPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -85,6 +87,7 @@ export const firebaseConf = {
     PopOverZoomChoicePage,
     MyFinishedVotesPage,
     ThisVoteResultPage,
+    ChooseImageFromPicOutPage,
   ],
   providers: [
     DataService,
